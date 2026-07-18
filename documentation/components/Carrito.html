@@ -1,0 +1,1264 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rotten-apple-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">rotten-apple-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Carrito</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/carrito/carrito.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-carrito</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/router/RouterLink" target="_blank" >RouterLink</a></code>
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                <code><a href="../components/ResumenCompra.html" target="_self" >ResumenCompra</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./carrito.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./carrito.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#authService" >authService</a>
+                            </li>
+                            <li>
+                                <a href="#cargando" >cargando</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#carritoService" >carritoService</a>
+                            </li>
+                            <li>
+                                <a href="#formatearPrecio" >formatearPrecio</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerPorcentajeDcto" >obtenerPorcentajeDcto</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerPrecioFinal" >obtenerPrecioFinal</a>
+                            </li>
+                            <li>
+                                <a href="#productos" >productos</a>
+                            </li>
+                            <li>
+                                <a href="#productosCarrito" >productosCarrito</a>
+                            </li>
+                            <li>
+                                <a href="#resumenCarrito" >resumenCarrito</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cambioCantidad" >cambioCantidad</a>
+                            </li>
+                            <li>
+                                <a href="#cargarProductos" >cargarProductos</a>
+                            </li>
+                            <li>
+                                <a href="#eliminarProductoCarrito" >eliminarProductoCarrito</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(carritoService: <a href="../injectables/CarritoService.html" target="_self">CarritoService</a>, authService: <a href="../injectables/Auth.html" target="_self">Auth</a>, productoService: <a href="../injectables/ProductoService.html" target="_self">ProductoService</a>, cdr: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/pages/carrito/carrito.ts:45</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>carritoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CarritoService.html" target="_self" >CarritoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Auth.html" target="_self" >Auth</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>productoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProductoService.html" target="_self" >ProductoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cdr</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cambioCantidad"></a>
+                    <span class="name">
+                        <span ><b>cambioCantidad</b></span>
+                        <a href="#cambioCantidad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cambioCantidad(pc: <a href="../interfaces/ProductoCarrito.html" target="_self">ProductoCarrito</a>, event: <a href="https://angular.io/api/router/Event" target="_blank">Event</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza la cantidad de un producto en el carrito.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>pc</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ProductoCarrito.html" target="_self" >ProductoCarrito</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Producto del carrito cuya cantidad será modificada.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://angular.io/api/router/Event" target="_blank" >Event</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Evento del selector de cantidad.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarProductos"></a>
+                    <span class="name">
+                        <span ><b>cargarProductos</b></span>
+                        <a href="#cargarProductos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarProductos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga los productos desde la API y actualiza la información del carrito actual.
+Si existe un carrito activo, obtiene el detalle de los productos y calcula el resumen de la compra.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminarProductoCarrito"></a>
+                    <span class="name">
+                        <span ><b>eliminarProductoCarrito</b></span>
+                        <a href="#eliminarProductoCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminarProductoCarrito(producto_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina un producto del carrito.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>producto_id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del producto que se eliminará del carrito.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>authService</b></span>
+                        <a href="#authService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/Auth.html" target="_self" >Auth</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/pages/carrito/carrito.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargando"></a>
+                    <span class="name">
+                        <span ><b>cargando</b></span>
+                        <a href="#cargando"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/pages/carrito/carrito.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="carritoService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>carritoService</b></span>
+                        <a href="#carritoService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CarritoService.html" target="_self" >CarritoService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/pages/carrito/carrito.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatearPrecio"></a>
+                    <span class="name">
+                        <span ><b>formatearPrecio</b></span>
+                        <a href="#formatearPrecio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>formatearPrecio</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/carrito/carrito.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerPorcentajeDcto"></a>
+                    <span class="name">
+                        <span ><b>obtenerPorcentajeDcto</b></span>
+                        <a href="#obtenerPorcentajeDcto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>obtenerPorcentajeDcto</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/pages/carrito/carrito.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerPrecioFinal"></a>
+                    <span class="name">
+                        <span ><b>obtenerPrecioFinal</b></span>
+                        <a href="#obtenerPrecioFinal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>obtenerPrecioFinal</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/carrito/carrito.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productos"></a>
+                    <span class="name">
+                        <span ><b>productos</b></span>
+                        <a href="#productos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ProductoData.html" target="_self" >ProductoData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/pages/carrito/carrito.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productosCarrito"></a>
+                    <span class="name">
+                        <span ><b>productosCarrito</b></span>
+                        <a href="#productosCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ProductoCarrito.html" target="_self" >ProductoCarrito[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/carrito/carrito.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resumenCarrito"></a>
+                    <span class="name">
+                        <span ><b>resumenCarrito</b></span>
+                        <a href="#resumenCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ResumenCarrito.html" target="_self" >ResumenCarrito</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    total_productos: 0,
+    total_productos_sin_dcto: 0,
+    descuento: 0,
+    descuento_vip: 0,
+    total_envio: 0,
+    total_final: 0,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/carrito/carrito.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { RouterLink } from &#x27;@angular/router&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { ChangeDetectorRef } from &#x27;@angular/core&#x27;;
+
+import { ResumenCompra } from &#x27;../../components/resumen-compra/resumen-compra&#x27;;
+
+import { CarritoService } from &#x27;../../services/carrito-service&#x27;;
+import { Auth } from &#x27;../../services/auth&#x27;;
+import { ProductoService } from &#x27;../../services/producto-service&#x27;;
+import { ProductoData, ProductoCarrito, ResumenCarrito } from &#x27;../../services/modelos&#x27;;
+
+
+import { formatearPrecio, obtenerPorcentajeDcto, obtenerPrecioFinal } from &#x27;../../utils/product-utils&#x27;;
+import { calcularResumen, obtenerProductoCarrito } from &#x27;../../utils/carrito-utils&#x27;;
+import { toastSuccess, toastError } from &#x27;../../utils/swal-utils&#x27;;
+
+
+@Component({
+  selector: &#x27;app-carrito&#x27;,
+  imports: [
+    RouterLink,
+    CommonModule,
+    ResumenCompra,
+  ],
+  templateUrl: &#x27;./carrito.html&#x27;,
+  styleUrl: &#x27;./carrito.css&#x27;,
+})
+export class Carrito {
+  productosCarrito: ProductoCarrito[] &#x3D; [];
+  resumenCarrito: ResumenCarrito &#x3D; {
+    total_productos: 0,
+    total_productos_sin_dcto: 0,
+    descuento: 0,
+    descuento_vip: 0,
+    total_envio: 0,
+    total_final: 0,
+  }
+
+  formatearPrecio &#x3D; formatearPrecio;
+  obtenerPorcentajeDcto &#x3D; obtenerPorcentajeDcto;
+  obtenerPrecioFinal &#x3D; obtenerPrecioFinal;
+
+  productos: ProductoData[] &#x3D; [];
+  cargando: boolean &#x3D; true;
+
+  constructor(
+    public carritoService: CarritoService,
+    public authService: Auth,
+    private productoService: ProductoService,
+    private cdr: ChangeDetectorRef,
+  ) {}
+
+  ngOnInit(): void {
+    this.cargarProductos();
+  }
+
+
+  /**
+   * Carga los productos desde la API y actualiza la información del carrito actual.
+   * Si existe un carrito activo, obtiene el detalle de los productos y calcula el resumen de la compra.
+   */
+  cargarProductos(): void {
+    this.productoService.apiObtenerProductos().subscribe({
+      next: (datos) &#x3D;&gt; {
+        this.productos &#x3D; datos;
+        
+        this.carritoService.carritoActual$.subscribe(carrito &#x3D;&gt; {
+          if(!carrito) {
+            this.productosCarrito &#x3D; [];
+            return;
+          }
+
+          this.productosCarrito &#x3D; obtenerProductoCarrito(carrito.detalles, this.productos);
+
+          const es_vip &#x3D; this.authService.esVip;
+          this.resumenCarrito &#x3D; calcularResumen(this.productosCarrito, es_vip);
+          
+          this.cargando &#x3D; false;
+          this.cdr.detectChanges();
+        });
+
+      },
+      error: () &#x3D;&gt; {
+        this.cargando &#x3D; false;
+      }
+    })
+  }
+
+
+  /**
+   * Actualiza la cantidad de un producto en el carrito.
+   * @param pc Producto del carrito cuya cantidad será modificada.
+   * @param event Evento del selector de cantidad.
+   */
+  cambioCantidad(pc: ProductoCarrito, event: Event): void {
+    const cantidad &#x3D; Number((event.target as HTMLSelectElement).value);
+    const producto_id &#x3D; pc.producto_id;
+    const carrito &#x3D;  this.carritoService.carritoActual;
+    
+    if(carrito) {
+      this.carritoService.actualizarCantidadCarrito(carrito.id, producto_id, cantidad).subscribe(resultado &#x3D;&gt; {
+        if(resultado.estado &#x3D;&#x3D;&#x3D; 0) {
+          toastError(resultado.respuesta);
+        } else {
+          toastSuccess(&#x27;Modificado correctamente&#x27;);
+        }
+      });
+    }
+  }
+
+  
+  /**
+   * Elimina un producto del carrito.
+   * @param producto_id ID del producto que se eliminará del carrito.
+   */
+  eliminarProductoCarrito(producto_id: string): void {
+    const carrito &#x3D; this.carritoService.carritoActual;
+
+    if(carrito) {
+      this.carritoService.actualizarCantidadCarrito(carrito.id, producto_id, 0).subscribe(resultado &#x3D;&gt; {
+        if(resultado.estado &#x3D;&#x3D;&#x3D; 0) {
+          toastError(resultado.respuesta);
+        } else {
+          toastSuccess(&#x27;Eliminado correctamente&#x27;);
+        }
+      });
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">
+&lt;ng-container *ngIf&#x3D;&quot;carritoService.sumaCarrito$ | async as sumaCarrito; else sinProductos&quot;&gt;
+
+    &lt;section class&#x3D;&quot;page-content container&quot;&gt;
+
+        &lt;ng-container *ngIf&#x3D;&quot;cargando&quot;&gt;
+            cargando...
+        &lt;/ng-container&gt;
+
+        &lt;ng-container *ngIf&#x3D;&quot;!cargando&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-12 col-md-8&quot;&gt;
+                    &lt;div *ngFor&#x3D;&quot;let pc of productosCarrito&quot;&gt;
+                        &lt;div class&#x3D;&quot;card mb-3 border-0 card-product overflow-auto&quot;&gt;
+                            &lt;div class&#x3D;&quot;row g-0&quot;&gt;
+                                &lt;div class&#x3D;&quot;col-md-2 product-img&quot;&gt;
+                                    &lt;a [routerLink]&#x3D;&quot;[&#x27;/producto&#x27;, pc.slug]&quot;&gt;
+                                        &lt;img class&#x3D;&quot;product-img&quot; 
+                                        [src]&#x3D;&quot;pc.imagen&quot;
+                                        [alt]&#x3D;&quot;pc.nombre&quot;&gt;
+                                    &lt;/a&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;col-md-10&quot;&gt;
+                                    &lt;div class&#x3D;&quot;card-body h-100&quot;&gt;
+                                        &lt;div class&#x3D;&quot;row align-items-center d-flex h-100&quot;&gt;
+                                            &lt;div class&#x3D;&quot;col-12 col-md-8&quot;&gt;
+                                                &lt;h5 class&#x3D;&quot;card-title m-0&quot;&gt;
+                                                    &lt;a class&#x3D;&quot;link-body-emphasis text-decoration-none&quot; [routerLink]&#x3D;&quot;[&#x27;/producto&#x27;, pc.slug]&quot;&gt;{{ pc.nombre }}&lt;/a&gt;
+                                                &lt;/h5&gt;
+                                                &lt;p class&#x3D;&quot;card-text&quot;&gt;
+                                                    {{ formatearPrecio(obtenerPrecioFinal(pc.precio, pc.monto_descuento, authService.esVip)) }}
+                                                    &lt;span 
+                                                    class&#x3D;&quot;price-before&quot;
+                                                    *ngIf&#x3D;&quot;pc.monto_descuento || authService.esVip&quot;&gt;{{ formatearPrecio(pc.precio) }}&lt;/span&gt;
+                                                &lt;/p&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class&#x3D;&quot;col-8 col-md-2&quot;&gt;
+    
+                                                &lt;select class&#x3D;&quot;form-select&quot; aria-label&#x3D;&quot;cantidad&quot;
+                                                [value]&#x3D;&quot;pc.cantidad&quot;
+                                                (change)&#x3D;&quot;cambioCantidad(pc, $event)&quot;&gt;
+                                                    &lt;option value&#x3D;&quot;1&quot;&gt;1&lt;/option&gt;
+                                                    &lt;option value&#x3D;&quot;2&quot;&gt;2&lt;/option&gt;
+                                                    &lt;option value&#x3D;&quot;3&quot;&gt;3&lt;/option&gt;
+                                                    &lt;option value&#x3D;&quot;4&quot;&gt;4&lt;/option&gt;
+                                                    &lt;option value&#x3D;&quot;5&quot;&gt;5&lt;/option&gt;
+                                                    &lt;option value&#x3D;&quot;6&quot;&gt;6&lt;/option&gt;
+                                                    &lt;option value&#x3D;&quot;7&quot;&gt;7&lt;/option&gt;
+                                                    &lt;option value&#x3D;&quot;8&quot;&gt;8&lt;/option&gt;
+                                                    &lt;option value&#x3D;&quot;9&quot;&gt;9&lt;/option&gt;
+                                                    &lt;option value&#x3D;&quot;10&quot;&gt;10&lt;/option&gt;
+                                                &lt;/select&gt;
+    
+                                            &lt;/div&gt;
+                                            &lt;div class&#x3D;&quot;col-2 col-md-2 product-delete&quot;&gt;
+                                                &lt;span class&#x3D;&quot;d-block w-100 text-center&quot;&gt;
+                                                    &lt;button class&#x3D;&quot;btn&quot;
+                                                    (click)&#x3D;&quot;eliminarProductoCarrito(pc.producto_id)&quot;&gt;
+                                                        &lt;i class&#x3D;&quot;bi bi-trash3&quot;&gt;&lt;/i&gt;
+                                                    &lt;/button&gt;
+                                                &lt;/span&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+    
+                &lt;/div&gt;
+    
+                &lt;div class&#x3D;&quot;col-12 col-md-4&quot;&gt;
+                    &lt;div class&#x3D;&quot;card mb-3 border-0&quot;&gt;
+                        &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                            &lt;h5 class&#x3D;&quot;card-title mb-3&quot;&gt;Resumen compra&lt;/h5&gt;
+                            &lt;app-resumen-compra [resumenCompra]&#x3D;&quot;resumenCarrito&quot;&gt;&lt;/app-resumen-compra&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    
+                    &lt;div class&#x3D;&quot;row&quot;&gt;
+                        &lt;div class&#x3D;&quot;col-12 d-block w-100 text-center&quot;&gt;
+                            &lt;a routerLink&#x3D;&quot;/checkout&quot; class&#x3D;&quot;btn btn-primary w-100 button&quot;&gt;
+                                Ir a pagar
+                            &lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/ng-container&gt;
+
+    &lt;/section&gt;
+
+&lt;/ng-container&gt;
+
+&lt;ng-template #sinProductos&gt;
+    &lt;section class&#x3D;&quot;page-content container d-flex text-center&quot;&gt;
+        &lt;div class&#x3D;&quot;mx-auto&quot;&gt;
+            &lt;p class&#x3D;&quot;display-5&quot;&gt;
+                &lt;i class&#x3D;&quot;bi bi-cart-x&quot;&gt;&lt;/i&gt;
+            &lt;/p&gt;
+            &lt;p class&#x3D;&quot;fs-5&quot;&gt;
+                Carrito vacío :(
+            &lt;/p&gt;
+            &lt;a class&#x3D;&quot;btn btn-primary&quot; routerLink&#x3D;&quot;/&quot;&gt;Ir al Home&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container *ngIf="carritoService.sumaCarrito$ | async as sumaCarrito; else sinProductos">    <section class="page-content container">        <ng-container *ngIf="cargando">            cargando...        </ng-container>        <ng-container *ngIf="!cargando">            <div class="row">                <div class="col-12 col-md-8">                    <div *ngFor="let pc of productosCarrito">                        <div class="card mb-3 border-0 card-product overflow-auto">                            <div class="row g-0">                                <div class="col-md-2 product-img">                                    <a [routerLink]="[\'/producto\', pc.slug]">                                        <img class="product-img"                                         [src]="pc.imagen"                                        [alt]="pc.nombre">                                    </a>                                </div>                                <div class="col-md-10">                                    <div class="card-body h-100">                                        <div class="row align-items-center d-flex h-100">                                            <div class="col-12 col-md-8">                                                <h5 class="card-title m-0">                                                    <a class="link-body-emphasis text-decoration-none" [routerLink]="[\'/producto\', pc.slug]">{{ pc.nombre }}</a>                                                </h5>                                                <p class="card-text">                                                    {{ formatearPrecio(obtenerPrecioFinal(pc.precio, pc.monto_descuento, authService.esVip)) }}                                                    <span                                                     class="price-before"                                                    *ngIf="pc.monto_descuento || authService.esVip">{{ formatearPrecio(pc.precio) }}</span>                                                </p>                                            </div>                                            <div class="col-8 col-md-2">                                                    <select class="form-select" aria-label="cantidad"                                                [value]="pc.cantidad"                                                (change)="cambioCantidad(pc, $event)">                                                    <option value="1">1</option>                                                    <option value="2">2</option>                                                    <option value="3">3</option>                                                    <option value="4">4</option>                                                    <option value="5">5</option>                                                    <option value="6">6</option>                                                    <option value="7">7</option>                                                    <option value="8">8</option>                                                    <option value="9">9</option>                                                    <option value="10">10</option>                                                </select>                                                </div>                                            <div class="col-2 col-md-2 product-delete">                                                <span class="d-block w-100 text-center">                                                    <button class="btn"                                                    (click)="eliminarProductoCarrito(pc.producto_id)">                                                        <i class="bi bi-trash3"></i>                                                    </button>                                                </span>                                            </div>                                        </div>                                    </div>                                </div>                            </div>                        </div>                    </div>                    </div>                    <div class="col-12 col-md-4">                    <div class="card mb-3 border-0">                        <div class="card-body">                            <h5 class="card-title mb-3">Resumen compra</h5>                            <app-resumen-compra [resumenCompra]="resumenCarrito"></app-resumen-compra>                        </div>                    </div>                                        <div class="row">                        <div class="col-12 d-block w-100 text-center">                            <a routerLink="/checkout" class="btn btn-primary w-100 button">                                Ir a pagar                            </a>                        </div>                    </div>                </div>            </div>        </ng-container>    </section></ng-container><ng-template #sinProductos>    <section class="page-content container d-flex text-center">        <div class="mx-auto">            <p class="display-5">                <i class="bi bi-cart-x"></i>            </p>            <p class="fs-5">                Carrito vacío :(            </p>            <a class="btn btn-primary" routerLink="/">Ir al Home</a>        </div>    </section></ng-template></div>'
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'Checkout', 'selector': 'app-checkout'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Grilla', 'selector': 'app-grilla'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MiCuenta', 'selector': 'app-mi-cuenta'},{'name': 'MisCompras', 'selector': 'app-mis-compras'},{'name': 'Navbar', 'selector': 'app-navbar'},{'name': 'NotFound', 'selector': 'app-not-found'},{'name': 'ProductItem', 'selector': 'app-product-item'},{'name': 'Producto', 'selector': 'app-producto'},{'name': 'ProductosCompra', 'selector': 'app-productos-compra'},{'name': 'Recuperar', 'selector': 'app-recuperar'},{'name': 'Registro', 'selector': 'app-registro'},{'name': 'ResumenCompra', 'selector': 'app-resumen-compra'},{'name': 'SerVip', 'selector': 'app-ser-vip'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'Carrito'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Carrito.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

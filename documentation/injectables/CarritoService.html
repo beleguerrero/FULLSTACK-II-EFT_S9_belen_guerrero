@@ -1,0 +1,1943 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rotten-apple-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">rotten-apple-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >CarritoService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/carrito-service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Servicios para el carrito.</p>
+
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#carritoActual$" >carritoActual$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#carritoActualSubject" >carritoActualSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#carritos" >carritos</a>
+                            </li>
+                            <li>
+                                <a href="#sumaCarrito$" >sumaCarrito$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#sumaCarritoSubject" >sumaCarritoSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#urlCarritos" >urlCarritos</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actualizarCantidadCarrito" >actualizarCantidadCarrito</a>
+                            </li>
+                            <li>
+                                <a href="#actualizarCarrito" >actualizarCarrito</a>
+                            </li>
+                            <li>
+                                <a href="#agregarCarrito" >agregarCarrito</a>
+                            </li>
+                            <li>
+                                <a href="#apiActualizarCarrito" >apiActualizarCarrito</a>
+                            </li>
+                            <li>
+                                <a href="#apiCrearCarrito" >apiCrearCarrito</a>
+                            </li>
+                            <li>
+                                <a href="#apiEliminarCarrito" >apiEliminarCarrito</a>
+                            </li>
+                            <li>
+                                <a href="#apiObtenerCarritoPorId" >apiObtenerCarritoPorId</a>
+                            </li>
+                            <li>
+                                <a href="#apiObtenerCarritoPorUsuario" >apiObtenerCarritoPorUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#apiObtenerCarritos" >apiObtenerCarritos</a>
+                            </li>
+                            <li>
+                                <a href="#guardarCarritoActual" >guardarCarritoActual</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#inicializarCarritos" >inicializarCarritos</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerCarritos" >obtenerCarritos</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerSumaCantidad" >obtenerSumaCantidad</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#carritoActual" >carritoActual</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(usuarioService: <a href="../injectables/UsuarioService.html" target="_self">UsuarioService</a>, http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/carrito-service.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>usuarioService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsuarioService.html" target="_self" >UsuarioService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actualizarCantidadCarrito"></a>
+                    <span class="name">
+                        <span ><b>actualizarCantidadCarrito</b></span>
+                        <a href="#actualizarCantidadCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>actualizarCantidadCarrito(carrito_id: string | null, producto_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, cantidad: number | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="150"
+                                    class="link-to-prism">src/app/services/carrito-service.ts:150</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Acualiza la cantidad de un producto en un carrito</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>carrito_id</td>
+                                            <td>
+                                                        <code>string | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del carrito.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>producto_id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del producto.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>cantidad</td>
+                                            <td>
+                                                        <code>number | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>cantidad que se actualizará. Si es nulo solo agrega uno. Si es 0 elimina.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable de objeto con estado y respuesta.</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actualizarCarrito"></a>
+                    <span class="name">
+                        <span ><b>actualizarCarrito</b></span>
+                        <a href="#actualizarCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>actualizarCarrito(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, usuario_id: string | null, activo: boolean | null, detalles: <a href="../components/Carrito.html" target="_self">DetalleCarritoData[] | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="278"
+                                    class="link-to-prism">src/app/services/carrito-service.ts:278</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>usuario_id</td>
+                                            <td>
+                                                        <code>string | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>activo</td>
+                                            <td>
+                                                        <code>boolean | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>detalles</td>
+                                            <td>
+                                                            <code><a href="../components/Carrito.html" target="_self" >DetalleCarritoData[] | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="agregarCarrito"></a>
+                    <span class="name">
+                        <span ><b>agregarCarrito</b></span>
+                        <a href="#agregarCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>agregarCarrito(usuario_id: string | null, producto_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="234"
+                                    class="link-to-prism">src/app/services/carrito-service.ts:234</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Agrega UN producto al carrito, si no existe lo crea.</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario_id</td>
+                                            <td>
+                                                        <code>string | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del usuario.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>producto_id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del producto.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable de objeto con estado y respuesta.</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiActualizarCarrito"></a>
+                    <span class="name">
+                        <span ><b>apiActualizarCarrito</b></span>
+                        <a href="#apiActualizarCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiActualizarCarrito(carrito: <a href="../interfaces/CarritoData.html" target="_self">CarritoData</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/services/carrito-service.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actuliaza un carrito desde la API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>carrito</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CarritoData.html" target="_self" >CarritoData</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto carrito a actualizar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/CarritoData.html" target="_self" >Observable&lt;CarritoData&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable del carrito actualizado.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiCrearCarrito"></a>
+                    <span class="name">
+                        <span ><b>apiCrearCarrito</b></span>
+                        <a href="#apiCrearCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiCrearCarrito(carrito: <a href="../interfaces/CarritoData.html" target="_self">CarritoData</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/services/carrito-service.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Crea un nuevo carrito desde la API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>carrito</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CarritoData.html" target="_self" >CarritoData</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto carrito a crear.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/CarritoData.html" target="_self" >Observable&lt;CarritoData&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable del carrito creado.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiEliminarCarrito"></a>
+                    <span class="name">
+                        <span ><b>apiEliminarCarrito</b></span>
+                        <a href="#apiEliminarCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiEliminarCarrito(carrito_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/services/carrito-service.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Elimina carrito por su ID desde la API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>carrito_id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del carrito a eliminar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Ovservable vacío-</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiObtenerCarritoPorId"></a>
+                    <span class="name">
+                        <span ><b>apiObtenerCarritoPorId</b></span>
+                        <a href="#apiObtenerCarritoPorId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiObtenerCarritoPorId(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, activo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/services/carrito-service.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene un carrito por su ID y activo desde la API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>String con el ID del carrito.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>activo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>Boolean para el filtro de activo.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/CarritoData.html" target="_self" >Observable&lt;CarritoData | null&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable con el carrito encontrado, puede ser nulo.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiObtenerCarritoPorUsuario"></a>
+                    <span class="name">
+                        <span ><b>apiObtenerCarritoPorUsuario</b></span>
+                        <a href="#apiObtenerCarritoPorUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiObtenerCarritoPorUsuario(usuario_id: string | null, activo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">src/app/services/carrito-service.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene un carritp por su usuario y activo desde la API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario_id</td>
+                                            <td>
+                                                        <code>string | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>String con el Id del usuario, puede ser nulo.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>activo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>Boolean para el filtro de activo.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/CarritoData.html" target="_self" >Observable&lt;CarritoData | null&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable con el carrito encontrado, puede ser nulo.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiObtenerCarritos"></a>
+                    <span class="name">
+                        <span ><b>apiObtenerCarritos</b></span>
+                        <a href="#apiObtenerCarritos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiObtenerCarritos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/services/carrito-service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene lista de carritos desde la API.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/CarritoData.html" target="_self" >Observable&lt;CarritoData[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable con array de los carritos.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarCarritoActual"></a>
+                    <span class="name">
+                        <span ><b>guardarCarritoActual</b></span>
+                        <a href="#guardarCarritoActual"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarCarritoActual(usuario_id: string | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="119"
+                                    class="link-to-prism">src/app/services/carrito-service.ts:119</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario_id</td>
+                                            <td>
+                                                        <code>string | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inicializarCarritos"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>inicializarCarritos</b></span>
+                        <a href="#inicializarCarritos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>inicializarCarritos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/services/carrito-service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerCarritos"></a>
+                    <span class="name">
+                        <span ><b>obtenerCarritos</b></span>
+                        <a href="#obtenerCarritos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerCarritos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">src/app/services/carrito-service.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/CarritoData.html" target="_self" >CarritoData[]</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerSumaCantidad"></a>
+                    <span class="name">
+                        <span ><b>obtenerSumaCantidad</b></span>
+                        <a href="#obtenerSumaCantidad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerSumaCantidad(carrito: <a href="../interfaces/CarritoData.html" target="_self">CarritoData | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="271"
+                                    class="link-to-prism">src/app/services/carrito-service.ts:271</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retorna la suma de todos los productos del carrito de un usuario.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>carrito</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CarritoData.html" target="_self" >CarritoData | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>observable number con la cantidad total.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="carritoActual$"></a>
+                    <span class="name">
+                        <span ><b>carritoActual$</b></span>
+                        <a href="#carritoActual$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.carritoActualSubject.asObservable()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">src/app/services/carrito-service.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="carritoActualSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>carritoActualSubject</b></span>
+                        <a href="#carritoActualSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;CarritoData | null&gt; (null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/app/services/carrito-service.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="carritos"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>carritos</b></span>
+                        <a href="#carritos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/CarritoData.html" target="_self" >CarritoData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/services/carrito-service.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sumaCarrito$"></a>
+                    <span class="name">
+                        <span ><b>sumaCarrito$</b></span>
+                        <a href="#sumaCarrito$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.sumaCarritoSubject.asObservable()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">src/app/services/carrito-service.ts:114</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sumaCarritoSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>sumaCarritoSubject</b></span>
+                        <a href="#sumaCarritoSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;number&gt; (0)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/services/carrito-service.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="urlCarritos"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>urlCarritos</b></span>
+                        <a href="#urlCarritos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;http://localhost:3000/carritos&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/services/carrito-service.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="carritoActual"></a>
+                        <span class="name"><b>carritoActual</b><a href="#carritoActual"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>carritoActual()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/app/services/carrito-service.ts:132</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } 		from &quot;@angular/core&quot;;
+import { BehaviorSubject, Observable, map, of, switchMap } 	from &quot;rxjs&quot;;
+import { HttpClient } from &quot;@angular/common/http&quot;;
+
+import { CarritoData, DetalleCarritoData } from &quot;./modelos&quot;;
+import { UsuarioService } from &quot;./usuario-service&quot;;
+
+
+/**
+ * Servicios para el carrito.
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class CarritoService {
+
+	private readonly urlCarritos &#x3D; &#x27;http://localhost:3000/carritos&#x27;;
+
+	private carritos: CarritoData[] &#x3D; [];
+
+	constructor(
+		private usuarioService: UsuarioService,
+		private http: HttpClient,
+	) {
+		this.inicializarCarritos();
+	}
+
+	private inicializarCarritos(): void {
+		this.http.get&lt;CarritoData[]&gt;(this.urlCarritos).subscribe({
+			next: carritos &#x3D;&gt; {
+				this.carritos &#x3D; carritos;
+			},
+			error: () &#x3D;&gt; {
+				this.carritos &#x3D; [];
+			}
+		});
+	}
+
+	
+
+	/**
+	 * Obtiene lista de carritos desde la API.
+	 * @returns Observable con array de los carritos.
+	 */
+	apiObtenerCarritos(): Observable&lt;CarritoData[]&gt; {
+		return this.http.get&lt;CarritoData[]&gt;(this.urlCarritos);
+	}
+
+
+	/**
+	 * Obtiene un carrito por su ID y activo desde la API.
+	 * @param id String con el ID del carrito.
+	 * @param activo Boolean para el filtro de activo.
+	 * @returns Observable con el carrito encontrado, puede ser nulo.
+	 */
+	apiObtenerCarritoPorId(id: string, activo:boolean &#x3D; true): Observable&lt;CarritoData | null&gt; {
+		return this.http.get&lt;CarritoData[]&gt;(&#x60;${this.urlCarritos}?id&#x3D;${id}&amp;activo&#x3D;${activo}&#x60;).pipe(
+			map(carritos &#x3D;&gt; carritos[0] ?? null)
+		);
+	}
+
+
+	/**
+	 * Obtiene un carritp por su usuario y activo desde la API.
+	 * @param usuario_id String con el Id del usuario, puede ser nulo.
+	 * @param activo Boolean para el filtro de activo.
+	 * @returns Observable con el carrito encontrado, puede ser nulo.
+	 */
+	apiObtenerCarritoPorUsuario(usuario_id: string | null, activo:boolean &#x3D; true): Observable&lt;CarritoData | null&gt; {
+		const usuario_filtro &#x3D; usuario_id ? &#x60;&amp;usuario_id&#x3D;${usuario_id}&#x60; : &#x27;&#x27;
+		return this.http.get&lt;CarritoData[]&gt;(&#x60;${this.urlCarritos}?activo&#x3D;${activo}${usuario_filtro}&#x60;).pipe(
+			map(carritos &#x3D;&gt; {
+				if(usuario_id &#x3D;&#x3D;&#x3D; null) return carritos.find(c &#x3D;&gt; c.usuario_id &#x3D;&#x3D;&#x3D; null) ?? null;
+				
+				return carritos[0] ?? null;
+			})
+		);
+	}
+
+
+	/**
+	 * Crea un nuevo carrito desde la API.
+	 * @param carrito Objeto carrito a crear.
+	 * @returns Observable del carrito creado.
+	 */
+	apiCrearCarrito(carrito: CarritoData): Observable&lt;CarritoData&gt; {
+		return this.http.post&lt;CarritoData&gt;(this.urlCarritos, carrito);
+	}
+
+	
+	/**
+	 * Actuliaza un carrito desde la API.
+	 * @param carrito Objeto carrito a actualizar.
+	 * @returns Observable del carrito actualizado.
+	 */
+	apiActualizarCarrito(carrito: CarritoData): Observable&lt;CarritoData&gt; {
+		return this.http.put&lt;CarritoData&gt;(&#x60;${this.urlCarritos}/${carrito.id}&#x60;, carrito);
+	}
+
+
+	/**
+	 * Elimina carrito por su ID desde la API.
+	 * @param carrito_id ID del carrito a eliminar.
+	 * @returns Ovservable vacío-
+	 */
+	apiEliminarCarrito(carrito_id: string): Observable&lt;void&gt; {
+		return this.http.delete&lt;void&gt;(&#x60;${this.urlCarritos}/${carrito_id}&#x60;);
+	}
+
+
+
+	private sumaCarritoSubject &#x3D; new BehaviorSubject&lt;number&gt; (0);
+	sumaCarrito$ &#x3D; this.sumaCarritoSubject.asObservable();
+
+	private carritoActualSubject &#x3D; new BehaviorSubject&lt;CarritoData | null&gt; (null);
+	carritoActual$ &#x3D; this.carritoActualSubject.asObservable();
+
+	guardarCarritoActual(usuario_id: string | null): void {
+		this.apiObtenerCarritoPorUsuario(usuario_id).subscribe(carrito &#x3D;&gt; {
+			if(carrito) {
+				this.carritoActualSubject.next(carrito);
+				const cantidad &#x3D; this.obtenerSumaCantidad(carrito);
+				this.sumaCarritoSubject.next(cantidad);
+			} else {
+				this.carritoActualSubject.next(null);
+				this.sumaCarritoSubject.next(0);
+			}
+		});
+	}
+
+	get carritoActual(): CarritoData | null {
+		return this.carritoActualSubject.value;
+	}
+
+	obtenerCarritos(): CarritoData[] {
+		return [...this.carritos];
+	}
+
+
+	/**
+	 * Acualiza la cantidad de un producto en un carrito
+	 * @param carrito_id ID del carrito.
+	 * @param producto_id ID del producto.
+	 * @param cantidad cantidad que se actualizará. Si es nulo solo agrega uno. Si es 0 elimina.
+	 * @returns Observable de objeto con estado y respuesta.
+	 * - estado: 0 error | 1 correcto.
+	 * - respuesta: mensaje.
+	 */
+	actualizarCantidadCarrito(
+		carrito_id: string | null, producto_id: string, cantidad: number | null
+	): Observable&lt;{ estado: number; respuesta: string }&gt; {
+		const carritos &#x3D; this.carritos;
+
+		const carritoEncontrado &#x3D; carritos.find(
+			c &#x3D;&gt; c.id &#x3D;&#x3D;&#x3D; carrito_id &amp;&amp;
+			c.activo &#x3D;&#x3D;&#x3D; true
+		);
+
+		if(carritoEncontrado) {
+			// ver si ya hay detalle con el mismo producto
+			const detalles &#x3D; carritoEncontrado.detalles;
+			
+			const productoDetalleEncontrado &#x3D; detalles.find(
+				pd &#x3D;&gt; pd.producto_id &#x3D;&#x3D;&#x3D; producto_id
+			);
+
+			if(productoDetalleEncontrado) {
+				if(cantidad &#x3D;&#x3D;&#x3D; null) {
+					
+					// botón agregar al carrito, se agrega uno más
+					if(productoDetalleEncontrado.cantidad &lt; 10) {
+						productoDetalleEncontrado.cantidad ++;
+					} else {
+						return of ({ estado: 0, respuesta: &#x27;No puede agregar más del mismo producto&#x27; });
+					}
+				
+				} else {
+					
+					if(cantidad &#x3D;&#x3D;&#x3D; 0) {
+						// eliminar
+						const indice &#x3D; detalles.findIndex(d &#x3D;&gt; d.producto_id &#x3D;&#x3D;&#x3D; producto_id);
+						if(indice !&#x3D;&#x3D; -1) {
+							detalles.splice(indice, 1);
+						}
+						if(carritoEncontrado.detalles.length &#x3D;&#x3D;&#x3D; 0) {
+							this.carritos &#x3D; this.carritos.filter(
+								c &#x3D;&gt; c.id !&#x3D;&#x3D; carritoEncontrado.id
+							);
+							// eliminar api
+							return this.apiEliminarCarrito(carritoEncontrado.id).pipe(
+								map(() &#x3D;&gt; {
+									this.guardarCarritoActual(carritoEncontrado.id);
+									return { estado: 1, respuesta: &#x27;Carrito eliminado&#x27; };
+								})
+							);
+						}
+					} else {
+						if(cantidad &lt;&#x3D; 10) {
+							productoDetalleEncontrado.cantidad &#x3D; cantidad;
+						} else {
+							return of ({ estado: 0, respuesta: &#x27;No puede agregar más del mismo producto&#x27; });
+						}
+					}
+				}
+
+			} else {
+				detalles.push({
+					producto_id : producto_id,
+					cantidad	: 1
+				})
+			}
+			
+			return this.apiActualizarCarrito(carritoEncontrado).pipe(
+				map(carritoActualizado &#x3D;&gt; {
+					this.guardarCarritoActual(carritoActualizado.usuario_id);
+					return { estado: 1, respuesta: &#x27;Agregado correctamente&#x27; };
+				})
+			);
+		}
+
+		return of ({ estado: 1, respuesta: &#x27;Carrito no encontrado&#x27; });
+	}
+
+
+	/**
+	 * Agrega UN producto al carrito, si no existe lo crea.
+	 * @param usuario_id ID del usuario.
+	 * @param producto_id ID del producto.
+	 * @returns Observable de objeto con estado y respuesta.
+	 * - estado: 0 error | 1 correcto.
+	 * - respuesta: mensaje.
+	 */
+	agregarCarrito(
+		usuario_id: string | null, producto_id: string
+	): Observable&lt;{ estado: number; respuesta: string }&gt; {
+		
+		const carritos &#x3D; this.carritos;
+
+		const carritoEncontrado &#x3D; carritos.find(
+			c &#x3D;&gt; c.usuario_id &#x3D;&#x3D;&#x3D; usuario_id &amp;&amp;
+			c.activo &#x3D;&#x3D;&#x3D; true
+		);
+		if(carritoEncontrado) return this.actualizarCantidadCarrito(carritoEncontrado.id, producto_id, null);
+
+		const nuevoCarrito: CarritoData &#x3D; {
+			id			: crypto.randomUUID(),
+			usuario_id	: usuario_id,
+			activo		: true,
+			detalles	: [{
+				producto_id	: producto_id,
+				cantidad	: 1
+			}]
+		}
+
+		return this.apiCrearCarrito(nuevoCarrito).pipe(
+			map(nuevoCarrito &#x3D;&gt; {
+				this.carritos.push(nuevoCarrito);
+				this.guardarCarritoActual(usuario_id);
+				return { estado: 1, respuesta: &#x27;Agregado correctamente&#x27; };
+			})
+		);
+	}
+
+
+	/**
+	 * Retorna la suma de todos los productos del carrito de un usuario.
+	 * @param usuario_id ID del usuario.
+	 * @returns observable number con la cantidad total.
+	 */
+	obtenerSumaCantidad(carrito: CarritoData | null): number {
+		if(!carrito) {
+			return 0;
+		}
+		return carrito.detalles.reduce((total, detalle) &#x3D;&gt; total + detalle.cantidad, 0);
+	}
+
+	actualizarCarrito(
+		id: string, usuario_id: string | null, activo: boolean | null, detalles: DetalleCarritoData[] | null
+	): Observable&lt;{ estado: number; respuesta: string }&gt; {
+
+		const carritos &#x3D; this.carritos;
+
+		const carritoEncontrado &#x3D; carritos.find(c &#x3D;&gt; c.id &#x3D;&#x3D;&#x3D; id);
+		if(!carritoEncontrado) return of ({ estado: 0, respuesta: &#x27;Carrito no encontrado&#x27; });
+
+		if(usuario_id) {
+			const usuarios &#x3D; this.usuarioService.obtenerUsuarios();
+
+			const usuarioEncontrado &#x3D; usuarios.find(u &#x3D;&gt; u.id &#x3D;&#x3D;&#x3D; usuario_id);
+			if(!usuarioEncontrado) return of ({ estado: 0, respuesta: &#x27;Usuario no encontrado&#x27; });
+			
+			carritoEncontrado.usuario_id &#x3D; usuario_id;
+		}
+
+		if(activo !&#x3D;&#x3D; null) carritoEncontrado.activo &#x3D; activo;
+		if(detalles) carritoEncontrado.detalles &#x3D; detalles;
+
+		return this.apiActualizarCarrito(carritoEncontrado).pipe(
+			map(() &#x3D;&gt; {
+				this.guardarCarritoActual(usuario_id);
+				return { estado: 1, respuesta: &#x27;Carrito actualizado correctamente&#x27; };
+			})
+		);
+	}
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CarritoService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

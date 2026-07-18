@@ -1,0 +1,217 @@
+
+<ng-container *ngIf="carritoService.sumaCarrito$ | async as sumaCarrito; else sinProductos">
+
+    <section class="page-content container">
+
+        <ng-container *ngIf="cargando">
+            cargando...
+        </ng-container>
+
+        <ng-container *ngIf="!cargando">
+            <div class="row">
+                <div class="col-12 col-md-8 order-2 order-md-1">
+
+                    <form novalidate (ngSubmit)="checkout()" [formGroup]="formularioCheckout">
+
+
+                        <div class="card mb-3 border-0">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Datos personales</h5>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="nombre">
+                                        Nombre <i class="bi bi-asterisk"></i>
+                                    </label>
+                                    <input type="text" class="form-control" id="nombre"
+                                    formControlName="nombre"
+                                    [class.is-invalid]="campoInvalido('nombre')"
+                                    [class.is-valid]="controles['nombre'].valid && (controles['nombre'].touched || enviado)">
+                                    
+                                </div>
+                    
+                                <div class="mb-3">
+                                    <label class="form-label" for="correo">
+                                        Correo electrónico <i class="bi bi-asterisk"></i>
+                                    </label>
+                                    <input type="email" class="form-control" id="correo"
+                                    formControlName="correo"
+                                    [class.is-invalid]="campoInvalido('correo')"
+                                    [class.is-valid]="controles['correo'].valid && (controles['correo'].touched || enviado)">
+                                </div>
+                    
+                                <div class="mb-3">
+                                    <label class="form-label" for="fecha-nacimiento">
+                                        Fecha de nacimiento <i class="bi bi-asterisk"></i>
+                                    </label>
+                                    <input type="date" class="form-control" id="fecha-nacimiento"
+                                    formControlName="fecha_nacimiento"
+                                    [class.is-invalid]="campoInvalido('fecha_nacimiento')"
+                                    [class.is-valid]="controles['fecha_nacimiento'].valid && (controles['fecha_nacimiento'].touched || enviado)">
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+
+
+                        <div class="card mb-3 border-0">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Envío</h5>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label" for="direccion">
+                                        Dirección <i class="bi bi-asterisk"></i>
+                                    </label>
+                                    <input type="text" class="form-control" id="direccion"
+                                    formControlName="direccion"
+                                    [class.is-invalid]="campoInvalido('direccion')"
+                                    [class.is-valid]="controles['direccion'].valid && (controles['direccion'].touched || enviado)">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="ciudad">
+                                        Ciudad <i class="bi bi-asterisk"></i>
+                                    </label>
+                                    <input type="text" class="form-control" id="ciudad"
+                                    formControlName="ciudad"
+                                    [class.is-invalid]="campoInvalido('ciudad')"
+                                    [class.is-valid]="controles['ciudad'].valid && (controles['ciudad'].touched || enviado)">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="region">
+                                        Región <i class="bi bi-asterisk"></i>
+                                    </label>
+                                    <select class="form-select" aria-label="region"
+                                    formControlName="region"
+                                    [class.is-invalid]="campoInvalido('region')"
+                                    [class.is-valid]="controles['region'].valid && (controles['region'].touched || enviado)">
+                                        <option [ngValue]="null">Seleccione</option>
+                                        
+                                        <option value="Arica y Parinacota">Arica y Parinacota</option>
+                                        <option value="Tarapacá">Tarapacá</option>
+                                        <option value="Antofagasta">Antofagasta</option>
+                                        <option value="Atacama">Atacama</option>
+                                        <option value="Coquimbo">Coquimbo</option>
+                                        <option value="Valparaíso">Valparaíso</option>
+                                        <option value="Metropolitana de Santiago">Metropolitana de Santiago</option>
+                                        <option value="Libertador General Bernardo O'Higgins">Libertador General Bernardo O'Higgins</option>
+                                        <option value="Maule">Maule</option>
+                                        <option value="Ñuble">Ñuble</option>
+                                        <option value="Biobío">Biobío</option>
+                                        <option value="La Araucanía">La Araucanía</option>
+                                        <option value="Los Ríos">Los Ríos</option>
+                                        <option value="Los Lagos">Los Lagos</option>
+                                        <option value="Aysén del General Carlos Ibáñez del Campo">Aysén del General Carlos Ibáñez del Campo</option>
+                                        <option value="Magallanes y de la Antártica Chilena">Magallanes y de la Antártica Chilena</option>
+                                    </select>
+                                </div>
+
+                                <h6 class="card-title mb-3">Datos contacto</h6>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="nombre_contacto">
+                                        Nombre <i class="bi bi-asterisk"></i>
+                                    </label>
+                                    <input type="text" class="form-control" id="nombre_contacto"
+                                    formControlName="nombre_contacto"
+                                    [class.is-invalid]="campoInvalido('nombre_contacto')"
+                                    [class.is-valid]="controles['nombre_contacto'].valid && (controles['nombre_contacto'].touched || enviado)">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label" for="telefono_contacto">
+                                        Teléfono <i class="bi bi-asterisk"></i>
+                                    </label>
+                                    <input type="text" class="form-control" id="telefono_contacto"
+                                    formControlName="telefono_contacto"
+                                    [class.is-invalid]="campoInvalido('telefono_contacto')"
+                                    [class.is-valid]="controles['telefono_contacto'].valid && (controles['telefono_contacto'].touched || enviado)">
+                                </div>
+
+                                
+                            </div>
+                        </div>
+
+                        <div class="card mb-3 border-0">
+                            <div class="card-body">
+                                <h5 class="card-title mb-3">Pago</h5>
+                                
+                                <div class="mb-3 d-flex flex-column gap-3">
+                                    <input value="1"
+                                    type="radio" class="btn-check"
+                                    [class.is-invalid]="campoInvalido('tipo_pago')"
+                                    formControlName="tipo_pago" name="tipo_pago" id="tipo-pago-opcion-1" autocomplete="off">
+                                    <label class="btn" for="tipo-pago-opcion-1" style="max-width: 400px;">
+                                        <img class="img-fluid w-100" src="/assets/img/pagos/logos-credito.png">
+                                        <br>
+                                        <span class="fs-5">Tarjeta de crédito/débito</span>
+                                    </label>
+            
+                                    <input value="2"
+                                    type="radio" class="btn-check"
+                                    [class.is-invalid]="campoInvalido('tipo_pago')"
+                                    formControlName="tipo_pago" name="tipo_pago" id="tipo-pago-opcion-2" autocomplete="off">
+                                    <label class="btn" for="tipo-pago-opcion-2" style="max-width: 400px;">
+                                        <img class="img-fluid w-100" src="/assets/img/pagos/webpay.svg" style="max-height: 70px;">
+                                    </label>
+            
+                                </div>
+                            </div>
+                        </div>
+
+                        <div
+                            class="alert alert-danger alerta-form"
+                            role="alert"
+                            *ngIf="enviado && !cargandoBoton && estado === 0"
+                            [innerHTML]="respuesta">
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-12 d-block w-100 text-center">
+                                <button class="btn btn-primary btn-lg w-100" type="submit" style="max-width: 400px;"
+                                [disabled]="cargandoBoton">
+                                    {{ cargandoBoton ? 'Cargando...' : 'Comprar' }}
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+    
+                <div class="col-12 col-md-4 order-1 order-md-2">
+                    <div class="card mb-3 border-0 bg-transparent sticky-top" style="top: 100px;">
+                        <div class="card-body">
+
+                            <h5 class="card-title mb-3">Productos ({{sumaCarrito}})</h5>
+                            <app-productos-compra [productosCompra]="productosCarrito"></app-productos-compra>
+                            
+                            <hr>
+                            
+                            <h5 class="card-title mb-3">Resumen compra</h5>
+                            <app-resumen-compra [resumenCompra]="resumenCarrito"></app-resumen-compra>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+    </section>
+
+</ng-container>
+
+<ng-template #sinProductos>
+    <section class="page-content container d-flex text-center">
+        <div class="mx-auto">
+            <p class="display-5">
+                <i class="bi bi-cart-x"></i>
+            </p>
+            <p class="fs-5">
+                Carrito vacío :(
+            </p>
+            <a class="btn btn-primary" routerLink="/">Ir al Home</a>
+        </div>
+    </section>
+</ng-template>

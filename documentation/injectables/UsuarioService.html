@@ -1,0 +1,2060 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rotten-apple-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">rotten-apple-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >UsuarioService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/usuario-service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#urlUsuarios" >urlUsuarios</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#urlUsuariosVip" >urlUsuariosVip</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#usuarios" >usuarios</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#usuarios_vip" >usuarios_vip</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actualizarUsuario" >actualizarUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#actualizarUsuarioVip" >actualizarUsuarioVip</a>
+                            </li>
+                            <li>
+                                <a href="#apiActualizarUsuario" >apiActualizarUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#apiActualizarUsuarioVip" >apiActualizarUsuarioVip</a>
+                            </li>
+                            <li>
+                                <a href="#apiCrearUsuario" >apiCrearUsuario</a>
+                            </li>
+                            <li>
+                                <a href="#apiCrearUsuarioVip" >apiCrearUsuarioVip</a>
+                            </li>
+                            <li>
+                                <a href="#apiObtenerUsuarios" >apiObtenerUsuarios</a>
+                            </li>
+                            <li>
+                                <a href="#apiObtenerUsuariosPorCorreo" >apiObtenerUsuariosPorCorreo</a>
+                            </li>
+                            <li>
+                                <a href="#apiObtenerUsuariosVip" >apiObtenerUsuariosVip</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#esUsuarioVip" >esUsuarioVip</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#inicializarUsuarios" >inicializarUsuarios</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#inicializarUsuariosVip" >inicializarUsuariosVip</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerUsuarioId" >obtenerUsuarioId</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerUsuarios" >obtenerUsuarios</a>
+                            </li>
+                            <li>
+                                <a href="#registrar" >registrar</a>
+                            </li>
+                            <li>
+                                <a href="#registrar_vip" >registrar_vip</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/services/usuario-service.ts:38</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actualizarUsuario"></a>
+                    <span class="name">
+                        <span ><b>actualizarUsuario</b></span>
+                        <a href="#actualizarUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>actualizarUsuario(: <a href="../interfaces/actualizarOpciones.html" target="_self">actualizarOpciones</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="211"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:211</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Permite acualizar los datos de un usuario.</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+<li>usuario: objeto usuario, puede ser nulo.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                            <code><a href="../interfaces/actualizarOpciones.html" target="_self" >actualizarOpciones</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable de objeto con estado, respuesta y usuario.</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+<li>usuario: objeto usuario, puede ser nulo.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actualizarUsuarioVip"></a>
+                    <span class="name">
+                        <span ><b>actualizarUsuarioVip</b></span>
+                        <a href="#actualizarUsuarioVip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>actualizarUsuarioVip(usuario_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, tarjeta: number | null, fecha_inicio: Date | null, fecha_termino: Date | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="311"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:311</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Permite actualizar los datos de un usuario VIP en el local storage de usuarios_vip.</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario_id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del usuario. Obligatorio.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>tarjeta</td>
+                                            <td>
+                                                        <code>number | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Número de tarjeta. Opcional.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>fecha_inicio</td>
+                                            <td>
+                                                        <code>Date | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Fecha de inicio de la suscripción VIP. Opcional.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>fecha_termino</td>
+                                            <td>
+                                                        <code>Date | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Fecha de término de la suscripcipon VIP. Opcional.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Objeto con estado y respuesta.</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiActualizarUsuario"></a>
+                    <span class="name">
+                        <span ><b>apiActualizarUsuario</b></span>
+                        <a href="#apiActualizarUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiActualizarUsuario(usuario: <a href="../interfaces/Usuario.html" target="_self">Usuario</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="125"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:125</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza un usuario desde la API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Usuario.html" target="_self" >Usuario</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto usuario a actualizar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Usuario.html" target="_self" >Observable&lt;Usuario&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable del usuario actualizado.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiActualizarUsuarioVip"></a>
+                    <span class="name">
+                        <span ><b>apiActualizarUsuarioVip</b></span>
+                        <a href="#apiActualizarUsuarioVip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiActualizarUsuarioVip(usuario_vip: <a href="../interfaces/UsuarioVip.html" target="_self">UsuarioVip</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="135"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:135</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Actualiza un usuario vip desde la API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario_vip</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UsuarioVip.html" target="_self" >UsuarioVip</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto usuario vip a actualizar.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;UsuarioVip&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable del usuario vip actualizado.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiCrearUsuario"></a>
+                    <span class="name">
+                        <span ><b>apiCrearUsuario</b></span>
+                        <a href="#apiCrearUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiCrearUsuario(usuario: <a href="../interfaces/Usuario.html" target="_self">Usuario</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Crea un nuevo usuario desde la API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Usuario.html" target="_self" >Usuario</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto usuario a crear.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Usuario.html" target="_self" >Observable&lt;Usuario&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable con el usuario creado.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiCrearUsuarioVip"></a>
+                    <span class="name">
+                        <span ><b>apiCrearUsuarioVip</b></span>
+                        <a href="#apiCrearUsuarioVip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiCrearUsuarioVip(usuario_vip: <a href="../interfaces/UsuarioVip.html" target="_self">UsuarioVip</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Crea un nuevo usuario vuo¿p desde la API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario_vip</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UsuarioVip.html" target="_self" >UsuarioVip</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto usuario vip a crear.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;UsuarioVip&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable con el usuario vip creado.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiObtenerUsuarios"></a>
+                    <span class="name">
+                        <span ><b>apiObtenerUsuarios</b></span>
+                        <a href="#apiObtenerUsuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiObtenerUsuarios()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene lista de usuarios desde la API.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Usuario.html" target="_self" >Observable&lt;Usuario[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable con array de los usuarios.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiObtenerUsuariosPorCorreo"></a>
+                    <span class="name">
+                        <span ><b>apiObtenerUsuariosPorCorreo</b></span>
+                        <a href="#apiObtenerUsuariosPorCorreo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiObtenerUsuariosPorCorreo(correo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene usuarios por su correo desde la API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>correo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>String con el correo para identificar al usuario.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;[] | null&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable con el usuario encontrado, puede ser nulo.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiObtenerUsuariosVip"></a>
+                    <span class="name">
+                        <span ><b>apiObtenerUsuariosVip</b></span>
+                        <a href="#apiObtenerUsuariosVip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiObtenerUsuariosVip()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene lista de los usuarios vip desde la API.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;UsuarioVip[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable con array de los usuarios vip.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="esUsuarioVip"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>esUsuarioVip</b></span>
+                        <a href="#esUsuarioVip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>esUsuarioVip(usuario_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="360"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:360</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retorna un bool que indica si el usuario es VIP o no.
+Revisa si existe en usuarios_vip y su fecha de término.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario_id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del usuario.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>boolean que indica si es o no un usuario VIP.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inicializarUsuarios"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>inicializarUsuarios</b></span>
+                        <a href="#inicializarUsuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>inicializarUsuarios()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inicializarUsuariosVip"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>inicializarUsuariosVip</b></span>
+                        <a href="#inicializarUsuariosVip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>inicializarUsuariosVip()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="58"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerUsuarioId"></a>
+                    <span class="name">
+                        <span ><b>obtenerUsuarioId</b></span>
+                        <a href="#obtenerUsuarioId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerUsuarioId(correo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="340"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:340</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Premite obtener el ID de un usuario por su correo.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>correo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Correo electrónico del usuario.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>ID del usuario, puede ser nulo.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerUsuarios"></a>
+                    <span class="name">
+                        <span ><b>obtenerUsuarios</b></span>
+                        <a href="#obtenerUsuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerUsuarios()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Usuario.html" target="_self" >Usuario[]</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registrar"></a>
+                    <span class="name">
+                        <span ><b>registrar</b></span>
+                        <a href="#registrar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registrar(: <a href="../interfaces/registrarOpciones.html" target="_self">registrarOpciones</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="153"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:153</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Crea un nuevo usuario. Rol BÁSICO por defecto.</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+<li>usuario: objeto usuario, puede ser nulo.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                            <code><a href="../interfaces/registrarOpciones.html" target="_self" >registrarOpciones</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable de objeto con estado, respuesta y usuario.</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+<li>usuario: objeto usuario, puede ser nulo.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="registrar_vip"></a>
+                    <span class="name">
+                        <span ><b>registrar_vip</b></span>
+                        <a href="#registrar_vip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>registrar_vip(usuario_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, tarjeta: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, fecha_inicio: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fecha_termino: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="258"
+                                    class="link-to-prism">src/app/services/usuario-service.ts:258</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Agrega un nuevo usuario al local storage de usuario VIP.</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+<li>usuario: objeto Usuario modificado, puede ser nulo.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario_id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID del usuario.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>tarjeta</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Número de tarjeta.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>fecha_inicio</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Fecha de inicio de la suscripción VIP.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>fecha_termino</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Fecha de Término de la suscripción VIP.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Objeto con estado, respuesta y usuario.</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+<li>usuario: objeto Usuario modificado, puede ser nulo.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="urlUsuarios"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>urlUsuarios</b></span>
+                        <a href="#urlUsuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;http://localhost:3000/usuarios&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/services/usuario-service.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="urlUsuariosVip"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>urlUsuariosVip</b></span>
+                        <a href="#urlUsuariosVip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;http://localhost:3000/usuarios_vip&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/services/usuario-service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarios"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>usuarios</b></span>
+                        <a href="#usuarios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Usuario.html" target="_self" >Usuario[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/services/usuario-service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarios_vip"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>usuarios_vip</b></span>
+                        <a href="#usuarios_vip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>UsuarioVip[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/services/usuario-service.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
+import { BehaviorSubject, Observable, map, of, switchMap } 	from &quot;rxjs&quot;;
+import { HttpClient } from &quot;@angular/common/http&quot;;
+
+import { Usuario, UsuarioVip } from &quot;./modelos&quot;;
+
+interface registrarOpciones {
+	nombre				  : string;
+	usuario				? : string | null;
+	correo				  : string;
+	pass				? : string | null;
+	re_pass				? : string | null;
+	fecha_nacimiento	  : string;
+	direccion			? : string | null;
+	visita				? : boolean;
+}
+
+interface actualizarOpciones {
+	id 					  : string;
+	nombre 				? : string | null;
+	usuario 			? : string | null;
+	correo 				? : string | null;
+	pass 				? : string | null;
+	fecha_nacimiento 	? : string | null;
+	direccion 			? : string | null;
+	rol 				? : string | null;
+}
+
+@Injectable({
+	providedIn: &#x27;root&#x27;
+})
+export class UsuarioService {
+	
+	private readonly urlUsuarios &#x3D; &#x27;http://localhost:3000/usuarios&#x27;;
+	private readonly urlUsuariosVip &#x3D; &#x27;http://localhost:3000/usuarios_vip&#x27;;
+	
+	private usuarios: Usuario[] &#x3D; [];
+	private usuarios_vip: UsuarioVip[] &#x3D; [];
+
+	constructor(
+		private http: HttpClient,
+	) {
+		this.inicializarUsuarios();
+		this.inicializarUsuariosVip();
+	}
+
+	public inicializarUsuarios(): void {
+		this.http.get&lt;Usuario[]&gt;(this.urlUsuarios).subscribe({
+			next: usuarios &#x3D;&gt; {
+				this.usuarios &#x3D; usuarios;
+			},
+			error: () &#x3D;&gt; {
+				this.usuarios &#x3D; [];
+			}
+		});
+	}
+
+	private inicializarUsuariosVip(): void {
+		this.http.get&lt;UsuarioVip[]&gt;(this.urlUsuariosVip).subscribe({
+			next: usuarios_vip &#x3D;&gt; {
+				this.usuarios_vip &#x3D; usuarios_vip;
+			},
+			error: () &#x3D;&gt; {
+				this.usuarios_vip &#x3D; [];
+			}
+		});
+	}
+
+
+	/**
+	 * Obtiene lista de usuarios desde la API.
+	 * @returns Observable con array de los usuarios.
+	 */
+	apiObtenerUsuarios(): Observable&lt;Usuario[]&gt; {
+		return this.http.get&lt;Usuario[]&gt;(this.urlUsuarios);
+	}
+
+
+	/**
+	 * Obtiene lista de los usuarios vip desde la API.
+	 * @returns Observable con array de los usuarios vip.
+	 */
+	apiObtenerUsuariosVip(): Observable&lt;UsuarioVip[]&gt; {
+		return this.http.get&lt;UsuarioVip[]&gt;(this.urlUsuariosVip);
+	}
+
+
+	/**
+	 * Obtiene usuarios por su correo desde la API.
+	 * @param correo String con el correo para identificar al usuario.
+	 * @returns Observable con el usuario encontrado, puede ser nulo.
+	 */
+	apiObtenerUsuariosPorCorreo(correo: string): Observable&lt;Usuario[] | null&gt; {
+		return this.http.get&lt;Usuario[]&gt;(&#x60;${this.urlUsuarios}?email&#x3D;${correo}&#x60;).pipe(
+			map(usuarios &#x3D;&gt; usuarios ?? null)
+		);
+	}
+
+
+	/**
+	 * Crea un nuevo usuario desde la API.
+	 * @param usuario Objeto usuario a crear.
+	 * @returns Observable con el usuario creado.
+	 */
+	apiCrearUsuario(usuario: Usuario): Observable&lt;Usuario&gt; {
+		return this.http.post&lt;Usuario&gt;(this.urlUsuarios, usuario);
+	}
+
+
+	/**
+	 * Crea un nuevo usuario vuo¿p desde la API.
+	 * @param usuario_vip Objeto usuario vip a crear.
+	 * @returns Observable con el usuario vip creado.
+	 */
+	apiCrearUsuarioVip(usuario_vip: UsuarioVip): Observable&lt;UsuarioVip&gt; {
+		return this.http.post&lt;UsuarioVip&gt;(this.urlUsuariosVip, usuario_vip);
+	}
+
+
+	/**
+	 * Actualiza un usuario desde la API.
+	 * @param usuario Objeto usuario a actualizar.
+	 * @returns Observable del usuario actualizado.
+	 */
+	apiActualizarUsuario(usuario: Usuario): Observable&lt;Usuario&gt; {
+		return this.http.put&lt;Usuario&gt;(&#x60;${this.urlUsuarios}/${usuario.id}&#x60;, usuario);
+	}
+
+
+	/**
+	 * Actualiza un usuario vip desde la API.
+	 * @param usuario_vip Objeto usuario vip a actualizar.
+	 * @returns Observable del usuario vip actualizado.
+	 */
+	apiActualizarUsuarioVip(usuario_vip: UsuarioVip): Observable&lt;UsuarioVip&gt; {
+		return this.http.put&lt;UsuarioVip&gt;(&#x60;${this.urlUsuariosVip}/${usuario_vip.id}&#x60;, usuario_vip);
+	}
+
+
+	obtenerUsuarios(): Usuario[] {
+		return [...this.usuarios];
+	}
+
+
+	/**
+	 * Crea un nuevo usuario. Rol BÁSICO por defecto.
+	 * @param opciones Objeto con la información del usuario a registrar.
+	 * @returns Observable de objeto con estado, respuesta y usuario.
+	 * - estado: 0 error | 1 correcto.
+	 * - respuesta: mensaje.
+	 * - usuario: objeto usuario, puede ser nulo.
+	 */
+	registrar(
+		{ nombre, usuario&#x3D;null, correo, pass&#x3D;null, re_pass&#x3D;null, fecha_nacimiento, direccion&#x3D;null, visita&#x3D;false }: registrarOpciones
+	): Observable&lt;{ estado: number; respuesta: string, usuario: Usuario | null }&gt; {
+		const nombre_limpio &#x3D; nombre.trim();
+		const correo_limpio &#x3D; correo.trim().toLowerCase();
+		const rol           &#x3D; visita &#x3D;&#x3D;&#x3D; true ? &#x27;VISITA&#x27; : &#x27;BÁSICO&#x27;;
+
+		let usuario_limpio    : string | null &#x3D; null;
+		let pass_limpio       : string | null &#x3D; null;
+		let direccion_limpio  : string | null &#x3D; null;
+
+		if(!visita) {
+			if(!usuario)    return of ({ estado: 0, respuesta: &#x27;Falta usuario&#x27;, usuario: null });
+			if(!pass)       return of ({ estado: 0, respuesta: &#x27;Falta contraseña&#x27;, usuario: null });
+
+			usuario_limpio    &#x3D; usuario.trim().toLowerCase();
+			pass_limpio       &#x3D; pass.trim();
+			direccion_limpio  &#x3D; direccion ? direccion.trim() : &#x27;&#x27;;
+	
+			const usuarios &#x3D; this.usuarios;
+	
+			const existeCorreo &#x3D; usuarios.some(u &#x3D;&gt; u.email.toLowerCase() &#x3D;&#x3D;&#x3D; correo_limpio);
+			if(existeCorreo) return of ({ estado: 0, respuesta: &#x27;Ya existe una cuenta con ese correo&#x27;, usuario: null });
+	
+			if(!usuario) return of ({ estado: 0, respuesta: &#x27;Falta usuario&#x27;, usuario: null });
+	
+			const existeUsuario &#x3D; usuarios.some(u &#x3D;&gt; u.username!.toLowerCase() &#x3D;&#x3D;&#x3D; usuario_limpio &amp;&amp; u.role !&#x3D;&#x3D; &#x27;VISITA&#x27;);
+			if(existeUsuario) return of ({ estado: 0, respuesta: &#x27;Ya existe una cuenta con ese usuario&#x27;, usuario: null });
+		}
+				
+		const nuevoUsuario: Usuario &#x3D; {
+			id			: crypto.randomUUID(),
+			name		: nombre_limpio,
+			username	: usuario_limpio,
+			email		: correo_limpio,
+			pass		: pass_limpio,
+			birthdate 	: new Date(fecha_nacimiento),
+			address		: direccion_limpio,
+			role		: rol
+		}
+
+		return this.apiCrearUsuario(nuevoUsuario).pipe(
+			map(usuarioCreado &#x3D;&gt; {
+				this.usuarios.push(usuarioCreado);
+				return { estado: 1, respuesta: &#x27;Usuario creado correctamente&#x27;, usuario: nuevoUsuario };
+			})
+		);
+	}
+
+
+	/**
+	 * Permite acualizar los datos de un usuario.
+	 * @param opciones Objeto con la información del usuario a actualizar.
+	 * @returns Observable de objeto con estado, respuesta y usuario.
+	 * - estado: 0 error | 1 correcto.
+	 * - respuesta: mensaje.
+	 * - usuario: objeto usuario, puede ser nulo.
+	 */
+	actualizarUsuario(
+		{ id, nombre&#x3D;null, usuario&#x3D;null, correo&#x3D;null, pass&#x3D;null, fecha_nacimiento&#x3D;null, direccion&#x3D;null, rol&#x3D;null }: actualizarOpciones
+	): Observable&lt;{ estado: number; respuesta: string; usuario: Usuario | null }&gt; {
+
+		const usuarios &#x3D; this.usuarios;
+
+		const usuarioEncontrado &#x3D; usuarios.find(u &#x3D;&gt; u.id &#x3D;&#x3D;&#x3D; id);
+		if(!usuarioEncontrado) return of ({ estado: 0, respuesta: &#x27;No se encontró usuario&#x27;, usuario: null });
+
+		if(correo) {
+			const existeCorreo &#x3D; usuarios.some(u &#x3D;&gt; u.email.toLowerCase() &#x3D;&#x3D;&#x3D; correo.trim().toLowerCase());
+			if(existeCorreo) return of ({ estado: 0, respuesta: &#x27;Ya existe una cuenta con ese correo&#x27;, usuario: null });
+		}
+
+		if(usuario) {
+			const existeUsuario &#x3D; usuarios.some(u &#x3D;&gt; u.username!.toLowerCase() &#x3D;&#x3D;&#x3D; usuario.trim().toLowerCase() &amp;&amp;u.role !&#x3D;&#x3D; &#x27;VISITA&#x27;);
+			if(existeUsuario) return of ({ estado: 0, respuesta: &#x27;Ya existe una cuenta con ese usuario&#x27;, usuario: null });
+		}
+				
+		if(nombre)           usuarioEncontrado.name      &#x3D; nombre.trim();
+		if(usuario)          usuarioEncontrado.username  &#x3D; usuario.trim();
+		if(correo)           usuarioEncontrado.email     &#x3D; correo.trim();
+		if(pass)             usuarioEncontrado.pass      &#x3D; pass.trim();
+		if(fecha_nacimiento) usuarioEncontrado.birthdate &#x3D; new Date(fecha_nacimiento);
+		if(direccion)        usuarioEncontrado.address   &#x3D; direccion.trim();
+		if(rol)              usuarioEncontrado.role      &#x3D; rol.trim();
+
+		return this.apiActualizarUsuario(usuarioEncontrado).pipe(
+			map(usuarioActualizado &#x3D;&gt; {
+				this.usuarios.push(usuarioActualizado);
+				return { estado: 1, respuesta: &#x27;Usuario actualizado correctamente&#x27;, usuario: usuarioEncontrado };
+			})
+		);
+	}
+
+
+	/**
+	 * Agrega un nuevo usuario al local storage de usuario VIP.
+	 * @param usuario_id ID del usuario.
+	 * @param tarjeta Número de tarjeta.
+	 * @param fecha_inicio Fecha de inicio de la suscripción VIP.
+	 * @param fecha_termino Fecha de Término de la suscripción VIP.
+	 * @returns Objeto con estado, respuesta y usuario.
+	 * - estado: 0 error | 1 correcto.
+	 * - respuesta: mensaje.
+	 * - usuario: objeto Usuario modificado, puede ser nulo.
+	 */
+	registrar_vip(
+		usuario_id: string, tarjeta: number, fecha_inicio: string, fecha_termino: string
+	): Observable&lt;{ estado: number; respuesta: string, usuario: Usuario | null }&gt; {
+
+		const usuarios &#x3D; this.usuarios;
+
+		const usuarioEncontrado &#x3D; usuarios.find(u &#x3D;&gt; u.id &#x3D;&#x3D;&#x3D; usuario_id);
+		if(!usuarioEncontrado) return of ({ estado: 0, respuesta: &#x27;Usuario no encontrado&#x27;, usuario: null });
+
+		const es_vip &#x3D; this.esUsuarioVip(usuario_id);
+		if(es_vip) return of ({ estado: 0, respuesta: &#x27;Ya es usuario vip&#x27;, usuario: null });
+				
+		const nuevoUsuarioVip: UsuarioVip &#x3D; {
+			id			: crypto.randomUUID(),
+			usuario_id	: usuario_id,
+			card_number	: tarjeta,
+			start_date	: new Date(fecha_inicio),
+			end_date	: new Date(fecha_termino)
+		}
+
+		return this.apiCrearUsuarioVip(nuevoUsuarioVip).pipe(
+			switchMap(usuarioVipCreado &#x3D;&gt; {
+				this.usuarios_vip.push(usuarioVipCreado);
+				
+				const rol &#x3D; usuarioEncontrado.role;
+				if(rol &#x3D;&#x3D;&#x3D; &#x27;VIP&#x27;) return of ({ estado: 1, respuesta: &#x27;Usuario creado correctamente&#x27;, usuario: usuarioEncontrado });
+				
+
+				return this.actualizarUsuario({
+					id	: usuario_id,
+					rol : &#x27;VIP&#x27;
+				}).pipe(
+					map(resultado &#x3D;&gt; ({
+						estado		: resultado.estado,
+						respuesta	: resultado.respuesta,
+						usuario		: resultado.usuario
+					}))
+				);
+			})
+		);
+	}
+
+
+	/**
+	 * Permite actualizar los datos de un usuario VIP en el local storage de usuarios_vip.
+	 * @param usuario_id ID del usuario. Obligatorio.
+	 * @param tarjeta Número de tarjeta. Opcional.
+	 * @param fecha_inicio Fecha de inicio de la suscripción VIP. Opcional.
+	 * @param fecha_termino Fecha de término de la suscripcipon VIP. Opcional.
+	 * @returns Objeto con estado y respuesta.
+	 * - estado: 0 error | 1 correcto.
+	 * - respuesta: mensaje.
+	 */
+	actualizarUsuarioVip(
+		usuario_id: string, tarjeta: number | null, fecha_inicio: Date | null, fecha_termino: Date | null
+	): Observable&lt;{ estado: number; respuesta: string }&gt; {
+		
+		const usuarios_vip &#x3D; this.usuarios_vip;
+
+		const vipEncontrado &#x3D; usuarios_vip.find(vip &#x3D;&gt; vip.usuario_id &#x3D;&#x3D;&#x3D; usuario_id);
+		if(!vipEncontrado) return of ({ estado: 0, respuesta: &#x27;No se encontró usuario vip&#x27; });
+
+
+		if(tarjeta)         vipEncontrado.card_number &#x3D; tarjeta;
+		if(fecha_inicio)    vipEncontrado.start_date  &#x3D; fecha_inicio;
+		if(fecha_termino)   vipEncontrado.end_date    &#x3D; fecha_termino;
+
+
+		return this.apiActualizarUsuarioVip(vipEncontrado).pipe(
+			map(vipActualizado &#x3D;&gt; {
+				this.usuarios_vip.push(vipActualizado);
+				return { estado: 1, respuesta: &#x27;Usuario vip actualizado correctamente&#x27; };
+			})
+		);
+	}
+
+
+	/**
+	 * Premite obtener el ID de un usuario por su correo.
+	 * @param correo Correo electrónico del usuario.
+	 * @returns ID del usuario, puede ser nulo.
+	 */
+	obtenerUsuarioId(correo:string): string | null {
+		const correo_limpio &#x3D; correo.trim().toLowerCase();
+		const usuarios &#x3D; this.usuarios
+		
+		const usuarioEncontrado &#x3D; usuarios.find(
+			u &#x3D;&gt; u.email.toLowerCase() &#x3D;&#x3D;&#x3D; correo_limpio
+		);
+		if(usuarioEncontrado) {
+			return usuarioEncontrado.id;
+		}
+		return null;
+	}
+
+
+	/**
+	 * Retorna un bool que indica si el usuario es VIP o no.
+	 * Revisa si existe en usuarios_vip y su fecha de término.
+	 * @param usuario_id ID del usuario.
+	 * @returns boolean que indica si es o no un usuario VIP.
+	 */
+	public esUsuarioVip(usuario_id:string): boolean {
+
+		const vipEncontrado &#x3D; this.usuarios_vip.find(
+			vip &#x3D;&gt; vip.usuario_id &#x3D;&#x3D;&#x3D; usuario_id
+		)
+
+		if(vipEncontrado) {
+			// revisar fecha de término
+			const fecha_actual &#x3D; new Date();
+			const fecha_termino &#x3D; new Date(vipEncontrado.end_date);
+
+			if(fecha_termino.setHours(0,0,0,0) &gt; fecha_actual.setHours(0,0,0,0)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'UsuarioService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

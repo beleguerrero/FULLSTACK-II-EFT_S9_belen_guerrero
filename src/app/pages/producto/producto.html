@@ -1,0 +1,66 @@
+
+<ng-container *ngIf="!cargando">
+    <section 
+    class="page-content container"
+    *ngIf="producto; else productoNoEncontrado">
+    
+        <div class="row g-5 align-items-center">
+    
+            <div class="col-12 col-lg-6">
+                <div class="detalle-imagen shadow-sm">
+                    <img
+                    [src]="producto.image"
+                    [alt]="producto.name"
+                    class="w-100 object-fit-fill rounded-2">
+                </div>
+            </div>
+    
+            <div class="col-12 col-lg-6">
+                <span class="badge text-bg-light mb-3">
+                    {{ NombreCategoria }}
+                </span>
+    
+                <h1 class="titulo-seccion">
+                    {{ producto.name }}
+                </h1>
+    
+                <p class="lead text-muted">
+                    {{ producto.description }}
+                </p>
+    
+                <p class="precio-detalle fs-5">
+                    {{ formatearPrecio(obtenerPrecioFinal(producto.price, producto.discount_amount, authService.esVip)) }}
+                    <span 
+                    class="price-before"
+                    *ngIf="producto.discount_amount || authService.esVip">{{ formatearPrecio(producto.price) }}</span>
+                </p>
+    
+                <span class="product-add-to-cart d-block w-100 mt-3">
+                    <button 
+                    class="btn btn-primary w-100"
+                    (click)="agregarAlCarrito(producto.id)">Agregar al carrito</button>
+                </span>
+    
+            </div>
+    
+        </div>
+    
+        <section class="mt-5" *ngIf="productosRelacionados">
+            <h2 class="h4 titulo-seccion mb-4">
+                También podría interesar
+            </h2>
+    
+            <app-product-item [ids]="productosRelacionados"></app-product-item>
+    
+        </section>
+    
+    </section>
+    
+    <ng-template #productoNoEncontrado>
+        <section class="text-center py-5">
+            <div class="alert alert-warning">
+                El producto solicitado no existe.
+            </div>
+        </section>
+    </ng-template>
+</ng-container>

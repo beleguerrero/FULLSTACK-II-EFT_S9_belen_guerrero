@@ -1,0 +1,282 @@
+{
+    "usuarios": [
+        {
+            "id": "1",
+            "name": "Prueba",
+            "username": "u_prueba",
+            "email": "prueba@micorreo.cl",
+            "pass": "Prueba123",
+            "birthdate": "1999-01-01",
+            "address": "sin dirección",
+            "role": "BÁSICO"
+        }
+    ],
+
+    "usuarios_vip": [],
+
+    "carritos": [
+        {
+            "id": "1",
+            "usuario_id": "1",
+            "activo": false,
+            "detalles": [
+                {
+                    "producto_id": "1",
+                    "cantidad": 1
+                },
+                { 
+                    "producto_id": "7",
+                    "cantidad": 1
+                },
+                {
+                    "producto_id": "4",
+                    "cantidad": 2
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "usuario_id": "1",
+            "activo": true,
+            "detalles": [
+                {
+                    "producto_id": "5",
+                    "cantidad": 1
+                },
+                {
+                    "producto_id": "12",
+                    "cantidad": 1
+                }
+            ]
+        }
+    ],
+
+    "pedidos": [
+        {
+            "id": "1",
+            "usuario_id": "1",
+            "es_vip": false,
+            "carrito_id": "1",
+            "fecha": "2026-07-06T16:07:21.107Z",
+            "estado": "Pago confirmado",
+            "detalle_pedido": [
+                {
+                    "producto_id": "1",
+                    "nombre": "Ajedrez",
+                    "slug": "ajedrez",
+                    "imagen": "assets/img/productos/ajedrez.png",
+                    "cantidad": 1,
+                    "precio": 11990,
+                    "monto_descuento": 550
+                },
+                {
+                    "producto_id": "7",
+                    "nombre": "Monopoly",
+                    "slug": "monopoly",
+                    "imagen": "assets/img/productos/monopoly.png",
+                    "cantidad": 1,
+                    "precio": 11990,
+                    "monto_descuento": null
+                },
+                {
+                    "producto_id": "4",
+                    "nombre": "UNO",
+                    "slug": "uno",
+                    "imagen": "assets/img/productos/uno.png",
+                    "cantidad": 2,
+                    "precio": 11990,
+                    "monto_descuento": 550
+                }
+            ],
+            "detalle_envio": {
+                "direccion": "av ficticia 123",
+                "ciudad": "santiago",
+                "region": "Metropolitana de Santiago",
+                "nombre_contacto": "Prueba",
+                "telefono_contacto": "12123434"
+            },
+            "detalle_totales": {
+                "total_productos": 46310,
+                "total_productos_sin_dcto": 47960,
+                "descuento": 1650,
+                "descuento_vip": 0,
+                "total_envio": 4990,
+                "total_final": 51300
+            },
+            "tipo_pago": "tarjeta",
+            "historial_estado": [
+                {
+                    "estado": "Pago confirmado",
+                    "fecha": "2026-07-06T16:07:21.107Z",
+                    "observacion": null
+                }
+            ]
+        }
+    ],
+
+    "categorias": [
+        {
+            "id": "1",
+            "name": "Estrategia",
+            "description": "lorem",
+            "image": "assets/img/estrategia.png",
+            "slug": "estrategia"
+        },
+        {
+            "id": "2",
+            "name": "Cartas",
+            "description": "lorem",
+            "image": "assets/img/cartas.png",
+            "slug": "cartas"
+        },
+        {
+            "id": "3",
+            "name": "Familiares",
+            "description": "lorem",
+            "image": "assets/img/familiares.png",
+            "slug": "familiares"
+        },
+        {
+            "id": "4",
+            "name": "Deducción",
+            "description": "lorem",
+            "image": "assets/img/deduccion.png",
+            "slug": "deduccion"
+        }
+    ],
+
+    "productos": [
+        {
+            "id": "1",
+            "slug": "ajedrez",
+            "category_id": "1",
+            "image": "assets/img/productos/ajedrez.png",
+            "name": "Ajedrez",
+            "description": "Juego de estrategia clásico donde dos jugadores enfrentan sus piezas para dar jaque mate al rey rival.",
+            "price": 11990,
+            "discount_amount": 550,
+            "stock": 100
+        },
+        {
+            "id": "2",
+            "slug": "catan",
+            "category_id": "1",
+            "image": "assets/img/productos/catan.png",
+            "name": "Catan",
+            "description": "Juego de estrategia y comercio donde debes construir aldeas, caminos y negociar recursos para expandirte.",
+            "price": 11990,
+            "discount_amount": 550,
+            "stock": 100
+        },
+        {
+            "id": "3",
+            "slug": "risk",
+            "category_id": "1",
+            "image": "assets/img/productos/risk.png",
+            "name": "Risk",
+            "description": "Juego de conquista mundial en el que los jugadores luchan por dominar territorios y continentes.",
+            "price": 11990,
+            "discount_amount": 550,
+            "stock": 100
+        },
+        {
+            "id": "4",
+            "slug": "uno",
+            "category_id": "2",
+            "image": "assets/img/productos/uno.png",
+            "name": "UNO",
+            "description": "Juego de cartas rápido y divertido donde debes quedarte sin cartas antes que los demás usando colores y habilidades especiales.",
+            "price": 11990,
+            "discount_amount": 550,
+            "stock": 100
+        },
+        {
+            "id": "5",
+            "slug": "exploding-kittens",
+            "category_id": "2",
+            "image": "assets/img/productos/exploding-kittens.png",
+            "name": "Exploding Kittens",
+            "description": "Juego de cartas caótico y humorístico donde debes evitar explotar mientras saboteas a otros jugadores.",
+            "price": 11990,
+            "discount_amount": 550,
+            "stock": 100
+        },
+        {
+            "id": "6",
+            "slug": "cards-against-humanity",
+            "category_id": "2",
+            "image": "assets/img/productos/cards-against-humanity.png",
+            "name": "Cards Against Humanity",
+            "description": "Juego de cartas para adultos basado en humor negro y respuestas absurdas a distintas frases.",
+            "price": 11990,
+            "discount_amount": 550,
+            "stock": 100
+        },
+        {
+            "id": "7",
+            "slug": "monopoly",
+            "category_id": "3",
+            "image": "assets/img/productos/monopoly.png",
+            "name": "Monopoly",
+            "description": "Clásico juego de compra y venta de propiedades donde el objetivo es hacer quebrar a tus oponentes.",
+            "price": 11990,
+            "discount_amount": null,
+            "stock": 100
+        },
+        {
+            "id": "8",
+            "slug": "jenga",
+            "category_id": "3",
+            "image": "assets/img/productos/jenga.png",
+            "name": "Jenga",
+            "description": "Juego de habilidad y equilibrio donde los jugadores retiran bloques de una torre sin derribarla.",
+            "price": 11990,
+            "discount_amount": 550,
+            "stock": 100
+        },
+        {
+            "id": "9",
+            "slug": "pictionary",
+            "category_id": "3",
+            "image": "assets/img/productos/pictionary.png",
+            "name": "Pictionary",
+            "description": "Juego de dibujo y adivinanzas en equipo donde debes representar palabras mediante ilustraciones rápidas.",
+            "price": 11990,
+            "discount_amount": 550,
+            "stock": 100
+        },
+        {
+            "id": "10",
+            "slug": "clue",
+            "category_id": "4",
+            "image": "assets/img/productos/clue.png",
+            "name": "Clue",
+            "description": "Juego de misterio y deducción donde debes descubrir quién cometió el crimen, con qué arma y en qué lugar.",
+            "price": 11990,
+            "discount_amount": null,
+            "stock": 100
+        },
+        {
+            "id": "11",
+            "slug": "deception-murder-hong-kong",
+            "category_id": "4",
+            "image": "assets/img/productos/deception-murder-hong-kong.png",
+            "name": "Deception: Murder in Hong Kong",
+            "description": "Juego de deducción social donde un jugador es el asesino y los demás deben resolver el caso usando pistas.",
+            "price": 11990,
+            "discount_amount": 550,
+            "stock": 100
+        },
+        {
+            "id": "12",
+            "slug": "mysterium",
+            "category_id": "4",
+            "image": "assets/img/productos/mysterium.png",
+            "name": "Mysterium",
+            "description": "Juego cooperativo de misterio donde un fantasma se comunica mediante visiones para ayudar a resolver un asesinato.",
+            "price": 11990,
+            "discount_amount": 550,
+            "stock": 100
+        }
+    ]
+}

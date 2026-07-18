@@ -1,0 +1,40 @@
+<ng-container *ngIf="!cargando">
+    <div class="product-carousel">
+        <div 
+        class="product-item" 
+        *ngFor="let producto of productosFiltrados">
+            
+            <div class="carousel-img">
+                <a [routerLink]="['/producto', producto.slug]">
+                    <img 
+                    class="product-img" 
+                    [src]="producto.image"
+                    [alt]="producto.name">
+                </a>
+            </div>
+            <div class="carousel-detail">
+                <span class="product-name"><a [routerLink]="['/producto', producto.slug]">{{ producto.name }}</a></span>
+                
+                <p class="product-description">{{ producto.description }}</p>
+                
+                <span class="product-price">
+                    {{ formatearPrecio(obtenerPrecioFinal(producto.price, producto.discount_amount, authService.esVip)) }}
+                    <span 
+                    class="price-before"
+                    *ngIf="producto.discount_amount || authService.esVip">{{ formatearPrecio(producto.price) }}</span>
+                </span>
+                
+                <span class="product-discount"
+                *ngIf="producto.discount_amount || authService.esVip">
+                    -{{ obtenerPorcentajeDcto(producto.price, producto.discount_amount, authService.esVip) }}%
+                </span>
+    
+                <span class="product-add-to-cart d-block w-100 text-center mt-3">
+                    <button 
+                    class="btn btn-primary w-100"
+                    (click)="agregarAlCarrito(producto.id)">Agregar al carrito</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</ng-container>

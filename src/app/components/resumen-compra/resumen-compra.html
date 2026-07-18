@@ -1,0 +1,31 @@
+
+<div class="row mb-1">
+    <div class="col-8">Productos</div>
+    <div class="col-4 text-end">{{ formatearPrecio(resumenCompra.total_productos_sin_dcto) }}</div>
+</div>
+
+<ng-container *ngIf="resumenCompra.descuento > 0">
+    <div class="row mb-1">
+        <div class="col-8">Descuentos</div>
+        <div class="col-4 text-end">- {{ formatearPrecio(resumenCompra.descuento) }}</div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="authService.esVip && resumenCompra.descuento_vip > 0">
+    <div class="row mb-1">
+        <div class="col-8">Descuento VIP <i class="bi bi-gem text-primary"></i></div>
+        <div class="col-4 text-end">- {{ formatearPrecio(resumenCompra.descuento_vip) }}</div>
+    </div>
+</ng-container>
+
+<div class="row mb-3">
+    <div class="col-8">Envío</div>
+    <div class="col-4 text-end">
+        {{ resumenCompra.total_envio === 0 ? 'Gratis' : formatearPrecio(resumenCompra.total_envio) }}
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-7 fs-5 bold">Total</div>
+    <div class="col-5 text-end fs-5 bold">{{ formatearPrecio(resumenCompra.total_final) }}</div>
+</div>

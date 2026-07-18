@@ -1,0 +1,37 @@
+
+<div *ngFor="let pc of productosCompra">
+    <div class="mb-3 border-0 card-product ">
+        <div class="row g-0">
+            <div class="col-md-3 product-img">
+                <a [routerLink]="['/producto', pc.slug]">
+                    <img class="product-img" 
+                    [src]="pc.imagen"
+                    [alt]="pc.nombre">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <div class="card-body h-100">
+                    <div class="row align-items-center d-flex h-100">
+                        <div class="col-8">
+                            <h6 class="card-title m-0">
+                                <a class="link-body-emphasis text-decoration-none" [routerLink]="['/producto', pc.slug]">{{ pc.nombre }}</a>
+                            </h6>
+                            <p class="card-text text-muted small">
+                                Cantidad: {{ pc.cantidad }}
+                            </p>
+                        </div>
+                        <div class="col-4 text-end">
+                            <p class="card-text lh-1 fs-6">
+                                {{ formatearPrecio(obtenerPrecioFinal(pc.precio, pc.monto_descuento, authService.esVip) * pc.cantidad) }}
+                                <ng-container *ngIf="pc.monto_descuento || authService.esVip">
+                                    <br>
+                                    <span class="price-before">{{ formatearPrecio(pc.precio * pc.cantidad) }}</span>
+                                </ng-container>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

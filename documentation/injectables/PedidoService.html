@@ -1,0 +1,1075 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rotten-apple-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">rotten-apple-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >PedidoService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/pedido-service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#pedidos" >pedidos</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#urlPedidos" >urlPedidos</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#agregarPedido" >agregarPedido</a>
+                            </li>
+                            <li>
+                                <a href="#apiCrearPedido" >apiCrearPedido</a>
+                            </li>
+                            <li>
+                                <a href="#apiObtenerPedidosUsuario" >apiObtenerPedidosUsuario</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#inicializarPedidos" >inicializarPedidos</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerPedidos" >obtenerPedidos</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(usuarioService: <a href="../injectables/UsuarioService.html" target="_self">UsuarioService</a>, carritoService: <a href="../injectables/CarritoService.html" target="_self">CarritoService</a>, http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/services/pedido-service.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>usuarioService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UsuarioService.html" target="_self" >UsuarioService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>carritoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CarritoService.html" target="_self" >CarritoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="agregarPedido"></a>
+                    <span class="name">
+                        <span ><b>agregarPedido</b></span>
+                        <a href="#agregarPedido"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>agregarPedido(usuario_id: string | null, nombre: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, correo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fecha_nacimiento: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, es_vip: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, carrito_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, estado: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, detalle_envio: <a href="../interfaces/DetalleEnvio.html" target="_self">DetalleEnvio</a>, tipo_pago: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, detalle_pedido: <a href="../interfaces/ProductoCarrito.html" target="_self">ProductoCarrito[]</a>, detalle_totales: <a href="../interfaces/ResumenCarrito.html" target="_self">ResumenCarrito</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/services/pedido-service.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Agrega un pedido, si usuario_id es nulo, crea un usuario visita.</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario_id</td>
+                                            <td>
+                                                        <code>string | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>String del ID del usuario, puede ser nulo.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>nombre</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>String, nombre de la persona que realizó el pedido.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>correo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>String, correo de la persona que realizó el pedido.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>fecha_nacimiento</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>String con la fecha de nacimiento de la persona.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>es_vip</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Boolean, que indica si el pedido lo realizó un usuario vip.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>carrito_id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>String del ID del carrito del cual se crea el pedido.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>estado</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>String del estado del pedido.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>detalle_envio</td>
+                                            <td>
+                                                            <code><a href="../interfaces/DetalleEnvio.html" target="_self" >DetalleEnvio</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto DetalleEnvio para el pedido.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>tipo_pago</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>String del tipo de pago del pedido.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>detalle_pedido</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ProductoCarrito.html" target="_self" >ProductoCarrito[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto ProductoCarrito para el pedido.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>detalle_totales</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ResumenCarrito.html" target="_self" >ResumenCarrito</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto ResumenCarrito para el pedido.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable de objeto con estado y respuesta</p>
+<ul>
+<li>estado: 0 error | 1 correcto.</li>
+<li>respuesta: mensaje.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiCrearPedido"></a>
+                    <span class="name">
+                        <span ><b>apiCrearPedido</b></span>
+                        <a href="#apiCrearPedido"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiCrearPedido(pedido: <a href="../interfaces/Pedido.html" target="_self">Pedido</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/services/pedido-service.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Crea un nuevo pedido desde la API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>pedido</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Pedido.html" target="_self" >Pedido</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Objeto pedido a crear.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Pedido.html" target="_self" >Observable&lt;Pedido&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable del perdido creado.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiObtenerPedidosUsuario"></a>
+                    <span class="name">
+                        <span ><b>apiObtenerPedidosUsuario</b></span>
+                        <a href="#apiObtenerPedidosUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>apiObtenerPedidosUsuario(usuario_id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/app/services/pedido-service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Obtiene los pedidos de un usuario desde la API.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usuario_id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>String con el ID del usuario.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Pedido.html" target="_self" >Observable&lt;Pedido[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable con los pedidos encontrados, puede ser nulo.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inicializarPedidos"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>inicializarPedidos</b></span>
+                        <a href="#inicializarPedidos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>inicializarPedidos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="28"
+                                    class="link-to-prism">src/app/services/pedido-service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerPedidos"></a>
+                    <span class="name">
+                        <span ><b>obtenerPedidos</b></span>
+                        <a href="#obtenerPedidos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>obtenerPedidos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/services/pedido-service.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Pedido.html" target="_self" >Pedido[]</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pedidos"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>pedidos</b></span>
+                        <a href="#pedidos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Pedido.html" target="_self" >Pedido[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/services/pedido-service.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="urlPedidos"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>urlPedidos</b></span>
+                        <a href="#urlPedidos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;http://localhost:3000/pedidos&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/services/pedido-service.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
+import { BehaviorSubject, Observable, of, map, switchMap, throwError } from &quot;rxjs&quot;;
+import { HttpClient } from &quot;@angular/common/http&quot;;
+
+import { Pedido, ProductoCarrito, ResumenCarrito, DetalleEnvio, Usuario } from &quot;./modelos&quot;;
+
+import { UsuarioService } from &quot;./usuario-service&quot;;
+import { CarritoService } from &quot;./carrito-service&quot;;
+
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class PedidoService {
+
+	private readonly urlPedidos &#x3D; &#x27;http://localhost:3000/pedidos&#x27;;
+
+	private pedidos: Pedido[] &#x3D; [];
+
+	constructor(
+		private usuarioService: UsuarioService,
+		private carritoService: CarritoService,
+		private http: HttpClient,
+	) {
+		this.inicializarPedidos();
+	}
+
+	private inicializarPedidos(): void {
+		this.http.get&lt;Pedido[]&gt;(this.urlPedidos).subscribe({
+			next: pedidos &#x3D;&gt; {
+				this.pedidos &#x3D; pedidos;
+			},
+			error: () &#x3D;&gt; {
+				this.pedidos &#x3D; [];
+			}
+		});
+	}
+
+
+	/**
+	 * Obtiene los pedidos de un usuario desde la API.
+	 * @param usuario_id String con el ID del usuario.
+	 * @returns Observable con los pedidos encontrados, puede ser nulo.
+	 */
+	apiObtenerPedidosUsuario(usuario_id: string): Observable&lt;Pedido[]&gt; {
+		return this.http.get&lt;Pedido[]&gt;(&#x60;${this.urlPedidos}?usuario_id&#x3D;${usuario_id}&#x60;).pipe(
+			map(pedidos &#x3D;&gt; pedidos ?? null)
+		);
+	}
+
+
+	/**
+	 * Crea un nuevo pedido desde la API.
+	 * @param pedido Objeto pedido a crear.
+	 * @returns Observable del perdido creado.
+	 */
+	apiCrearPedido(pedido: Pedido): Observable&lt;Pedido&gt; {
+		return this.http.post&lt;Pedido&gt;(this.urlPedidos, pedido);
+	}
+
+	
+	obtenerPedidos(): Pedido[] {
+		return [...this.pedidos];
+	}
+
+	
+	/**
+	 * Agrega un pedido, si usuario_id es nulo, crea un usuario visita.
+	 * @param usuario_id String del ID del usuario, puede ser nulo.
+	 * @param nombre String, nombre de la persona que realizó el pedido.
+	 * @param correo String, correo de la persona que realizó el pedido.
+	 * @param fecha_nacimiento String con la fecha de nacimiento de la persona.
+	 * @param es_vip Boolean, que indica si el pedido lo realizó un usuario vip.
+	 * @param carrito_id String del ID del carrito del cual se crea el pedido.
+	 * @param estado String del estado del pedido.
+	 * @param detalle_envio Objeto DetalleEnvio para el pedido.
+	 * @param tipo_pago String del tipo de pago del pedido.
+	 * @param detalle_pedido Objeto ProductoCarrito para el pedido.
+	 * @param detalle_totales Objeto ResumenCarrito para el pedido.
+	 * @returns Observable de objeto con estado y respuesta
+	 * - estado: 0 error | 1 correcto.
+	 * - respuesta: mensaje.
+	 */
+	agregarPedido(
+		usuario_id		: string | null,
+		nombre			: string,
+		correo			: string,
+		fecha_nacimiento: string,
+		es_vip			: boolean,
+		carrito_id		: string,
+		estado			: string,
+		detalle_envio	: DetalleEnvio,
+		tipo_pago		: string,
+		detalle_pedido	: ProductoCarrito[],
+		detalle_totales : ResumenCarrito,
+	): Observable&lt;{ estado: number; respuesta: string }&gt; {
+
+		let usuarioObservable: Observable&lt;Usuario&gt;;
+
+		const usuarios &#x3D; this.usuarioService.obtenerUsuarios();
+		if(usuario_id) {
+			const usuarioEncontrado &#x3D; usuarios.find(u &#x3D;&gt; u.id &#x3D;&#x3D;&#x3D; usuario_id);
+			if(!usuarioEncontrado) return of ({ estado: 0, respuesta: &#x27;Usuaio no encontrado&#x27; });
+
+			usuarioObservable &#x3D; of (usuarioEncontrado);
+			
+		} else {
+			// agregar visita
+			usuarioObservable &#x3D; this.usuarioService.registrar({
+				nombre: nombre, correo:correo, fecha_nacimiento:fecha_nacimiento, visita: true
+			}).pipe(
+				switchMap(resultado &#x3D;&gt; {
+					if(resultado.usuario &#x3D;&#x3D;&#x3D; null) return throwError(() &#x3D;&gt; new Error(resultado.respuesta));
+					return of (resultado.usuario)
+				})
+			);
+		}
+
+		const carritos &#x3D; this.carritoService.obtenerCarritos();
+		const carritoEncontrado &#x3D; carritos.find(c &#x3D;&gt; c.id &#x3D;&#x3D;&#x3D; carrito_id &amp;&amp; c.activo &#x3D;&#x3D;&#x3D; true);
+		if(!carritoEncontrado) return of ({ estado: 0, respuesta: &#x27;Carrito no encontrado&#x27; });
+
+		return usuarioObservable.pipe(
+			switchMap(usuario &#x3D;&gt; {
+
+				const nuevoPedido: Pedido &#x3D; {
+					id				: crypto.randomUUID(),
+					usuario_id		: usuario.id,
+					es_vip			: es_vip,
+					carrito_id		: carrito_id,
+					fecha			: new Date(),
+					estado			: estado,
+					detalle_pedido	: detalle_pedido,
+					detalle_envio	: detalle_envio,
+					detalle_totales	: detalle_totales,
+					tipo_pago		: tipo_pago,
+					historial_estado: [{
+						estado		: estado,
+						fecha		: new Date(),
+						observacion	: null
+					}]
+				};
+
+				return this.apiCrearPedido(nuevoPedido).pipe(
+					map(() &#x3D;&gt; usuario)
+				);
+			}),
+
+			switchMap(usuario &#x3D;&gt; 
+				this.carritoService.actualizarCarrito(carrito_id, usuario.id, false, null)
+			),
+
+			map(() &#x3D;&gt; ({
+				estado: 1,
+				respuesta: &#x27;Pedido completado&#x27;
+			}))
+
+		);
+	}
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'PedidoService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

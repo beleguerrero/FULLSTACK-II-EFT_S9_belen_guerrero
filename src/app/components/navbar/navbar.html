@@ -1,0 +1,116 @@
+<nav class="navbar navbar-expand-lg fixed-top shadow-1">
+    <div class="container-fluid">
+        <a class="navbar-brand" routerLink="/">
+            🍏
+            <span class="text-color-secundario">ROTTEN</span><span class="text-color-principal">APPLE</span>
+        </a>
+        
+        <!-- mobile -->
+        <button class="navbar-toggler ms-auto me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarOffcanvas">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="offcanvas offcanvas-end" id="navbarOffcanvas">
+
+            <div class="offcanvas-header">
+                <h5>Menú</h5>
+                <button
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas">
+                </button>
+            </div>
+
+            <div class="offcanvas-body">
+                <ng-container *ngIf="!cargando">
+                    <div class="navbar-nav"
+                    *ngFor="let c of categorias">
+                        <a class="nav-link" [routerLink]="['/categoria', c.slug]">{{ c.name }}</a>
+                    </div>
+                </ng-container>
+            </div>
+
+        </div>
+
+        <div>
+            <ng-container *ngIf="authService.usuarioActual$ | async as usuario; else loginLink">
+                <div class="flex-shrink-0 dropdown">
+                    <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <!-- mobile -->
+                         <span class="d-inline d-md-none">
+                             <i class="fs-5 bi bi-person"></i>
+                             <span
+                                 *ngIf="authService.esVip"
+                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-primary_ badge-vip">
+                                 <i class="bi bi-gem text-primary"></i>
+                             </span>
+                         </span>
+                        <!-- tablet++ -->
+                        <span class="d-none d-md-inline">
+                            <span *ngIf="authService.esVip"><i class="bi bi-gem text-primary"></i> </span>
+                            {{ usuario.username }}
+                            <span *ngIf="authService.esVip"> <i class="bi bi-gem text-primary"></i></span>
+                        </span>
+                        
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end text-small shadow">
+                        <li class="d-inline d-md-none text-center"><h6 class="dropdown-header">{{ usuario.username }}</h6></li>
+                        <li><a class="dropdown-item text-center" routerLink="/mi-cuenta">Mi cuenta</a></li>
+                        <li><a class="dropdown-item text-center" routerLink="/mis-compras">Mis compras</a></li>
+                        <li><a class="dropdown-item text-center" routerLink="/ser-vip"><i class="bi bi-gem text-primary"></i> Quiero ser VIP <i class="bi bi-gem text-primary"></i></a></li>
+                        
+                        <li><hr class="dropdown-divider" /></li>
+                        
+                        <li>
+                            <button 
+                            class="dropdown-item text-center link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover p-2 shadow-none"
+                            title="Cerrar sesión"
+                            (click)="cerrarSesion()">
+                                Cerrar sesión <i class="bi bi-box-arrow-right"></i>
+                            </button>
+                        </li>
+                    </ul>
+
+                </div>
+            </ng-container>
+            
+            <ng-template #loginLink>
+                <a class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" routerLink="/login">
+                    <!-- mobile -->
+                    <i class="fs-5 bi bi-box-arrow-in-right d-inline d-md-none"></i>
+                    <!-- tablet++ -->
+                    <span class="d-none d-md-inline">
+                        Iniciar sesión <i class="bi bi-box-arrow-in-right"></i>
+                    </span>
+                </a>
+            </ng-template>
+        </div>
+
+
+        <div class="flex-shrink-0 dropdown">
+            <!-- <a href="#" class="position-relative fs-5 d-block link-body-emphasis text-decoration-none dropdown-toggle dropdown-carrito" data-bs-toggle="dropdown" aria-expanded="false"> -->
+            <a routerLink="/carrito" class="position-relative fs-5 d-block link-body-emphasis text-decoration-none dropdown-carrito">
+                <i class="bi bi-cart2"></i>
+                <ng-container *ngIf="carritoService.sumaCarrito$ | async as sumaCarrito">
+                    <span
+                        *ngIf="sumaCarrito > 0"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-primary">
+                        {{ sumaCarrito }}
+                    </span>
+                </ng-container>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end text-small shadow">
+                <ng-container *ngIf="carritoService.sumaCarrito$ | async as sumaCarrito; else sinProductos">
+                    <li><a class="dropdown-item text-center" routerLink="/carrito">Ver carrito</a></li>
+                </ng-container>
+                
+                <ng-template #sinProductos>
+                    <li>
+                        <p class="dropdown-item text-center">Carrito vacío</p>
+                    </li>
+                </ng-template>
+            </ul>
+        </div>
+
+
+    </div>
+</nav>

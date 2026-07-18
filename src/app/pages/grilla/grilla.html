@@ -1,0 +1,27 @@
+
+<ng-container *ngIf="cargando">
+    <section class="page-content container">
+        cargando...
+    </section>
+</ng-container>
+
+<ng-container *ngIf="!cargando">
+    <section class="page-content container"
+    *ngIf="categoria; else categoriaNoEncontrada">
+
+        <div class="shadow rounded-3 mb-5">
+            <img src="assets/img/{{categoria.slug}}.png" class="img-fluid object-fit-cover rounded-3_" alt="Juegos de Estrategia">
+        </div>
+        
+        <app-product-item [categoria]="categoria.id"></app-product-item>
+    
+    </section>
+    
+    <ng-template #categoriaNoEncontrada>
+        <section class="page-content container">
+            <div class="alert alert-warning">
+                Categoría no encontrada.
+            </div>
+        </section>
+    </ng-template>
+</ng-container>

@@ -1,0 +1,149 @@
+
+<section
+class="page-content container"
+*ngIf="authService.logueado; else volverIniciarSesion">
+
+    <ng-container *ngIf="cargando">
+        cargando...
+    </ng-container>
+
+    <ng-container *ngIf="!cargando">
+        <ng-container *ngIf="pedidosUsuario.length > 0; else sinCompras">
+            <div class="row">
+                <div class="col col-12">
+                    
+                    <div class="card mb-3 border-0 bg-transparent">
+                        <div class="card-body">
+                            <h2 class="text-titulo mb-3">Mis compras</h2>
+
+                            
+                            <div *ngFor="let pedido of pedidosUsuario; let i = index">
+                                <div class="accordion mb-3">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapsePedido-' + i" aria-expanded="false" [attr.aria-controls]="'collapsePedido-' + i">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        # {{ i + 1 }}
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="col-auto d-flex gap-1">
+                                                        <ng-container *ngFor="let producto of pedido.detalle_pedido.slice(0, 3)">
+                                                            <img class="img-fluid" style="max-height: 50px;" [src]="producto.imagen">
+                                                        </ng-container>
+    
+                                                        <span *ngIf="pedido.detalle_pedido.length > 3" class="fw-bold">
+                                                            +{{ pedido.detalle_pedido.length - 3 }}
+                                                        </span>
+                                                    </div>
+    
+    
+                                                    <div class="col-auto d-flex flex-column gap-2">
+                                                        <span class="badge text-bg-light">{{ pedido.estado }}</span>
+                                                        <span class="small">Fecha: {{ pedido.fecha | date:'dd-MM-yyyy' }}</span>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </h2>
+                                        <div [id]="'collapsePedido-' + i" class="accordion-collapse collapse">
+                                            <div class="accordion-body">
+    
+                                                <div class="row">
+    
+                                                    <div class="col-12 col-md-8">
+                                                        <div class="card border-0">
+                                                            <div class="card-body p-0">
+    
+                                                                <div class="mb-5">
+                                                                    <h5 class="mb-1">Historial</h5>
+                                                                    <div *ngFor="let historial of pedido.historial_estado">
+                                                                        <p>
+                                                                            <span class="badge text-bg-light">{{ historial.estado }}</span>
+                                                                            {{ historial.fecha | date:'dd-MM-yyyy HH:mm' }}
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="mb-5">
+                                                                    <h5 class="mb-2">Envío</h5>
+                                                                    <p><span class="fw-medium">Direccion:</span> {{ pedido.detalle_envio.direccion }}</p>
+                                                                    <p><span class="fw-medium">Ciudad:</span> {{ pedido.detalle_envio.ciudad }}</p>
+                                                                    <p><span class="fw-medium">Región:</span> {{ pedido.detalle_envio.region }}</p>
+                                                                    
+                                                                    <p class="fw-semibold mb-2">Datos contacto</p>
+                                                                    <p><span class="fw-medium">Nombre de contacto:</span> {{ pedido.detalle_envio.nombre_contacto }}</p>
+                                                                    <p><span class="fw-medium">Teléfono de contacto:</span> {{ pedido.detalle_envio.telefono_contacto }}</p>
+                                                                </div>
+    
+                                                                <div class="">
+                                                                    <h5 class="mb-1">Pago</h5>
+                                                                    <div [ngSwitch]="pedido.tipo_pago">
+                                                                        <img *ngSwitchCase="'tarjeta'" class="img-fluid w-100" src="/assets/img/pagos/logos-credito.png" style="max-width: 400px;">
+                                                                        <img *ngSwitchCase="'webpay'" class="img-fluid w-100_" src="/assets/img/pagos/webpay.svg" style="max-height: 70px;">
+                                                                        <p *ngSwitchDefault>Método de pago no disponible.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+    
+    
+                                                    <div class="col-12 col-md-4 mt-5 mt-md-0">
+                                                        <div class="card border-0 bg-transparent">
+                                                            <div class="card-body p-0">
+    
+                                                                <h5 class="card-title mb-3">Productos ({{ pedido.cantidad_productos }})</h5>
+                                                                <div style="max-height: 200px; overflow-y: auto;">
+                                                                    <app-productos-compra [productosCompra]="pedido.detalle_pedido"></app-productos-compra>
+                                                                </div>
+                                                                
+                                                                <hr>
+                                                                
+                                                                <h5 class="card-title">Resumen compra</h5>
+                                                                <app-resumen-compra [resumenCompra]="pedido.detalle_totales"></app-resumen-compra>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+
+</section>
+
+<ng-template #volverIniciarSesion>
+    <section class="page-content container d-flex text-center">
+        <div class="mx-auto">
+            <p class="display-5">
+                <i class="bi bi-ban"></i>
+            </p>
+            <p class="fs-5">
+                Debe iniciar sesión
+            </p>
+            <a class="btn btn-primary" routerLink="/login">Iniciar sesión</a>
+        </div>
+    </section>
+</ng-template>
+
+<ng-template #sinCompras>
+    <section class="page-content container d-flex text-center">
+        <div class="mx-auto">
+            <p class="display-5">
+                <i class="bi bi-bag-x"></i>
+            </p>
+            <p class="fs-5">
+                No hay compras
+            </p>
+            <a class="btn btn-primary" routerLink="/">Ir al Home</a>
+        </div>
+    </section>
+</ng-template>

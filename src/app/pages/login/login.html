@@ -1,0 +1,86 @@
+
+<section
+class="page-content container"
+*ngIf="!authService.logueado; else volverHome">
+    <div class="row">
+        <div class="col col-12 col-md-6 mx-auto">
+
+            <h2 class="text-titulo mb-3">Ingresa</h2>
+
+            <form novalidate (ngSubmit)="ingresar()" [formGroup]="formularioLogin">
+    
+                <div class="mb-3">
+                    <label class="form-label" for="correo">
+                        Correo electrónico <i class="bi bi-asterisk"></i>
+                    </label>
+                    <!-- <input type="email" class="form-control" id="correo" name="correo"  required [(ngModel)]="correo"> -->
+
+                    <!-- S5 -->
+                    <input type="email" class="form-control" id="correo"
+                    formControlName="correo"
+                    [class.is-invalid]="campoInvalido('correo')"
+                    [class.is-valid]="controles['correo'].valid && (controles['correo'].touched || enviado)">
+                </div>
+    
+                <div class="mb-3">
+                    <label class="form-label" for="pass">
+                        Contraseña <i class="bi bi-asterisk"></i>
+                    </label>
+
+                    <!-- S5 -->
+                    <input type="password" class="form-control" id="pass"
+                    formControlName="pass"
+                    [class.is-invalid]="campoInvalido('pass')"
+                    [class.is-valid]="controles['pass'].valid && (controles['pass'].touched || enviado)">
+
+                    <p class="mt-2 mb-4 text-end">
+                        <a  routerLink="/recuperar" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Recuperar contraseña</a>
+                    </p>
+                </div>
+
+                <div
+                    class="alert alert-danger alerta-form"
+                    role="alert"
+                    *ngIf=" enviado && estado === 0"
+                    [innerHTML]="respuesta">
+                </div>
+                
+                <div class="container text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-4 mb-1">
+                            <button class="btn btn-primary w-100" type="submit">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <p class="mt-2 text-center">
+                <a  routerLink="/registro" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Registrarse</a>
+            </p>
+
+            <div class="card text-bg-light my-3 col-12 col-md-6 mx-auto mt-4">
+                <div class="card-body small">
+                    Usuario de prueba <br>
+                    - Correo: <code>prueba@micorreo.cl</code><br>
+                    - Contraseña: <code>Prueba123</code>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<ng-template #volverHome>
+    <section class="page-content container d-flex text-center">
+        <div class="mx-auto">
+            <p class="display-5">
+                <i class="bi bi-ban"></i>
+            </p>
+            <p class="fs-5">
+                Ya has iniciado sesión
+            </p>
+            <a class="btn btn-primary" routerLink="/">Ir al Home</a>
+        </div>
+    </section>
+</ng-template>
+

@@ -1,0 +1,1689 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rotten-apple-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">rotten-apple-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Checkout</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/checkout/checkout.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-checkout</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/router/RouterLink" target="_blank" >RouterLink</a></code>
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                <code><a href="https://angular.io/api/forms/ReactiveFormsModule" target="_blank" >ReactiveFormsModule</a></code>
+                                <code><a href="../components/ProductosCompra.html" target="_self" >ProductosCompra</a></code>
+                                <code><a href="../components/ResumenCompra.html" target="_self" >ResumenCompra</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./checkout.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./checkout.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#authService" >authService</a>
+                            </li>
+                            <li>
+                                <a href="#cargando" >cargando</a>
+                            </li>
+                            <li>
+                                <a href="#cargandoBoton" >cargandoBoton</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#carritoService" >carritoService</a>
+                            </li>
+                            <li>
+                                <a href="#enviado" >enviado</a>
+                            </li>
+                            <li>
+                                <a href="#es_vip" >es_vip</a>
+                            </li>
+                            <li>
+                                <a href="#estado" >estado</a>
+                            </li>
+                            <li>
+                                <a href="#formatearPrecio" >formatearPrecio</a>
+                            </li>
+                            <li>
+                                <a href="#formularioCheckout" >formularioCheckout</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerPrecioFinal" >obtenerPrecioFinal</a>
+                            </li>
+                            <li>
+                                <a href="#productos" >productos</a>
+                            </li>
+                            <li>
+                                <a href="#productosCarrito" >productosCarrito</a>
+                            </li>
+                            <li>
+                                <a href="#respuesta" >respuesta</a>
+                            </li>
+                            <li>
+                                <a href="#resumenCarrito" >resumenCarrito</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#campoInvalido" >campoInvalido</a>
+                            </li>
+                            <li>
+                                <a href="#cargarProductos" >cargarProductos</a>
+                            </li>
+                            <li>
+                                <a href="#checkout" >checkout</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#controles" >controles</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(carritoService: <a href="../injectables/CarritoService.html" target="_self">CarritoService</a>, authService: <a href="../injectables/Auth.html" target="_self">Auth</a>, productoService: <a href="../injectables/ProductoService.html" target="_self">ProductoService</a>, pedidoService: <a href="../injectables/PedidoService.html" target="_self">PedidoService</a>, cdr: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/pages/checkout/checkout.ts:59</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>carritoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CarritoService.html" target="_self" >CarritoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Auth.html" target="_self" >Auth</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>productoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProductoService.html" target="_self" >ProductoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>pedidoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PedidoService.html" target="_self" >PedidoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cdr</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="campoInvalido"></a>
+                    <span class="name">
+                        <span ><b>campoInvalido</b></span>
+                        <a href="#campoInvalido"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>campoInvalido(nombreCampo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/pages/checkout/checkout.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>nombreCampo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarProductos"></a>
+                    <span class="name">
+                        <span ><b>cargarProductos</b></span>
+                        <a href="#cargarProductos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarProductos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="230"
+                                    class="link-to-prism">src/app/pages/checkout/checkout.ts:230</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga los productos desde la API y actualiza la información del carrito actual.
+Si existe un carrito activo, obtiene el detalle de los productos y calcula el resumen de la compra.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkout"></a>
+                    <span class="name">
+                        <span ><b>checkout</b></span>
+                        <a href="#checkout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">src/app/pages/checkout/checkout.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Procesa la compra del carrito actual.
+Valida el formulario, obtiene la información del usuario y del carrito,
+construye el pedido y lo envía al servicio que crea el pedido.
+Si es exitosa, redirige a la página de inicio; si no muestra el mensaje de error.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/pages/checkout/checkout.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>authService</b></span>
+                        <a href="#authService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/Auth.html" target="_self" >Auth</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/pages/checkout/checkout.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargando"></a>
+                    <span class="name">
+                        <span ><b>cargando</b></span>
+                        <a href="#cargando"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/pages/checkout/checkout.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargandoBoton"></a>
+                    <span class="name">
+                        <span ><b>cargandoBoton</b></span>
+                        <a href="#cargandoBoton"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/pages/checkout/checkout.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="carritoService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>carritoService</b></span>
+                        <a href="#carritoService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/CarritoService.html" target="_self" >CarritoService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/pages/checkout/checkout.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enviado"></a>
+                    <span class="name">
+                        <span ><b>enviado</b></span>
+                        <a href="#enviado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/pages/checkout/checkout.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="es_vip"></a>
+                    <span class="name">
+                        <span ><b>es_vip</b></span>
+                        <a href="#es_vip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/pages/checkout/checkout.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="estado"></a>
+                    <span class="name">
+                        <span ><b>estado</b></span>
+                        <a href="#estado"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/pages/checkout/checkout.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatearPrecio"></a>
+                    <span class="name">
+                        <span ><b>formatearPrecio</b></span>
+                        <a href="#formatearPrecio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>formatearPrecio</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/pages/checkout/checkout.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formularioCheckout"></a>
+                    <span class="name">
+                        <span ><b>formularioCheckout</b></span>
+                        <a href="#formularioCheckout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/pages/checkout/checkout.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerPrecioFinal"></a>
+                    <span class="name">
+                        <span ><b>obtenerPrecioFinal</b></span>
+                        <a href="#obtenerPrecioFinal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>obtenerPrecioFinal</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/pages/checkout/checkout.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productos"></a>
+                    <span class="name">
+                        <span ><b>productos</b></span>
+                        <a href="#productos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ProductoData.html" target="_self" >ProductoData[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/pages/checkout/checkout.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="productosCarrito"></a>
+                    <span class="name">
+                        <span ><b>productosCarrito</b></span>
+                        <a href="#productosCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ProductoCarrito.html" target="_self" >ProductoCarrito[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/checkout/checkout.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="respuesta"></a>
+                    <span class="name">
+                        <span ><b>respuesta</b></span>
+                        <a href="#respuesta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Ha ocurrido un error&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/pages/checkout/checkout.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resumenCarrito"></a>
+                    <span class="name">
+                        <span ><b>resumenCarrito</b></span>
+                        <a href="#resumenCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ResumenCarrito.html" target="_self" >ResumenCarrito</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    total_productos: 0,
+    total_productos_sin_dcto: 0,
+    descuento: 0,
+    descuento_vip: 0,
+    total_envio: 0,
+    total_final: 0,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/checkout/checkout.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="controles"></a>
+                        <span class="name"><b>controles</b><a href="#controles"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>controles()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/pages/checkout/checkout.ts:101</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+import { RouterLink, Router } from &#x27;@angular/router&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { FormBuilder, FormGroup, Validators, AbstractControl } from &#x27;@angular/forms&#x27;;
+import { ChangeDetectorRef } from &#x27;@angular/core&#x27;;
+
+import { ResumenCompra } from &#x27;../../components/resumen-compra/resumen-compra&#x27;;
+import { ProductosCompra } from &#x27;../../components/productos-compra/productos-compra&#x27;;
+import { Auth } from &#x27;../../services/auth&#x27;;
+import { CarritoService } from &#x27;../../services/carrito-service&#x27;;
+import { ProductoService } from &#x27;../../services/producto-service&#x27;;
+import { PedidoService } from &#x27;../../services/pedido-service&#x27;;
+import { ProductoData, ProductoCarrito, ResumenCarrito, DetalleEnvio } from &#x27;../../services/modelos&#x27;;
+
+import { formatearPrecio, obtenerPrecioFinal } from &#x27;../../utils/product-utils&#x27;;
+import { getHtmlErrores, obtenerErroresFormulario, getFechaStr } from &#x27;../../utils/form-util&#x27;;
+import { edadMinimaValidator } from &#x27;../../validators/custom-validators&#x27;;
+import { toastSuccess, toastError } from &#x27;../../utils/swal-utils&#x27;;
+import { calcularResumen, obtenerProductoCarrito } from &#x27;../../utils/carrito-utils&#x27;;
+
+
+
+@Component({
+  selector: &#x27;app-checkout&#x27;,
+  imports: [
+    RouterLink,
+    CommonModule,
+    ReactiveFormsModule,
+    ProductosCompra,
+    ResumenCompra,
+  ],
+  templateUrl: &#x27;./checkout.html&#x27;,
+  styleUrl: &#x27;./checkout.css&#x27;,
+})
+export class Checkout {
+  productosCarrito: ProductoCarrito[] &#x3D; [];
+  resumenCarrito: ResumenCarrito &#x3D; {
+    total_productos: 0,
+    total_productos_sin_dcto: 0,
+    descuento: 0,
+    descuento_vip: 0,
+    total_envio: 0,
+    total_final: 0,
+  }
+  es_vip:boolean &#x3D; false;
+
+  formatearPrecio &#x3D; formatearPrecio;
+  obtenerPrecioFinal &#x3D; obtenerPrecioFinal;
+
+  productos: ProductoData[] &#x3D; [];
+  cargando: boolean &#x3D; true;
+  cargandoBoton: boolean &#x3D; false;  // para cambiar el texto del botón
+
+  formularioCheckout: FormGroup;
+  enviado: boolean &#x3D; false;
+  estado: number &#x3D; 0;
+  respuesta: string &#x3D; &#x27;Ha ocurrido un error&#x27;;
+
+  constructor(
+    public carritoService: CarritoService,
+    public authService: Auth,
+    private productoService: ProductoService,
+    private pedidoService: PedidoService,
+    private cdr: ChangeDetectorRef,
+    private router: Router,
+    private fb: FormBuilder
+  ) {
+    this.formularioCheckout &#x3D; this.fb.group({
+      // datos personales
+      nombre            : [&#x27;&#x27;, [Validators.required, Validators.minLength(3)]],
+      correo            : [&#x27;&#x27;, [Validators.required, Validators.minLength(3)]],
+      fecha_nacimiento  : [&#x27;&#x27;, [Validators.required, edadMinimaValidator(13)]],
+      // envío
+      direccion         : [&#x27;&#x27;, [Validators.required, Validators.minLength(3)]],
+      ciudad            : [&#x27;&#x27;, [Validators.required, Validators.minLength(3)]],
+      region            : [null, [Validators.required]],
+      nombre_contacto   : [&#x27;&#x27;, [Validators.required, Validators.minLength(3)]],
+      telefono_contacto : [&#x27;&#x27;, [Validators.required, Validators.minLength(8), Validators.maxLength(9)]],
+      // pago
+      tipo_pago         : [&#x27;&#x27;, [Validators.required]]
+    });
+
+    const usuarioActual &#x3D; this.authService.usuarioActual;
+    if(usuarioActual) {
+      this.formularioCheckout.patchValue({
+        nombre            : usuarioActual.name,
+        correo            : usuarioActual.email,
+        fecha_nacimiento  : getFechaStr(usuarioActual.birthdate),
+        direccion         : usuarioActual.address,
+        nombre_contacto   : usuarioActual.name,
+      });
+
+      this.formularioCheckout.get(&#x27;nombre&#x27;)?.disable();
+      this.formularioCheckout.get(&#x27;correo&#x27;)?.disable();
+      this.formularioCheckout.get(&#x27;fecha_nacimiento&#x27;)?.disable();
+    }
+  }
+
+  get controles(): { [key: string]: AbstractControl } {
+    return this.formularioCheckout.controls;
+  }
+
+  campoInvalido(nombreCampo: string): boolean {
+    const control &#x3D; this.formularioCheckout.get(nombreCampo);
+
+    return !!(
+      control &amp;&amp;
+      control.invalid &amp;&amp;
+      (control.touched || control.dirty || this.enviado)
+    );
+  }
+
+  ngOnInit(): void {
+    this.cargarProductos();
+  }
+
+
+  /**
+   * Procesa la compra del carrito actual.
+   * Valida el formulario, obtiene la información del usuario y del carrito,
+   * construye el pedido y lo envía al servicio que crea el pedido.
+   * Si es exitosa, redirige a la página de inicio; si no muestra el mensaje de error.
+   */
+  checkout(): void {
+
+    if(this.formularioCheckout.invalid) {
+      this.enviado &#x3D; true;
+      this.formularioCheckout.markAllAsTouched();
+      this.respuesta &#x3D; getHtmlErrores(obtenerErroresFormulario(this.controles, this.formularioCheckout));
+      return;
+    }
+
+    this.cargandoBoton &#x3D; true;
+
+    // revisa carrito
+    const carritoActual &#x3D; this.carritoService.carritoActual;
+    if(!carritoActual) {
+      this.enviado &#x3D; true;
+      this.formularioCheckout.markAllAsTouched();
+      this.respuesta &#x3D; getHtmlErrores([this.respuesta]);
+      return;
+    }
+
+    // asigna  valor para var usuario_id
+    const usuarioActual &#x3D; this.authService.usuarioActual;
+    let usuario_id &#x3D; null;
+    if(usuarioActual) {
+      usuario_id &#x3D; usuarioActual.id;
+    }
+
+
+    const { nombre, correo, fecha_nacimiento, direccion, ciudad, region, nombre_contacto, telefono_contacto, tipo_pago } &#x3D; this.formularioCheckout.getRawValue() as {
+      nombre            : string;
+      correo            : string;
+      fecha_nacimiento  : string;
+      direccion         : string;
+      ciudad            : string;
+      region            : string;
+      nombre_contacto   : string;
+      telefono_contacto : string;
+      tipo_pago         : string;
+    }
+    
+    const tipo_pago_string &#x3D; tipo_pago &#x3D;&#x3D;&#x3D; &#x27;1&#x27; ? &#x27;tarjeta&#x27; : tipo_pago &#x3D;&#x3D;&#x3D; &#x27;2&#x27; ? &#x27;webpay&#x27; : &#x27;&#x27;;
+
+    let detalle_pedido: ProductoCarrito[] &#x3D; [];
+    this.productosCarrito.forEach((producto_carrito, index) &#x3D;&gt; {
+      detalle_pedido.push({
+        producto_id     : producto_carrito.producto_id,
+        nombre          : producto_carrito.nombre,
+        slug            : producto_carrito.slug,
+        imagen          : producto_carrito.imagen,
+        cantidad        : producto_carrito.cantidad,
+        precio          : producto_carrito.precio,
+        monto_descuento : producto_carrito.monto_descuento
+      });
+    });
+
+    const detalle_envio: DetalleEnvio &#x3D; {
+      direccion         : direccion,
+      ciudad            : ciudad,
+      region            : region,
+      nombre_contacto   : nombre_contacto,
+      telefono_contacto : telefono_contacto
+    }
+    
+    setTimeout(() &#x3D;&gt; {
+      this.pedidoService.agregarPedido(
+        usuario_id,
+        nombre,
+        correo,
+        fecha_nacimiento,
+        this.es_vip,
+        carritoActual.id,
+        &#x27;Pago confirmado&#x27;,
+        detalle_envio,
+        tipo_pago_string,
+        detalle_pedido,
+        this.resumenCarrito
+      ).subscribe(resultado &#x3D;&gt; {
+        
+        this.enviado &#x3D; true;
+        
+        this.estado &#x3D; resultado.estado;    
+        if(this.estado &#x3D;&#x3D;&#x3D; 1) {
+          
+          this.respuesta &#x3D; resultado.respuesta;
+          toastSuccess(this.respuesta);       
+          this.router.navigate([&#x27;/&#x27;]);
+        
+        } else {
+          
+          this.cargandoBoton &#x3D; false;
+          // toastError(this.respuesta);
+          this.respuesta &#x3D; getHtmlErrores([resultado.respuesta]);
+          return;
+        
+        }
+      });
+    }, 3000);
+  }
+
+
+  /**
+   * Carga los productos desde la API y actualiza la información del carrito actual.
+   * Si existe un carrito activo, obtiene el detalle de los productos y calcula el resumen de la compra.
+   */
+  cargarProductos(): void {
+    this.productoService.apiObtenerProductos().subscribe({
+      next: (datos) &#x3D;&gt; {
+        this.productos &#x3D; datos;
+        this.cargando &#x3D; false;
+
+        this.carritoService.carritoActual$.subscribe(carrito &#x3D;&gt; {
+          if(!carrito) {
+            this.productosCarrito &#x3D; [];
+            return;
+          }
+
+          this.productosCarrito &#x3D; obtenerProductoCarrito(carrito.detalles, this.productos);
+
+          this.es_vip &#x3D; this.authService.esVip;
+          this.resumenCarrito &#x3D; calcularResumen(this.productosCarrito, this.es_vip);
+        });
+
+        this.cdr.detectChanges();
+      },
+      error: () &#x3D;&gt; {
+        this.cargando &#x3D; false;
+      }
+    })
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">
+&lt;ng-container *ngIf&#x3D;&quot;carritoService.sumaCarrito$ | async as sumaCarrito; else sinProductos&quot;&gt;
+
+    &lt;section class&#x3D;&quot;page-content container&quot;&gt;
+
+        &lt;ng-container *ngIf&#x3D;&quot;cargando&quot;&gt;
+            cargando...
+        &lt;/ng-container&gt;
+
+        &lt;ng-container *ngIf&#x3D;&quot;!cargando&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;div class&#x3D;&quot;col-12 col-md-8 order-2 order-md-1&quot;&gt;
+
+                    &lt;form novalidate (ngSubmit)&#x3D;&quot;checkout()&quot; [formGroup]&#x3D;&quot;formularioCheckout&quot;&gt;
+
+
+                        &lt;div class&#x3D;&quot;card mb-3 border-0&quot;&gt;
+                            &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                                &lt;h5 class&#x3D;&quot;card-title mb-3&quot;&gt;Datos personales&lt;/h5&gt;
+
+                                &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+                                    &lt;label class&#x3D;&quot;form-label&quot; for&#x3D;&quot;nombre&quot;&gt;
+                                        Nombre &lt;i class&#x3D;&quot;bi bi-asterisk&quot;&gt;&lt;/i&gt;
+                                    &lt;/label&gt;
+                                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;nombre&quot;
+                                    formControlName&#x3D;&quot;nombre&quot;
+                                    [class.is-invalid]&#x3D;&quot;campoInvalido(&#x27;nombre&#x27;)&quot;
+                                    [class.is-valid]&#x3D;&quot;controles[&#x27;nombre&#x27;].valid &amp;&amp; (controles[&#x27;nombre&#x27;].touched || enviado)&quot;&gt;
+                                    
+                                &lt;/div&gt;
+                    
+                                &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+                                    &lt;label class&#x3D;&quot;form-label&quot; for&#x3D;&quot;correo&quot;&gt;
+                                        Correo electrónico &lt;i class&#x3D;&quot;bi bi-asterisk&quot;&gt;&lt;/i&gt;
+                                    &lt;/label&gt;
+                                    &lt;input type&#x3D;&quot;email&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;correo&quot;
+                                    formControlName&#x3D;&quot;correo&quot;
+                                    [class.is-invalid]&#x3D;&quot;campoInvalido(&#x27;correo&#x27;)&quot;
+                                    [class.is-valid]&#x3D;&quot;controles[&#x27;correo&#x27;].valid &amp;&amp; (controles[&#x27;correo&#x27;].touched || enviado)&quot;&gt;
+                                &lt;/div&gt;
+                    
+                                &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+                                    &lt;label class&#x3D;&quot;form-label&quot; for&#x3D;&quot;fecha-nacimiento&quot;&gt;
+                                        Fecha de nacimiento &lt;i class&#x3D;&quot;bi bi-asterisk&quot;&gt;&lt;/i&gt;
+                                    &lt;/label&gt;
+                                    &lt;input type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;fecha-nacimiento&quot;
+                                    formControlName&#x3D;&quot;fecha_nacimiento&quot;
+                                    [class.is-invalid]&#x3D;&quot;campoInvalido(&#x27;fecha_nacimiento&#x27;)&quot;
+                                    [class.is-valid]&#x3D;&quot;controles[&#x27;fecha_nacimiento&#x27;].valid &amp;&amp; (controles[&#x27;fecha_nacimiento&#x27;].touched || enviado)&quot;&gt;
+                                &lt;/div&gt;
+                                
+                                
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+
+                        &lt;div class&#x3D;&quot;card mb-3 border-0&quot;&gt;
+                            &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                                &lt;h5 class&#x3D;&quot;card-title mb-3&quot;&gt;Envío&lt;/h5&gt;
+                                
+                                &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+                                    &lt;label class&#x3D;&quot;form-label&quot; for&#x3D;&quot;direccion&quot;&gt;
+                                        Dirección &lt;i class&#x3D;&quot;bi bi-asterisk&quot;&gt;&lt;/i&gt;
+                                    &lt;/label&gt;
+                                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;direccion&quot;
+                                    formControlName&#x3D;&quot;direccion&quot;
+                                    [class.is-invalid]&#x3D;&quot;campoInvalido(&#x27;direccion&#x27;)&quot;
+                                    [class.is-valid]&#x3D;&quot;controles[&#x27;direccion&#x27;].valid &amp;&amp; (controles[&#x27;direccion&#x27;].touched || enviado)&quot;&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+                                    &lt;label class&#x3D;&quot;form-label&quot; for&#x3D;&quot;ciudad&quot;&gt;
+                                        Ciudad &lt;i class&#x3D;&quot;bi bi-asterisk&quot;&gt;&lt;/i&gt;
+                                    &lt;/label&gt;
+                                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;ciudad&quot;
+                                    formControlName&#x3D;&quot;ciudad&quot;
+                                    [class.is-invalid]&#x3D;&quot;campoInvalido(&#x27;ciudad&#x27;)&quot;
+                                    [class.is-valid]&#x3D;&quot;controles[&#x27;ciudad&#x27;].valid &amp;&amp; (controles[&#x27;ciudad&#x27;].touched || enviado)&quot;&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+                                    &lt;label class&#x3D;&quot;form-label&quot; for&#x3D;&quot;region&quot;&gt;
+                                        Región &lt;i class&#x3D;&quot;bi bi-asterisk&quot;&gt;&lt;/i&gt;
+                                    &lt;/label&gt;
+                                    &lt;select class&#x3D;&quot;form-select&quot; aria-label&#x3D;&quot;region&quot;
+                                    formControlName&#x3D;&quot;region&quot;
+                                    [class.is-invalid]&#x3D;&quot;campoInvalido(&#x27;region&#x27;)&quot;
+                                    [class.is-valid]&#x3D;&quot;controles[&#x27;region&#x27;].valid &amp;&amp; (controles[&#x27;region&#x27;].touched || enviado)&quot;&gt;
+                                        &lt;option [ngValue]&#x3D;&quot;null&quot;&gt;Seleccione&lt;/option&gt;
+                                        
+                                        &lt;option value&#x3D;&quot;Arica y Parinacota&quot;&gt;Arica y Parinacota&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Tarapacá&quot;&gt;Tarapacá&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Antofagasta&quot;&gt;Antofagasta&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Atacama&quot;&gt;Atacama&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Coquimbo&quot;&gt;Coquimbo&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Valparaíso&quot;&gt;Valparaíso&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Metropolitana de Santiago&quot;&gt;Metropolitana de Santiago&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Libertador General Bernardo O&#x27;Higgins&quot;&gt;Libertador General Bernardo O&#x27;Higgins&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Maule&quot;&gt;Maule&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Ñuble&quot;&gt;Ñuble&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Biobío&quot;&gt;Biobío&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;La Araucanía&quot;&gt;La Araucanía&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Los Ríos&quot;&gt;Los Ríos&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Los Lagos&quot;&gt;Los Lagos&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Aysén del General Carlos Ibáñez del Campo&quot;&gt;Aysén del General Carlos Ibáñez del Campo&lt;/option&gt;
+                                        &lt;option value&#x3D;&quot;Magallanes y de la Antártica Chilena&quot;&gt;Magallanes y de la Antártica Chilena&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/div&gt;
+
+                                &lt;h6 class&#x3D;&quot;card-title mb-3&quot;&gt;Datos contacto&lt;/h6&gt;
+
+                                &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+                                    &lt;label class&#x3D;&quot;form-label&quot; for&#x3D;&quot;nombre_contacto&quot;&gt;
+                                        Nombre &lt;i class&#x3D;&quot;bi bi-asterisk&quot;&gt;&lt;/i&gt;
+                                    &lt;/label&gt;
+                                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;nombre_contacto&quot;
+                                    formControlName&#x3D;&quot;nombre_contacto&quot;
+                                    [class.is-invalid]&#x3D;&quot;campoInvalido(&#x27;nombre_contacto&#x27;)&quot;
+                                    [class.is-valid]&#x3D;&quot;controles[&#x27;nombre_contacto&#x27;].valid &amp;&amp; (controles[&#x27;nombre_contacto&#x27;].touched || enviado)&quot;&gt;
+                                &lt;/div&gt;
+
+                                &lt;div class&#x3D;&quot;mb-3&quot;&gt;
+                                    &lt;label class&#x3D;&quot;form-label&quot; for&#x3D;&quot;telefono_contacto&quot;&gt;
+                                        Teléfono &lt;i class&#x3D;&quot;bi bi-asterisk&quot;&gt;&lt;/i&gt;
+                                    &lt;/label&gt;
+                                    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;telefono_contacto&quot;
+                                    formControlName&#x3D;&quot;telefono_contacto&quot;
+                                    [class.is-invalid]&#x3D;&quot;campoInvalido(&#x27;telefono_contacto&#x27;)&quot;
+                                    [class.is-valid]&#x3D;&quot;controles[&#x27;telefono_contacto&#x27;].valid &amp;&amp; (controles[&#x27;telefono_contacto&#x27;].touched || enviado)&quot;&gt;
+                                &lt;/div&gt;
+
+                                
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;card mb-3 border-0&quot;&gt;
+                            &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                                &lt;h5 class&#x3D;&quot;card-title mb-3&quot;&gt;Pago&lt;/h5&gt;
+                                
+                                &lt;div class&#x3D;&quot;mb-3 d-flex flex-column gap-3&quot;&gt;
+                                    &lt;input value&#x3D;&quot;1&quot;
+                                    type&#x3D;&quot;radio&quot; class&#x3D;&quot;btn-check&quot;
+                                    [class.is-invalid]&#x3D;&quot;campoInvalido(&#x27;tipo_pago&#x27;)&quot;
+                                    formControlName&#x3D;&quot;tipo_pago&quot; name&#x3D;&quot;tipo_pago&quot; id&#x3D;&quot;tipo-pago-opcion-1&quot; autocomplete&#x3D;&quot;off&quot;&gt;
+                                    &lt;label class&#x3D;&quot;btn&quot; for&#x3D;&quot;tipo-pago-opcion-1&quot; style&#x3D;&quot;max-width: 400px;&quot;&gt;
+                                        &lt;img class&#x3D;&quot;img-fluid w-100&quot; src&#x3D;&quot;/assets/img/pagos/logos-credito.png&quot;&gt;
+                                        &lt;br&gt;
+                                        &lt;span class&#x3D;&quot;fs-5&quot;&gt;Tarjeta de crédito/débito&lt;/span&gt;
+                                    &lt;/label&gt;
+            
+                                    &lt;input value&#x3D;&quot;2&quot;
+                                    type&#x3D;&quot;radio&quot; class&#x3D;&quot;btn-check&quot;
+                                    [class.is-invalid]&#x3D;&quot;campoInvalido(&#x27;tipo_pago&#x27;)&quot;
+                                    formControlName&#x3D;&quot;tipo_pago&quot; name&#x3D;&quot;tipo_pago&quot; id&#x3D;&quot;tipo-pago-opcion-2&quot; autocomplete&#x3D;&quot;off&quot;&gt;
+                                    &lt;label class&#x3D;&quot;btn&quot; for&#x3D;&quot;tipo-pago-opcion-2&quot; style&#x3D;&quot;max-width: 400px;&quot;&gt;
+                                        &lt;img class&#x3D;&quot;img-fluid w-100&quot; src&#x3D;&quot;/assets/img/pagos/webpay.svg&quot; style&#x3D;&quot;max-height: 70px;&quot;&gt;
+                                    &lt;/label&gt;
+            
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div
+                            class&#x3D;&quot;alert alert-danger alerta-form&quot;
+                            role&#x3D;&quot;alert&quot;
+                            *ngIf&#x3D;&quot;enviado &amp;&amp; !cargandoBoton &amp;&amp; estado &#x3D;&#x3D;&#x3D; 0&quot;
+                            [innerHTML]&#x3D;&quot;respuesta&quot;&gt;
+                        &lt;/div&gt;
+
+
+                        &lt;div class&#x3D;&quot;row&quot;&gt;
+                            &lt;div class&#x3D;&quot;col-12 d-block w-100 text-center&quot;&gt;
+                                &lt;button class&#x3D;&quot;btn btn-primary btn-lg w-100&quot; type&#x3D;&quot;submit&quot; style&#x3D;&quot;max-width: 400px;&quot;
+                                [disabled]&#x3D;&quot;cargandoBoton&quot;&gt;
+                                    {{ cargandoBoton ? &#x27;Cargando...&#x27; : &#x27;Comprar&#x27; }}
+                                &lt;/button&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                    &lt;/form&gt;
+
+                &lt;/div&gt;
+    
+                &lt;div class&#x3D;&quot;col-12 col-md-4 order-1 order-md-2&quot;&gt;
+                    &lt;div class&#x3D;&quot;card mb-3 border-0 bg-transparent sticky-top&quot; style&#x3D;&quot;top: 100px;&quot;&gt;
+                        &lt;div class&#x3D;&quot;card-body&quot;&gt;
+
+                            &lt;h5 class&#x3D;&quot;card-title mb-3&quot;&gt;Productos ({{sumaCarrito}})&lt;/h5&gt;
+                            &lt;app-productos-compra [productosCompra]&#x3D;&quot;productosCarrito&quot;&gt;&lt;/app-productos-compra&gt;
+                            
+                            &lt;hr&gt;
+                            
+                            &lt;h5 class&#x3D;&quot;card-title mb-3&quot;&gt;Resumen compra&lt;/h5&gt;
+                            &lt;app-resumen-compra [resumenCompra]&#x3D;&quot;resumenCarrito&quot;&gt;&lt;/app-resumen-compra&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/ng-container&gt;
+
+    &lt;/section&gt;
+
+&lt;/ng-container&gt;
+
+&lt;ng-template #sinProductos&gt;
+    &lt;section class&#x3D;&quot;page-content container d-flex text-center&quot;&gt;
+        &lt;div class&#x3D;&quot;mx-auto&quot;&gt;
+            &lt;p class&#x3D;&quot;display-5&quot;&gt;
+                &lt;i class&#x3D;&quot;bi bi-cart-x&quot;&gt;&lt;/i&gt;
+            &lt;/p&gt;
+            &lt;p class&#x3D;&quot;fs-5&quot;&gt;
+                Carrito vacío :(
+            &lt;/p&gt;
+            &lt;a class&#x3D;&quot;btn btn-primary&quot; routerLink&#x3D;&quot;/&quot;&gt;Ir al Home&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container *ngIf="carritoService.sumaCarrito$ | async as sumaCarrito; else sinProductos">    <section class="page-content container">        <ng-container *ngIf="cargando">            cargando...        </ng-container>        <ng-container *ngIf="!cargando">            <div class="row">                <div class="col-12 col-md-8 order-2 order-md-1">                    <form novalidate (ngSubmit)="checkout()" [formGroup]="formularioCheckout">                        <div class="card mb-3 border-0">                            <div class="card-body">                                <h5 class="card-title mb-3">Datos personales</h5>                                <div class="mb-3">                                    <label class="form-label" for="nombre">                                        Nombre <i class="bi bi-asterisk"></i>                                    </label>                                    <input type="text" class="form-control" id="nombre"                                    formControlName="nombre"                                    [class.is-invalid]="campoInvalido(\'nombre\')"                                    [class.is-valid]="controles[\'nombre\'].valid && (controles[\'nombre\'].touched || enviado)">                                                                    </div>                                                    <div class="mb-3">                                    <label class="form-label" for="correo">                                        Correo electrónico <i class="bi bi-asterisk"></i>                                    </label>                                    <input type="email" class="form-control" id="correo"                                    formControlName="correo"                                    [class.is-invalid]="campoInvalido(\'correo\')"                                    [class.is-valid]="controles[\'correo\'].valid && (controles[\'correo\'].touched || enviado)">                                </div>                                                    <div class="mb-3">                                    <label class="form-label" for="fecha-nacimiento">                                        Fecha de nacimiento <i class="bi bi-asterisk"></i>                                    </label>                                    <input type="date" class="form-control" id="fecha-nacimiento"                                    formControlName="fecha_nacimiento"                                    [class.is-invalid]="campoInvalido(\'fecha_nacimiento\')"                                    [class.is-valid]="controles[\'fecha_nacimiento\'].valid && (controles[\'fecha_nacimiento\'].touched || enviado)">                                </div>                                                                                            </div>                        </div>                        <div class="card mb-3 border-0">                            <div class="card-body">                                <h5 class="card-title mb-3">Envío</h5>                                                                <div class="mb-3">                                    <label class="form-label" for="direccion">                                        Dirección <i class="bi bi-asterisk"></i>                                    </label>                                    <input type="text" class="form-control" id="direccion"                                    formControlName="direccion"                                    [class.is-invalid]="campoInvalido(\'direccion\')"                                    [class.is-valid]="controles[\'direccion\'].valid && (controles[\'direccion\'].touched || enviado)">                                </div>                                <div class="mb-3">                                    <label class="form-label" for="ciudad">                                        Ciudad <i class="bi bi-asterisk"></i>                                    </label>                                    <input type="text" class="form-control" id="ciudad"                                    formControlName="ciudad"                                    [class.is-invalid]="campoInvalido(\'ciudad\')"                                    [class.is-valid]="controles[\'ciudad\'].valid && (controles[\'ciudad\'].touched || enviado)">                                </div>                                <div class="mb-3">                                    <label class="form-label" for="region">                                        Región <i class="bi bi-asterisk"></i>                                    </label>                                    <select class="form-select" aria-label="region"                                    formControlName="region"                                    [class.is-invalid]="campoInvalido(\'region\')"                                    [class.is-valid]="controles[\'region\'].valid && (controles[\'region\'].touched || enviado)">                                        <option [ngValue]="null">Seleccione</option>                                                                                <option value="Arica y Parinacota">Arica y Parinacota</option>                                        <option value="Tarapacá">Tarapacá</option>                                        <option value="Antofagasta">Antofagasta</option>                                        <option value="Atacama">Atacama</option>                                        <option value="Coquimbo">Coquimbo</option>                                        <option value="Valparaíso">Valparaíso</option>                                        <option value="Metropolitana de Santiago">Metropolitana de Santiago</option>                                        <option value="Libertador General Bernardo O\'Higgins">Libertador General Bernardo O\'Higgins</option>                                        <option value="Maule">Maule</option>                                        <option value="Ñuble">Ñuble</option>                                        <option value="Biobío">Biobío</option>                                        <option value="La Araucanía">La Araucanía</option>                                        <option value="Los Ríos">Los Ríos</option>                                        <option value="Los Lagos">Los Lagos</option>                                        <option value="Aysén del General Carlos Ibáñez del Campo">Aysén del General Carlos Ibáñez del Campo</option>                                        <option value="Magallanes y de la Antártica Chilena">Magallanes y de la Antártica Chilena</option>                                    </select>                                </div>                                <h6 class="card-title mb-3">Datos contacto</h6>                                <div class="mb-3">                                    <label class="form-label" for="nombre_contacto">                                        Nombre <i class="bi bi-asterisk"></i>                                    </label>                                    <input type="text" class="form-control" id="nombre_contacto"                                    formControlName="nombre_contacto"                                    [class.is-invalid]="campoInvalido(\'nombre_contacto\')"                                    [class.is-valid]="controles[\'nombre_contacto\'].valid && (controles[\'nombre_contacto\'].touched || enviado)">                                </div>                                <div class="mb-3">                                    <label class="form-label" for="telefono_contacto">                                        Teléfono <i class="bi bi-asterisk"></i>                                    </label>                                    <input type="text" class="form-control" id="telefono_contacto"                                    formControlName="telefono_contacto"                                    [class.is-invalid]="campoInvalido(\'telefono_contacto\')"                                    [class.is-valid]="controles[\'telefono_contacto\'].valid && (controles[\'telefono_contacto\'].touched || enviado)">                                </div>                                                            </div>                        </div>                        <div class="card mb-3 border-0">                            <div class="card-body">                                <h5 class="card-title mb-3">Pago</h5>                                                                <div class="mb-3 d-flex flex-column gap-3">                                    <input value="1"                                    type="radio" class="btn-check"                                    [class.is-invalid]="campoInvalido(\'tipo_pago\')"                                    formControlName="tipo_pago" name="tipo_pago" id="tipo-pago-opcion-1" autocomplete="off">                                    <label class="btn" for="tipo-pago-opcion-1" style="max-width: 400px;">                                        <img class="img-fluid w-100" src="/assets/img/pagos/logos-credito.png">                                        <br>                                        <span class="fs-5">Tarjeta de crédito/débito</span>                                    </label>                                                <input value="2"                                    type="radio" class="btn-check"                                    [class.is-invalid]="campoInvalido(\'tipo_pago\')"                                    formControlName="tipo_pago" name="tipo_pago" id="tipo-pago-opcion-2" autocomplete="off">                                    <label class="btn" for="tipo-pago-opcion-2" style="max-width: 400px;">                                        <img class="img-fluid w-100" src="/assets/img/pagos/webpay.svg" style="max-height: 70px;">                                    </label>                                            </div>                            </div>                        </div>                        <div                            class="alert alert-danger alerta-form"                            role="alert"                            *ngIf="enviado && !cargandoBoton && estado === 0"                            [innerHTML]="respuesta">                        </div>                        <div class="row">                            <div class="col-12 d-block w-100 text-center">                                <button class="btn btn-primary btn-lg w-100" type="submit" style="max-width: 400px;"                                [disabled]="cargandoBoton">                                    {{ cargandoBoton ? \'Cargando...\' : \'Comprar\' }}                                </button>                            </div>                        </div>                    </form>                </div>                    <div class="col-12 col-md-4 order-1 order-md-2">                    <div class="card mb-3 border-0 bg-transparent sticky-top" style="top: 100px;">                        <div class="card-body">                            <h5 class="card-title mb-3">Productos ({{sumaCarrito}})</h5>                            <app-productos-compra [productosCompra]="productosCarrito"></app-productos-compra>                                                        <hr>                                                        <h5 class="card-title mb-3">Resumen compra</h5>                            <app-resumen-compra [resumenCompra]="resumenCarrito"></app-resumen-compra>                        </div>                    </div>                </div>            </div>        </ng-container>    </section></ng-container><ng-template #sinProductos>    <section class="page-content container d-flex text-center">        <div class="mx-auto">            <p class="display-5">                <i class="bi bi-cart-x"></i>            </p>            <p class="fs-5">                Carrito vacío :(            </p>            <a class="btn btn-primary" routerLink="/">Ir al Home</a>        </div>    </section></ng-template></div>'
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'Checkout', 'selector': 'app-checkout'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Grilla', 'selector': 'app-grilla'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MiCuenta', 'selector': 'app-mi-cuenta'},{'name': 'MisCompras', 'selector': 'app-mis-compras'},{'name': 'Navbar', 'selector': 'app-navbar'},{'name': 'NotFound', 'selector': 'app-not-found'},{'name': 'ProductItem', 'selector': 'app-product-item'},{'name': 'Producto', 'selector': 'app-producto'},{'name': 'ProductosCompra', 'selector': 'app-productos-compra'},{'name': 'Recuperar', 'selector': 'app-recuperar'},{'name': 'Registro', 'selector': 'app-registro'},{'name': 'ResumenCompra', 'selector': 'app-resumen-compra'},{'name': 'SerVip', 'selector': 'app-ser-vip'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'Checkout'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Checkout.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

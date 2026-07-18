@@ -1,0 +1,153 @@
+
+<section
+class="page-content container"
+*ngIf="authService.logueado; else volverIniciarSesion">
+    <div class="row">
+        <div class="col col-12 col-md-6 mx-auto">
+            
+            <h2 class="text-titulo mb-3">Datos personales</h2>
+
+            <form novalidate (ngSubmit)="miCuenta()" [formGroup]="formularioMiCuenta">
+                
+                <div class="mb-3">
+                    <label class="form-label" for="nombre">
+                        Nombre <i class="bi bi-asterisk"></i>
+                    </label>
+                    <input type="text" class="form-control" id="nombre"
+                    formControlName="nombre"
+                    [class.is-invalid]="campoInvalidoMiCuenta('nombre')"
+                    [class.is-valid]="controlesMiCuenta['nombre'].valid && (controlesMiCuenta['nombre'].touched || enviado)">
+                    
+                </div>
+    
+                <div class="mb-3">
+                    <label class="form-label" for="usuario">
+                        Nombre de usuario <i class="bi bi-asterisk"></i>
+                    </label>
+                    <input type="text" class="form-control" id="usuario"
+                    formControlName="usuario"
+                    [class.is-invalid]="campoInvalidoMiCuenta('usuario')"
+                    [class.is-valid]="controlesMiCuenta['usuario'].valid && (controlesMiCuenta['usuario'].touched || enviado)">
+                </div>
+    
+                <div class="mb-3">
+                    <label class="form-label" for="correo">
+                        Correo electrónico <i class="bi bi-asterisk"></i>
+                    </label>
+                    <input type="email" class="form-control" id="correo"
+                    formControlName="correo"
+                    [class.is-invalid]="campoInvalidoMiCuenta('correo')"
+                    [class.is-valid]="controlesMiCuenta['correo'].valid && (controlesMiCuenta['correo'].touched || enviado)">
+                </div>
+    
+                <div class="mb-3">
+                    <label class="form-label" for="fecha-nacimiento">
+                        Fecha de nacimiento <i class="bi bi-asterisk"></i>
+                    </label>
+                    <input type="date" class="form-control" id="fecha-nacimiento"
+                    formControlName="fecha_nacimiento"
+                    [class.is-invalid]="campoInvalidoMiCuenta('fecha_nacimiento')"
+                    [class.is-valid]="controlesMiCuenta['fecha_nacimiento'].valid && (controlesMiCuenta['fecha_nacimiento'].touched || enviado)">
+                </div>
+    
+                <div class="mb-3">
+                    <label class="form-label" for="direccion">Dirección</label>
+                    <input type="text" class="form-control" id="direccion"
+                    formControlName="direccion">
+                </div>
+
+                <div
+                    class="alert alert-danger alerta-form"
+                    role="alert"
+                    *ngIf="enviado && estado === 0"
+                    [innerHTML]="respuesta">
+                </div>
+
+                
+                <div class="container text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-4 mb-1">
+                            <button class="btn btn-primary w-100" type="submit">Enviar</button>
+                        </div>
+                        <div class="col-12 col-sm-4 mb-1">
+                            <button class="btn btn-outline-secondary w-100" type="button" id="limpiar-form" (click)="limpiarForm('formularioMiCuenta')">Limpiar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <hr class="my-5">
+
+            <h2 class="text-titulo mb-3">Actualizar contraseña</h2>
+
+            <form novalidate (ngSubmit)="pass()" [formGroup]="formularioPass">
+                
+                <div class="mb-3">
+                    <label class="form-label" for="txt-pass">
+                        Contraseña <i class="bi bi-asterisk"></i>
+                    </label>
+
+                    <input type="password" class="form-control" id="pass"
+                    formControlName="pass"
+                    [class.is-invalid]="campoInvalidoPass('pass')"
+                    [class.is-valid]="controlesPass['pass'].valid && (controlesPass['pass'].touched || enviado_pass)">
+                </div>
+    
+                <div class="mb-3">
+                    <label class="form-label" for="re-pass">
+                        Repita la contraseña <i class="bi bi-asterisk"></i>
+                    </label>
+                    <input type="password" class="form-control" id="re-pass"
+                    formControlName="re_pass"
+                    [class.is-invalid]="
+                        campoInvalidoPass('re_pass') ||
+                        (formularioPass.hasError('pass_iguales_valida') && (controlesPass['re_pass'].touched || enviado_pass))
+                    "
+                    [class.is-valid]="
+                        controlesPass['re_pass'].valid &&
+                        !formularioPass.hasError('pass_iguales_valida') &&
+                        (controlesPass['re_pass'].touched || enviado_pass)
+                    ">
+                </div>
+
+                <div
+                    class="alert alert-danger alerta-form"
+                    role="alert"
+                    *ngIf="enviado_pass && estado_pass === 0"
+                    [innerHTML]="respuesta_pass">
+                </div>
+
+                
+                <div class="container text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-sm-4 mb-1">
+                            <button class="btn btn-primary w-100" type="submit">Enviar</button>
+                        </div>
+                        <div class="col-12 col-sm-4 mb-1">
+                            <button class="btn btn-outline-secondary w-100" type="button" id="limpiar-form" (click)="limpiarForm('formularioPass')">Limpiar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+
+
+
+        </div>
+    </div>
+</section>
+
+<ng-template #volverIniciarSesion>
+    <section class="page-content container d-flex text-center">
+        <div class="mx-auto">
+            <p class="display-5">
+                <i class="bi bi-ban"></i>
+            </p>
+            <p class="fs-5">
+                Debe iniciar sesión
+            </p>
+            <a class="btn btn-primary" routerLink="/login">Iniciar sesión</a>
+        </div>
+    </section>
+</ng-template>

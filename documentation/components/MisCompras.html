@@ -1,0 +1,925 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rotten-apple-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">rotten-apple-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MisCompras</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/mis-compras/mis-compras.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-mis-compras</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="https://angular.io/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                <code><a href="https://angular.io/api/router/RouterLink" target="_blank" >RouterLink</a></code>
+                                <code><a href="../components/ProductosCompra.html" target="_self" >ProductosCompra</a></code>
+                                <code><a href="../components/ResumenCompra.html" target="_self" >ResumenCompra</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./mis-compras.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./mis-compras.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#authService" >authService</a>
+                            </li>
+                            <li>
+                                <a href="#cargando" >cargando</a>
+                            </li>
+                            <li>
+                                <a href="#formatearPrecio" >formatearPrecio</a>
+                            </li>
+                            <li>
+                                <a href="#obtenerPrecioFinal" >obtenerPrecioFinal</a>
+                            </li>
+                            <li>
+                                <a href="#pedidosUsuario" >pedidosUsuario</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cargarPedidos" >cargarPedidos</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/Auth.html" target="_self">Auth</a>, pedidoService: <a href="../injectables/PedidoService.html" target="_self">PedidoService</a>, cdr: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:34</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Auth.html" target="_self" >Auth</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>pedidoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PedidoService.html" target="_self" >PedidoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cdr</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarPedidos"></a>
+                    <span class="name">
+                        <span ><b>cargarPedidos</b></span>
+                        <a href="#cargarPedidos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarPedidos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carga los pedidos del usuario desde la API y calcula la cantidad total de productos por pedido.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>authService</b></span>
+                        <a href="#authService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/Auth.html" target="_self" >Auth</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargando"></a>
+                    <span class="name">
+                        <span ><b>cargando</b></span>
+                        <a href="#cargando"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatearPrecio"></a>
+                    <span class="name">
+                        <span ><b>formatearPrecio</b></span>
+                        <a href="#formatearPrecio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>formatearPrecio</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="obtenerPrecioFinal"></a>
+                    <span class="name">
+                        <span ><b>obtenerPrecioFinal</b></span>
+                        <a href="#obtenerPrecioFinal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>obtenerPrecioFinal</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pedidosUsuario"></a>
+                    <span class="name">
+                        <span ><b>pedidosUsuario</b></span>
+                        <a href="#pedidosUsuario"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>PedidoConCantidad[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/mis-compras/mis-compras.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { RouterLink } from &#x27;@angular/router&#x27;;
+import { ChangeDetectorRef } from &#x27;@angular/core&#x27;;
+
+import { ResumenCompra } from &#x27;../../components/resumen-compra/resumen-compra&#x27;;
+import { ProductosCompra } from &#x27;../../components/productos-compra/productos-compra&#x27;;
+import { Auth } from &#x27;../../services/auth&#x27;;
+import { PedidoService } from &#x27;../../services/pedido-service&#x27;;
+import { Pedido } from &#x27;../../services/modelos&#x27;;
+
+import { formatearPrecio, obtenerPrecioFinal } from &#x27;../../utils/product-utils&#x27;;
+
+interface PedidoConCantidad extends Pedido {
+  cantidad_productos: number;
+}
+@Component({
+  selector: &#x27;app-mis-compras&#x27;,
+  imports: [
+    CommonModule,
+    RouterLink,
+    ProductosCompra,
+    ResumenCompra,
+  ],
+  templateUrl: &#x27;./mis-compras.html&#x27;,
+  styleUrl: &#x27;./mis-compras.css&#x27;,
+})
+export class MisCompras {
+
+  pedidosUsuario: PedidoConCantidad[] &#x3D; [];
+  cargando: boolean &#x3D; true;
+
+  formatearPrecio &#x3D; formatearPrecio;
+  obtenerPrecioFinal &#x3D; obtenerPrecioFinal;
+
+  constructor(
+    public authService: Auth,
+    private pedidoService: PedidoService,
+    private cdr: ChangeDetectorRef,
+  ) {}
+
+  ngOnInit(): void {
+    this.cargarPedidos();
+  }
+
+
+  /**
+   * Carga los pedidos del usuario desde la API y calcula la cantidad total de productos por pedido.
+   */
+  cargarPedidos(): void {
+    const usuarioActual &#x3D; this.authService.usuarioActual;
+    if(!usuarioActual) return;
+
+    this.pedidoService.apiObtenerPedidosUsuario(usuarioActual.id).subscribe({
+      next: pedidos &#x3D;&gt; {
+        this.pedidosUsuario &#x3D; pedidos.map(pedido &#x3D;&gt; ({
+          ...pedido,
+          cantidad_productos: pedido.detalle_pedido.reduce(
+            (total, item) &#x3D;&gt; total + item.cantidad, 0
+          )
+        }))
+        this.cargando &#x3D; false;
+        this.cdr.detectChanges();
+      },
+      error: () &#x3D;&gt; {
+        this.pedidosUsuario &#x3D; [];
+        this.cargando &#x3D; false;
+      }
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">
+&lt;section
+class&#x3D;&quot;page-content container&quot;
+*ngIf&#x3D;&quot;authService.logueado; else volverIniciarSesion&quot;&gt;
+
+    &lt;ng-container *ngIf&#x3D;&quot;cargando&quot;&gt;
+        cargando...
+    &lt;/ng-container&gt;
+
+    &lt;ng-container *ngIf&#x3D;&quot;!cargando&quot;&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;pedidosUsuario.length &gt; 0; else sinCompras&quot;&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;div class&#x3D;&quot;col col-12&quot;&gt;
+                    
+                    &lt;div class&#x3D;&quot;card mb-3 border-0 bg-transparent&quot;&gt;
+                        &lt;div class&#x3D;&quot;card-body&quot;&gt;
+                            &lt;h2 class&#x3D;&quot;text-titulo mb-3&quot;&gt;Mis compras&lt;/h2&gt;
+
+                            
+                            &lt;div *ngFor&#x3D;&quot;let pedido of pedidosUsuario; let i &#x3D; index&quot;&gt;
+                                &lt;div class&#x3D;&quot;accordion mb-3&quot;&gt;
+                                    &lt;div class&#x3D;&quot;accordion-item&quot;&gt;
+                                        &lt;h2 class&#x3D;&quot;accordion-header&quot;&gt;
+                                            &lt;button class&#x3D;&quot;accordion-button collapsed&quot; type&#x3D;&quot;button&quot; data-bs-toggle&#x3D;&quot;collapse&quot; [attr.data-bs-target]&#x3D;&quot;&#x27;#collapsePedido-&#x27; + i&quot; aria-expanded&#x3D;&quot;false&quot; [attr.aria-controls]&#x3D;&quot;&#x27;collapsePedido-&#x27; + i&quot;&gt;
+                                                &lt;div class&#x3D;&quot;row align-items-center&quot;&gt;
+                                                    &lt;div class&#x3D;&quot;col-auto&quot;&gt;
+                                                        # {{ i + 1 }}
+                                                    &lt;/div&gt;
+                                                    
+                                                    
+                                                    &lt;div class&#x3D;&quot;col-auto d-flex gap-1&quot;&gt;
+                                                        &lt;ng-container *ngFor&#x3D;&quot;let producto of pedido.detalle_pedido.slice(0, 3)&quot;&gt;
+                                                            &lt;img class&#x3D;&quot;img-fluid&quot; style&#x3D;&quot;max-height: 50px;&quot; [src]&#x3D;&quot;producto.imagen&quot;&gt;
+                                                        &lt;/ng-container&gt;
+    
+                                                        &lt;span *ngIf&#x3D;&quot;pedido.detalle_pedido.length &gt; 3&quot; class&#x3D;&quot;fw-bold&quot;&gt;
+                                                            +{{ pedido.detalle_pedido.length - 3 }}
+                                                        &lt;/span&gt;
+                                                    &lt;/div&gt;
+    
+    
+                                                    &lt;div class&#x3D;&quot;col-auto d-flex flex-column gap-2&quot;&gt;
+                                                        &lt;span class&#x3D;&quot;badge text-bg-light&quot;&gt;{{ pedido.estado }}&lt;/span&gt;
+                                                        &lt;span class&#x3D;&quot;small&quot;&gt;Fecha: {{ pedido.fecha | date:&#x27;dd-MM-yyyy&#x27; }}&lt;/span&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/button&gt;
+                                        &lt;/h2&gt;
+                                        &lt;div [id]&#x3D;&quot;&#x27;collapsePedido-&#x27; + i&quot; class&#x3D;&quot;accordion-collapse collapse&quot;&gt;
+                                            &lt;div class&#x3D;&quot;accordion-body&quot;&gt;
+    
+                                                &lt;div class&#x3D;&quot;row&quot;&gt;
+    
+                                                    &lt;div class&#x3D;&quot;col-12 col-md-8&quot;&gt;
+                                                        &lt;div class&#x3D;&quot;card border-0&quot;&gt;
+                                                            &lt;div class&#x3D;&quot;card-body p-0&quot;&gt;
+    
+                                                                &lt;div class&#x3D;&quot;mb-5&quot;&gt;
+                                                                    &lt;h5 class&#x3D;&quot;mb-1&quot;&gt;Historial&lt;/h5&gt;
+                                                                    &lt;div *ngFor&#x3D;&quot;let historial of pedido.historial_estado&quot;&gt;
+                                                                        &lt;p&gt;
+                                                                            &lt;span class&#x3D;&quot;badge text-bg-light&quot;&gt;{{ historial.estado }}&lt;/span&gt;
+                                                                            {{ historial.fecha | date:&#x27;dd-MM-yyyy HH:mm&#x27; }}
+                                                                        &lt;/p&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/div&gt;
+                                                                
+                                                                &lt;div class&#x3D;&quot;mb-5&quot;&gt;
+                                                                    &lt;h5 class&#x3D;&quot;mb-2&quot;&gt;Envío&lt;/h5&gt;
+                                                                    &lt;p&gt;&lt;span class&#x3D;&quot;fw-medium&quot;&gt;Direccion:&lt;/span&gt; {{ pedido.detalle_envio.direccion }}&lt;/p&gt;
+                                                                    &lt;p&gt;&lt;span class&#x3D;&quot;fw-medium&quot;&gt;Ciudad:&lt;/span&gt; {{ pedido.detalle_envio.ciudad }}&lt;/p&gt;
+                                                                    &lt;p&gt;&lt;span class&#x3D;&quot;fw-medium&quot;&gt;Región:&lt;/span&gt; {{ pedido.detalle_envio.region }}&lt;/p&gt;
+                                                                    
+                                                                    &lt;p class&#x3D;&quot;fw-semibold mb-2&quot;&gt;Datos contacto&lt;/p&gt;
+                                                                    &lt;p&gt;&lt;span class&#x3D;&quot;fw-medium&quot;&gt;Nombre de contacto:&lt;/span&gt; {{ pedido.detalle_envio.nombre_contacto }}&lt;/p&gt;
+                                                                    &lt;p&gt;&lt;span class&#x3D;&quot;fw-medium&quot;&gt;Teléfono de contacto:&lt;/span&gt; {{ pedido.detalle_envio.telefono_contacto }}&lt;/p&gt;
+                                                                &lt;/div&gt;
+    
+                                                                &lt;div class&#x3D;&quot;&quot;&gt;
+                                                                    &lt;h5 class&#x3D;&quot;mb-1&quot;&gt;Pago&lt;/h5&gt;
+                                                                    &lt;div [ngSwitch]&#x3D;&quot;pedido.tipo_pago&quot;&gt;
+                                                                        &lt;img *ngSwitchCase&#x3D;&quot;&#x27;tarjeta&#x27;&quot; class&#x3D;&quot;img-fluid w-100&quot; src&#x3D;&quot;/assets/img/pagos/logos-credito.png&quot; style&#x3D;&quot;max-width: 400px;&quot;&gt;
+                                                                        &lt;img *ngSwitchCase&#x3D;&quot;&#x27;webpay&#x27;&quot; class&#x3D;&quot;img-fluid w-100_&quot; src&#x3D;&quot;/assets/img/pagos/webpay.svg&quot; style&#x3D;&quot;max-height: 70px;&quot;&gt;
+                                                                        &lt;p *ngSwitchDefault&gt;Método de pago no disponible.&lt;/p&gt;
+                                                                    &lt;/div&gt;
+                                                                &lt;/div&gt;
+                                                            &lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+    
+    
+                                                    &lt;div class&#x3D;&quot;col-12 col-md-4 mt-5 mt-md-0&quot;&gt;
+                                                        &lt;div class&#x3D;&quot;card border-0 bg-transparent&quot;&gt;
+                                                            &lt;div class&#x3D;&quot;card-body p-0&quot;&gt;
+    
+                                                                &lt;h5 class&#x3D;&quot;card-title mb-3&quot;&gt;Productos ({{ pedido.cantidad_productos }})&lt;/h5&gt;
+                                                                &lt;div style&#x3D;&quot;max-height: 200px; overflow-y: auto;&quot;&gt;
+                                                                    &lt;app-productos-compra [productosCompra]&#x3D;&quot;pedido.detalle_pedido&quot;&gt;&lt;/app-productos-compra&gt;
+                                                                &lt;/div&gt;
+                                                                
+                                                                &lt;hr&gt;
+                                                                
+                                                                &lt;h5 class&#x3D;&quot;card-title&quot;&gt;Resumen compra&lt;/h5&gt;
+                                                                &lt;app-resumen-compra [resumenCompra]&#x3D;&quot;pedido.detalle_totales&quot;&gt;&lt;/app-resumen-compra&gt;
+                                                            &lt;/div&gt;
+                                                        &lt;/div&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;        
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/ng-container&gt;
+    &lt;/ng-container&gt;
+
+&lt;/section&gt;
+
+&lt;ng-template #volverIniciarSesion&gt;
+    &lt;section class&#x3D;&quot;page-content container d-flex text-center&quot;&gt;
+        &lt;div class&#x3D;&quot;mx-auto&quot;&gt;
+            &lt;p class&#x3D;&quot;display-5&quot;&gt;
+                &lt;i class&#x3D;&quot;bi bi-ban&quot;&gt;&lt;/i&gt;
+            &lt;/p&gt;
+            &lt;p class&#x3D;&quot;fs-5&quot;&gt;
+                Debe iniciar sesión
+            &lt;/p&gt;
+            &lt;a class&#x3D;&quot;btn btn-primary&quot; routerLink&#x3D;&quot;/login&quot;&gt;Iniciar sesión&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #sinCompras&gt;
+    &lt;section class&#x3D;&quot;page-content container d-flex text-center&quot;&gt;
+        &lt;div class&#x3D;&quot;mx-auto&quot;&gt;
+            &lt;p class&#x3D;&quot;display-5&quot;&gt;
+                &lt;i class&#x3D;&quot;bi bi-bag-x&quot;&gt;&lt;/i&gt;
+            &lt;/p&gt;
+            &lt;p class&#x3D;&quot;fs-5&quot;&gt;
+                No hay compras
+            &lt;/p&gt;
+            &lt;a class&#x3D;&quot;btn btn-primary&quot; routerLink&#x3D;&quot;/&quot;&gt;Ir al Home&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><sectionclass="page-content container"*ngIf="authService.logueado; else volverIniciarSesion">    <ng-container *ngIf="cargando">        cargando...    </ng-container>    <ng-container *ngIf="!cargando">        <ng-container *ngIf="pedidosUsuario.length > 0; else sinCompras">            <div class="row">                <div class="col col-12">                                        <div class="card mb-3 border-0 bg-transparent">                        <div class="card-body">                            <h2 class="text-titulo mb-3">Mis compras</h2>                                                        <div *ngFor="let pedido of pedidosUsuario; let i = index">                                <div class="accordion mb-3">                                    <div class="accordion-item">                                        <h2 class="accordion-header">                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="\'#collapsePedido-\' + i" aria-expanded="false" [attr.aria-controls]="\'collapsePedido-\' + i">                                                <div class="row align-items-center">                                                    <div class="col-auto">                                                        # {{ i + 1 }}                                                    </div>                                                                                                                                                            <div class="col-auto d-flex gap-1">                                                        <ng-container *ngFor="let producto of pedido.detalle_pedido.slice(0, 3)">                                                            <img class="img-fluid" style="max-height: 50px;" [src]="producto.imagen">                                                        </ng-container>                                                            <span *ngIf="pedido.detalle_pedido.length > 3" class="fw-bold">                                                            +{{ pedido.detalle_pedido.length - 3 }}                                                        </span>                                                    </div>                                                            <div class="col-auto d-flex flex-column gap-2">                                                        <span class="badge text-bg-light">{{ pedido.estado }}</span>                                                        <span class="small">Fecha: {{ pedido.fecha | date:\'dd-MM-yyyy\' }}</span>                                                    </div>                                                </div>                                            </button>                                        </h2>                                        <div [id]="\'collapsePedido-\' + i" class="accordion-collapse collapse">                                            <div class="accordion-body">                                                    <div class="row">                                                        <div class="col-12 col-md-8">                                                        <div class="card border-0">                                                            <div class="card-body p-0">                                                                    <div class="mb-5">                                                                    <h5 class="mb-1">Historial</h5>                                                                    <div *ngFor="let historial of pedido.historial_estado">                                                                        <p>                                                                            <span class="badge text-bg-light">{{ historial.estado }}</span>                                                                            {{ historial.fecha | date:\'dd-MM-yyyy HH:mm\' }}                                                                        </p>                                                                    </div>                                                                </div>                                                                                                                                <div class="mb-5">                                                                    <h5 class="mb-2">Envío</h5>                                                                    <p><span class="fw-medium">Direccion:</span> {{ pedido.detalle_envio.direccion }}</p>                                                                    <p><span class="fw-medium">Ciudad:</span> {{ pedido.detalle_envio.ciudad }}</p>                                                                    <p><span class="fw-medium">Región:</span> {{ pedido.detalle_envio.region }}</p>                                                                                                                                        <p class="fw-semibold mb-2">Datos contacto</p>                                                                    <p><span class="fw-medium">Nombre de contacto:</span> {{ pedido.detalle_envio.nombre_contacto }}</p>                                                                    <p><span class="fw-medium">Teléfono de contacto:</span> {{ pedido.detalle_envio.telefono_contacto }}</p>                                                                </div>                                                                    <div class="">                                                                    <h5 class="mb-1">Pago</h5>                                                                    <div [ngSwitch]="pedido.tipo_pago">                                                                        <img *ngSwitchCase="\'tarjeta\'" class="img-fluid w-100" src="/assets/img/pagos/logos-credito.png" style="max-width: 400px;">                                                                        <img *ngSwitchCase="\'webpay\'" class="img-fluid w-100_" src="/assets/img/pagos/webpay.svg" style="max-height: 70px;">                                                                        <p *ngSwitchDefault>Método de pago no disponible.</p>                                                                    </div>                                                                </div>                                                            </div>                                                        </div>                                                    </div>                                                            <div class="col-12 col-md-4 mt-5 mt-md-0">                                                        <div class="card border-0 bg-transparent">                                                            <div class="card-body p-0">                                                                    <h5 class="card-title mb-3">Productos ({{ pedido.cantidad_productos }})</h5>                                                                <div style="max-height: 200px; overflow-y: auto;">                                                                    <app-productos-compra [productosCompra]="pedido.detalle_pedido"></app-productos-compra>                                                                </div>                                                                                                                                <hr>                                                                                                                                <h5 class="card-title">Resumen compra</h5>                                                                <app-resumen-compra [resumenCompra]="pedido.detalle_totales"></app-resumen-compra>                                                            </div>                                                        </div>                                                    </div>                                                </div>                                            </div>                                        </div>                                    </div>                                </div>                            </div>                        </div>                    </div>                        </div>            </div>        </ng-container>    </ng-container></section><ng-template #volverIniciarSesion>    <section class="page-content container d-flex text-center">        <div class="mx-auto">            <p class="display-5">                <i class="bi bi-ban"></i>            </p>            <p class="fs-5">                Debe iniciar sesión            </p>            <a class="btn btn-primary" routerLink="/login">Iniciar sesión</a>        </div>    </section></ng-template><ng-template #sinCompras>    <section class="page-content container d-flex text-center">        <div class="mx-auto">            <p class="display-5">                <i class="bi bi-bag-x"></i>            </p>            <p class="fs-5">                No hay compras            </p>            <a class="btn btn-primary" routerLink="/">Ir al Home</a>        </div>    </section></ng-template></div>'
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'Checkout', 'selector': 'app-checkout'},{'name': 'Footer', 'selector': 'app-footer'},{'name': 'Grilla', 'selector': 'app-grilla'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MiCuenta', 'selector': 'app-mi-cuenta'},{'name': 'MisCompras', 'selector': 'app-mis-compras'},{'name': 'Navbar', 'selector': 'app-navbar'},{'name': 'NotFound', 'selector': 'app-not-found'},{'name': 'ProductItem', 'selector': 'app-product-item'},{'name': 'Producto', 'selector': 'app-producto'},{'name': 'ProductosCompra', 'selector': 'app-productos-compra'},{'name': 'Recuperar', 'selector': 'app-recuperar'},{'name': 'Registro', 'selector': 'app-registro'},{'name': 'ResumenCompra', 'selector': 'app-resumen-compra'},{'name': 'SerVip', 'selector': 'app-ser-vip'},{'name': 'TemplatePlaygroundComponent', 'selector': 'template-playground-root'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MisCompras'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MisCompras.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

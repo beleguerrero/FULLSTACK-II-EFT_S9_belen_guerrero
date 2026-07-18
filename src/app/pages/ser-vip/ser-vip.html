@@ -1,0 +1,172 @@
+
+<ng-container *ngIf="authService.logueado; else volverIniciarSesion">
+
+    <ng-container *ngIf="authService.esVip; else sectionFormSerVip">
+        <section class="page-content container d-flex text-center">
+            <div class="mx-auto">
+                <p class="display-5">
+                    <i class="bi bi-ban"></i>
+                </p>
+                <p class="fs-5">
+                    Ya eres miembro VIP!
+                </p>
+                <a class="btn btn-primary" routerLink="/">Ir al Home</a>
+            </div>
+        </section>
+    </ng-container>
+
+    <ng-template #sectionFormSerVip>
+        <section class="page-content container">
+            <div class="row">
+                <div class="col col-12 col-md-6 mx-auto">
+
+
+                    <div class="card text-primary mb-3 mx-auto border-primary shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Beneficio de ser VIP</h5>
+                            <p class="card-text m-0">
+                                <i class="bi bi-arrow-right-short"></i> Envío gratis <i class="bi bi-truck"></i>
+                            </p>
+                            <p class="card-text">
+                                <i class="bi bi-arrow-right-short"></i> 10% de descuento adicional en todos los productos <i class="bi bi-gift"></i>
+                            </p>
+                        </div>
+                    </div>
+
+                    <h2 class="text-titulo mb-3">Ser miembro VIP</h2>
+    
+                    <form novalidate (ngSubmit)="serVip()" [formGroup]="formularioSerVip">
+                        
+                        <div class="mb-3">
+                            <label class="form-label" for="n_tarjeta">
+                                Número de tarjeta <i class="bi bi-asterisk"></i>
+                            </label>
+                            <input type="text" class="form-control" id="n_tarjeta"
+                            formControlName="n_tarjeta"
+                            [class.is-invalid]="campoInvalido('n_tarjeta')"
+                            [class.is-valid]="controles['n_tarjeta'].valid && (controles['n_tarjeta'].touched || enviado)">
+                            
+                        </div>
+    
+                        <div class="mb-3 d-flex gap-3">
+                            <input value="1"
+                            type="radio" class="btn-check"
+                            [class.is-invalid]="campoInvalido('duracion')"
+                            formControlName="duracion" name="duracion" id="duracion-opcion-1" autocomplete="off">
+                            <label class="btn" for="duracion-opcion-1">
+                                <span class="fs-6">15 días</span><br>
+                                <span class="fs-5">
+                                    $ 2.990<br>
+                                </span>
+                                <small>$ 5.980/mes</small>
+                            </label>
+    
+                            <input value="2"
+                            type="radio" class="btn-check"
+                            [class.is-invalid]="campoInvalido('duracion')"
+                            formControlName="duracion" name="duracion" id="duracion-opcion-2" autocomplete="off">
+                            <label class="btn" for="duracion-opcion-2">
+                                <span class="fs-6">1 mes</span><br>
+                                <span class="fs-5">
+                                    $ 4.990<br>
+                                </span>
+                                <small>$ 4.990/mes</small>
+                            </label>
+    
+                            <input value="3"
+                            type="radio" class="btn-check"
+                            [class.is-invalid]="campoInvalido('duracion')"
+                            formControlName="duracion" name="duracion" id="duracion-opcion-3" autocomplete="off">
+                            <label class="btn" for="duracion-opcion-3">
+                                <span class="fs-6">3 meses</span><br>
+                                <span class="fs-5">
+                                    $ 12.990<br>
+                                </span>
+                                <small>$ 4.330/mes</small>
+                            </label>
+    
+                            <input value="4"
+                            type="radio" class="btn-check"
+                            [class.is-invalid]="campoInvalido('duracion')"
+                            formControlName="duracion" name="duracion" id="duracion-opcion-4" autocomplete="off">
+                            <label class="btn" for="duracion-opcion-4">
+                                <span class="fs-6">6 meses</span><br>
+                                <span class="fs-5">
+                                    $ 22.990<br>
+                                </span>
+                                <small>$ 3.830/mes</small>
+                            </label>
+    
+                            <input value="5"
+                            type="radio" class="btn-check"
+                            [class.is-invalid]="campoInvalido('duracion')"
+                            formControlName="duracion" name="duracion" id="duracion-opcion-5" autocomplete="off">
+                            <label class="btn" for="duracion-opcion-5">
+                                <span class="fs-6">1 año</span><br>
+                                <span class="fs-5">
+                                    $ 39.990<br>
+                                </span>
+                                <small>$ 3.330/mes</small>
+                            </label>
+    
+                        </div>
+    
+    
+    
+                        <div class="mb-3 form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="terminos"
+                            formControlName="terminos"
+                            [class.is-invalid]="campoInvalido('terminos')"
+                            [class.is-valid]="controles['terminos'].valid && (controles['terminos'].touched || enviado)">
+                            <label class="form-check-label" for="terminos">
+                                Acepto términos
+                            </label>
+                        </div>
+    
+                        <div
+                            class="alert alert-danger alerta-form"
+                            role="alert"
+                            *ngIf="enviado && estado === 0"
+                            [innerHTML]="respuesta">
+                        </div>
+    
+                        
+                        <div class="container text-center">
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-sm-4 mb-1">
+                                    <button class="btn btn-primary w-100" type="submit">Enviar</button>
+                                </div>
+                                <div class="col-12 col-sm-4 mb-1">
+                                    <button class="btn btn-outline-secondary w-100" type="button" id="limpiar-form" (click)="limpiarForm()">Limpiar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+    
+                    <div class="card text-bg-light my-3 col-12 col-md-6 mx-auto mt-4">
+                        <div class="card-body small">
+                            Tarjetas de prueba <br>
+                            <code>1111222233334444</code><br>
+                            <code>5555666677778888</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </ng-template>
+</ng-container>
+
+<ng-template #volverIniciarSesion>
+    <section class="page-content container d-flex text-center">
+        <div class="mx-auto">
+            <p class="display-5">
+                <i class="bi bi-ban"></i>
+            </p>
+            <p class="fs-5">
+                Debe iniciar sesión para poder ser miembro VIP
+            </p>
+            <a class="btn btn-primary" routerLink="/login">Iniciar sesión</a>
+        </div>
+    </section>
+</ng-template>
+

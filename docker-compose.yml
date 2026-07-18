@@ -1,0 +1,27 @@
+
+services:
+  # Servicio principal de Angular.
+  # Sirve la aplicación compilada mediante NGINX.
+  angular-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rotten-apple-angular-s9
+    container_name: rotten-apple-angular-s9-container
+    ports:
+      - "8080:80"
+    depends_on:
+      - json-server-api
+
+  # Servicio de API REST local usando json-server.
+  # Expone el endpoint http://localhost:3000/
+  json-server-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: rotten-apple-json-server-s9
+    container_name: rotten-apple-json-server-s9-container
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./db.json:/app/db.json

@@ -1,0 +1,38 @@
+
+<footer id="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <h4 class="footer-title">
+                <span class="text-color-secundario">ROTTEN</span><span class="text-color-principal">APPLE</span>
+            </h4>
+            <p>Tu tienda de juegos de mesa favorita.</p>
+        </div>
+
+        <div class="footer-links">
+            <h4 class="footer-title">Categorías</h4>
+            <ng-container *ngIf="!cargando">
+                <div class="footer-links"
+                *ngFor="let c of categorias">
+                    <a [routerLink]="['/categoria', c.slug]">{{ c.name }}</a>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="footer-links">
+            <h4 class="footer-title">Ayuda</h4>
+            <a href="#">Contacto</a>
+            <a href="#">Envíos</a>
+            <a href="#">Términos</a>
+        </div>
+
+        <div class="footer-social">
+            <h4 class="footer-title">Redes</h4>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">X</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 Rotten Apple - Todos los derechos reservados.</p>
+    </div>
+</footer>

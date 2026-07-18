@@ -1,0 +1,45 @@
+
+.navbar {
+    /* background-color: var(--color-fondo-secundario); */
+    background-color: #fff;
+}
+
+#navbar {
+    /* background-color: var(--color-fondo-secundario); */
+    padding: 15px;
+    box-shadow: var(--sombra-suave);
+    position: relative;
+    z-index: 10;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+a.navbar-item {
+    padding: 15px;
+}
+
+a.navbar-item {
+    color: var(--color-texto);
+    text-decoration: none;
+}
+
+a.navbar-item:hover {
+    color: var(--color-secundario);
+    transition: .3s;
+}
+
+a.dropdown-carrito::after {
+    content: '';
+    display: none;
+}
+
+a.dropdown-carrito {
+    margin: 0 20px;
+}
+
+a.dropdown-carrito .badge {
+    font-size: 13px;
+}

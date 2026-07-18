@@ -1,0 +1,990 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rotten-apple-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">rotten-apple-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  actualizarOpciones</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/usuario-service.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#correo" 
+>
+                                            correo
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#direccion" 
+>
+                                            direccion
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#fecha_nacimiento" 
+>
+                                            fecha_nacimiento
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#id" 
+>
+                                            id
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#nombre" 
+>
+                                            nombre
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#pass" 
+>
+                                            pass
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#rol" 
+>
+                                            rol
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#usuario" 
+>
+                                            usuario
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="correo"></a>
+                                        <span class="name "><b>correo</b>
+                                            <a href="#correo">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>correo:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="direccion"></a>
+                                        <span class="name "><b>direccion</b>
+                                            <a href="#direccion">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>direccion:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="fecha_nacimiento"></a>
+                                        <span class="name "><b>fecha_nacimiento</b>
+                                            <a href="#fecha_nacimiento">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>fecha_nacimiento:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="id"></a>
+                                        <span class="name "><b>id</b>
+                                            <a href="#id">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="nombre"></a>
+                                        <span class="name "><b>nombre</b>
+                                            <a href="#nombre">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>nombre:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="pass"></a>
+                                        <span class="name "><b>pass</b>
+                                            <a href="#pass">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>pass:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="rol"></a>
+                                        <span class="name "><b>rol</b>
+                                            <a href="#rol">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>rol:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="usuario"></a>
+                                        <span class="name "><b>usuario</b>
+                                            <a href="#usuario">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>usuario:     <code>string | null</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string | null</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
+import { BehaviorSubject, Observable, map, of, switchMap } 	from &quot;rxjs&quot;;
+import { HttpClient } from &quot;@angular/common/http&quot;;
+
+import { Usuario, UsuarioVip } from &quot;./modelos&quot;;
+
+interface registrarOpciones {
+	nombre				  : string;
+	usuario				? : string | null;
+	correo				  : string;
+	pass				? : string | null;
+	re_pass				? : string | null;
+	fecha_nacimiento	  : string;
+	direccion			? : string | null;
+	visita				? : boolean;
+}
+
+interface actualizarOpciones {
+	id 					  : string;
+	nombre 				? : string | null;
+	usuario 			? : string | null;
+	correo 				? : string | null;
+	pass 				? : string | null;
+	fecha_nacimiento 	? : string | null;
+	direccion 			? : string | null;
+	rol 				? : string | null;
+}
+
+@Injectable({
+	providedIn: &#x27;root&#x27;
+})
+export class UsuarioService {
+	
+	private readonly urlUsuarios &#x3D; &#x27;http://localhost:3000/usuarios&#x27;;
+	private readonly urlUsuariosVip &#x3D; &#x27;http://localhost:3000/usuarios_vip&#x27;;
+	
+	private usuarios: Usuario[] &#x3D; [];
+	private usuarios_vip: UsuarioVip[] &#x3D; [];
+
+	constructor(
+		private http: HttpClient,
+	) {
+		this.inicializarUsuarios();
+		this.inicializarUsuariosVip();
+	}
+
+	public inicializarUsuarios(): void {
+		this.http.get&lt;Usuario[]&gt;(this.urlUsuarios).subscribe({
+			next: usuarios &#x3D;&gt; {
+				this.usuarios &#x3D; usuarios;
+			},
+			error: () &#x3D;&gt; {
+				this.usuarios &#x3D; [];
+			}
+		});
+	}
+
+	private inicializarUsuariosVip(): void {
+		this.http.get&lt;UsuarioVip[]&gt;(this.urlUsuariosVip).subscribe({
+			next: usuarios_vip &#x3D;&gt; {
+				this.usuarios_vip &#x3D; usuarios_vip;
+			},
+			error: () &#x3D;&gt; {
+				this.usuarios_vip &#x3D; [];
+			}
+		});
+	}
+
+
+	/**
+	 * Obtiene lista de usuarios desde la API.
+	 * @returns Observable con array de los usuarios.
+	 */
+	apiObtenerUsuarios(): Observable&lt;Usuario[]&gt; {
+		return this.http.get&lt;Usuario[]&gt;(this.urlUsuarios);
+	}
+
+
+	/**
+	 * Obtiene lista de los usuarios vip desde la API.
+	 * @returns Observable con array de los usuarios vip.
+	 */
+	apiObtenerUsuariosVip(): Observable&lt;UsuarioVip[]&gt; {
+		return this.http.get&lt;UsuarioVip[]&gt;(this.urlUsuariosVip);
+	}
+
+
+	/**
+	 * Obtiene usuarios por su correo desde la API.
+	 * @param correo String con el correo para identificar al usuario.
+	 * @returns Observable con el usuario encontrado, puede ser nulo.
+	 */
+	apiObtenerUsuariosPorCorreo(correo: string): Observable&lt;Usuario[] | null&gt; {
+		return this.http.get&lt;Usuario[]&gt;(&#x60;${this.urlUsuarios}?email&#x3D;${correo}&#x60;).pipe(
+			map(usuarios &#x3D;&gt; usuarios ?? null)
+		);
+	}
+
+
+	/**
+	 * Crea un nuevo usuario desde la API.
+	 * @param usuario Objeto usuario a crear.
+	 * @returns Observable con el usuario creado.
+	 */
+	apiCrearUsuario(usuario: Usuario): Observable&lt;Usuario&gt; {
+		return this.http.post&lt;Usuario&gt;(this.urlUsuarios, usuario);
+	}
+
+
+	/**
+	 * Crea un nuevo usuario vuo¿p desde la API.
+	 * @param usuario_vip Objeto usuario vip a crear.
+	 * @returns Observable con el usuario vip creado.
+	 */
+	apiCrearUsuarioVip(usuario_vip: UsuarioVip): Observable&lt;UsuarioVip&gt; {
+		return this.http.post&lt;UsuarioVip&gt;(this.urlUsuariosVip, usuario_vip);
+	}
+
+
+	/**
+	 * Actualiza un usuario desde la API.
+	 * @param usuario Objeto usuario a actualizar.
+	 * @returns Observable del usuario actualizado.
+	 */
+	apiActualizarUsuario(usuario: Usuario): Observable&lt;Usuario&gt; {
+		return this.http.put&lt;Usuario&gt;(&#x60;${this.urlUsuarios}/${usuario.id}&#x60;, usuario);
+	}
+
+
+	/**
+	 * Actualiza un usuario vip desde la API.
+	 * @param usuario_vip Objeto usuario vip a actualizar.
+	 * @returns Observable del usuario vip actualizado.
+	 */
+	apiActualizarUsuarioVip(usuario_vip: UsuarioVip): Observable&lt;UsuarioVip&gt; {
+		return this.http.put&lt;UsuarioVip&gt;(&#x60;${this.urlUsuariosVip}/${usuario_vip.id}&#x60;, usuario_vip);
+	}
+
+
+	obtenerUsuarios(): Usuario[] {
+		return [...this.usuarios];
+	}
+
+
+	/**
+	 * Crea un nuevo usuario. Rol BÁSICO por defecto.
+	 * @param opciones Objeto con la información del usuario a registrar.
+	 * @returns Observable de objeto con estado, respuesta y usuario.
+	 * - estado: 0 error | 1 correcto.
+	 * - respuesta: mensaje.
+	 * - usuario: objeto usuario, puede ser nulo.
+	 */
+	registrar(
+		{ nombre, usuario&#x3D;null, correo, pass&#x3D;null, re_pass&#x3D;null, fecha_nacimiento, direccion&#x3D;null, visita&#x3D;false }: registrarOpciones
+	): Observable&lt;{ estado: number; respuesta: string, usuario: Usuario | null }&gt; {
+		const nombre_limpio &#x3D; nombre.trim();
+		const correo_limpio &#x3D; correo.trim().toLowerCase();
+		const rol           &#x3D; visita &#x3D;&#x3D;&#x3D; true ? &#x27;VISITA&#x27; : &#x27;BÁSICO&#x27;;
+
+		let usuario_limpio    : string | null &#x3D; null;
+		let pass_limpio       : string | null &#x3D; null;
+		let direccion_limpio  : string | null &#x3D; null;
+
+		if(!visita) {
+			if(!usuario)    return of ({ estado: 0, respuesta: &#x27;Falta usuario&#x27;, usuario: null });
+			if(!pass)       return of ({ estado: 0, respuesta: &#x27;Falta contraseña&#x27;, usuario: null });
+
+			usuario_limpio    &#x3D; usuario.trim().toLowerCase();
+			pass_limpio       &#x3D; pass.trim();
+			direccion_limpio  &#x3D; direccion ? direccion.trim() : &#x27;&#x27;;
+	
+			const usuarios &#x3D; this.usuarios;
+	
+			const existeCorreo &#x3D; usuarios.some(u &#x3D;&gt; u.email.toLowerCase() &#x3D;&#x3D;&#x3D; correo_limpio);
+			if(existeCorreo) return of ({ estado: 0, respuesta: &#x27;Ya existe una cuenta con ese correo&#x27;, usuario: null });
+	
+			if(!usuario) return of ({ estado: 0, respuesta: &#x27;Falta usuario&#x27;, usuario: null });
+	
+			const existeUsuario &#x3D; usuarios.some(u &#x3D;&gt; u.username!.toLowerCase() &#x3D;&#x3D;&#x3D; usuario_limpio &amp;&amp; u.role !&#x3D;&#x3D; &#x27;VISITA&#x27;);
+			if(existeUsuario) return of ({ estado: 0, respuesta: &#x27;Ya existe una cuenta con ese usuario&#x27;, usuario: null });
+		}
+				
+		const nuevoUsuario: Usuario &#x3D; {
+			id			: crypto.randomUUID(),
+			name		: nombre_limpio,
+			username	: usuario_limpio,
+			email		: correo_limpio,
+			pass		: pass_limpio,
+			birthdate 	: new Date(fecha_nacimiento),
+			address		: direccion_limpio,
+			role		: rol
+		}
+
+		return this.apiCrearUsuario(nuevoUsuario).pipe(
+			map(usuarioCreado &#x3D;&gt; {
+				this.usuarios.push(usuarioCreado);
+				return { estado: 1, respuesta: &#x27;Usuario creado correctamente&#x27;, usuario: nuevoUsuario };
+			})
+		);
+	}
+
+
+	/**
+	 * Permite acualizar los datos de un usuario.
+	 * @param opciones Objeto con la información del usuario a actualizar.
+	 * @returns Observable de objeto con estado, respuesta y usuario.
+	 * - estado: 0 error | 1 correcto.
+	 * - respuesta: mensaje.
+	 * - usuario: objeto usuario, puede ser nulo.
+	 */
+	actualizarUsuario(
+		{ id, nombre&#x3D;null, usuario&#x3D;null, correo&#x3D;null, pass&#x3D;null, fecha_nacimiento&#x3D;null, direccion&#x3D;null, rol&#x3D;null }: actualizarOpciones
+	): Observable&lt;{ estado: number; respuesta: string; usuario: Usuario | null }&gt; {
+
+		const usuarios &#x3D; this.usuarios;
+
+		const usuarioEncontrado &#x3D; usuarios.find(u &#x3D;&gt; u.id &#x3D;&#x3D;&#x3D; id);
+		if(!usuarioEncontrado) return of ({ estado: 0, respuesta: &#x27;No se encontró usuario&#x27;, usuario: null });
+
+		if(correo) {
+			const existeCorreo &#x3D; usuarios.some(u &#x3D;&gt; u.email.toLowerCase() &#x3D;&#x3D;&#x3D; correo.trim().toLowerCase());
+			if(existeCorreo) return of ({ estado: 0, respuesta: &#x27;Ya existe una cuenta con ese correo&#x27;, usuario: null });
+		}
+
+		if(usuario) {
+			const existeUsuario &#x3D; usuarios.some(u &#x3D;&gt; u.username!.toLowerCase() &#x3D;&#x3D;&#x3D; usuario.trim().toLowerCase() &amp;&amp;u.role !&#x3D;&#x3D; &#x27;VISITA&#x27;);
+			if(existeUsuario) return of ({ estado: 0, respuesta: &#x27;Ya existe una cuenta con ese usuario&#x27;, usuario: null });
+		}
+				
+		if(nombre)           usuarioEncontrado.name      &#x3D; nombre.trim();
+		if(usuario)          usuarioEncontrado.username  &#x3D; usuario.trim();
+		if(correo)           usuarioEncontrado.email     &#x3D; correo.trim();
+		if(pass)             usuarioEncontrado.pass      &#x3D; pass.trim();
+		if(fecha_nacimiento) usuarioEncontrado.birthdate &#x3D; new Date(fecha_nacimiento);
+		if(direccion)        usuarioEncontrado.address   &#x3D; direccion.trim();
+		if(rol)              usuarioEncontrado.role      &#x3D; rol.trim();
+
+		return this.apiActualizarUsuario(usuarioEncontrado).pipe(
+			map(usuarioActualizado &#x3D;&gt; {
+				this.usuarios.push(usuarioActualizado);
+				return { estado: 1, respuesta: &#x27;Usuario actualizado correctamente&#x27;, usuario: usuarioEncontrado };
+			})
+		);
+	}
+
+
+	/**
+	 * Agrega un nuevo usuario al local storage de usuario VIP.
+	 * @param usuario_id ID del usuario.
+	 * @param tarjeta Número de tarjeta.
+	 * @param fecha_inicio Fecha de inicio de la suscripción VIP.
+	 * @param fecha_termino Fecha de Término de la suscripción VIP.
+	 * @returns Objeto con estado, respuesta y usuario.
+	 * - estado: 0 error | 1 correcto.
+	 * - respuesta: mensaje.
+	 * - usuario: objeto Usuario modificado, puede ser nulo.
+	 */
+	registrar_vip(
+		usuario_id: string, tarjeta: number, fecha_inicio: string, fecha_termino: string
+	): Observable&lt;{ estado: number; respuesta: string, usuario: Usuario | null }&gt; {
+
+		const usuarios &#x3D; this.usuarios;
+
+		const usuarioEncontrado &#x3D; usuarios.find(u &#x3D;&gt; u.id &#x3D;&#x3D;&#x3D; usuario_id);
+		if(!usuarioEncontrado) return of ({ estado: 0, respuesta: &#x27;Usuario no encontrado&#x27;, usuario: null });
+
+		const es_vip &#x3D; this.esUsuarioVip(usuario_id);
+		if(es_vip) return of ({ estado: 0, respuesta: &#x27;Ya es usuario vip&#x27;, usuario: null });
+				
+		const nuevoUsuarioVip: UsuarioVip &#x3D; {
+			id			: crypto.randomUUID(),
+			usuario_id	: usuario_id,
+			card_number	: tarjeta,
+			start_date	: new Date(fecha_inicio),
+			end_date	: new Date(fecha_termino)
+		}
+
+		return this.apiCrearUsuarioVip(nuevoUsuarioVip).pipe(
+			switchMap(usuarioVipCreado &#x3D;&gt; {
+				this.usuarios_vip.push(usuarioVipCreado);
+				
+				const rol &#x3D; usuarioEncontrado.role;
+				if(rol &#x3D;&#x3D;&#x3D; &#x27;VIP&#x27;) return of ({ estado: 1, respuesta: &#x27;Usuario creado correctamente&#x27;, usuario: usuarioEncontrado });
+				
+
+				return this.actualizarUsuario({
+					id	: usuario_id,
+					rol : &#x27;VIP&#x27;
+				}).pipe(
+					map(resultado &#x3D;&gt; ({
+						estado		: resultado.estado,
+						respuesta	: resultado.respuesta,
+						usuario		: resultado.usuario
+					}))
+				);
+			})
+		);
+	}
+
+
+	/**
+	 * Permite actualizar los datos de un usuario VIP en el local storage de usuarios_vip.
+	 * @param usuario_id ID del usuario. Obligatorio.
+	 * @param tarjeta Número de tarjeta. Opcional.
+	 * @param fecha_inicio Fecha de inicio de la suscripción VIP. Opcional.
+	 * @param fecha_termino Fecha de término de la suscripcipon VIP. Opcional.
+	 * @returns Objeto con estado y respuesta.
+	 * - estado: 0 error | 1 correcto.
+	 * - respuesta: mensaje.
+	 */
+	actualizarUsuarioVip(
+		usuario_id: string, tarjeta: number | null, fecha_inicio: Date | null, fecha_termino: Date | null
+	): Observable&lt;{ estado: number; respuesta: string }&gt; {
+		
+		const usuarios_vip &#x3D; this.usuarios_vip;
+
+		const vipEncontrado &#x3D; usuarios_vip.find(vip &#x3D;&gt; vip.usuario_id &#x3D;&#x3D;&#x3D; usuario_id);
+		if(!vipEncontrado) return of ({ estado: 0, respuesta: &#x27;No se encontró usuario vip&#x27; });
+
+
+		if(tarjeta)         vipEncontrado.card_number &#x3D; tarjeta;
+		if(fecha_inicio)    vipEncontrado.start_date  &#x3D; fecha_inicio;
+		if(fecha_termino)   vipEncontrado.end_date    &#x3D; fecha_termino;
+
+
+		return this.apiActualizarUsuarioVip(vipEncontrado).pipe(
+			map(vipActualizado &#x3D;&gt; {
+				this.usuarios_vip.push(vipActualizado);
+				return { estado: 1, respuesta: &#x27;Usuario vip actualizado correctamente&#x27; };
+			})
+		);
+	}
+
+
+	/**
+	 * Premite obtener el ID de un usuario por su correo.
+	 * @param correo Correo electrónico del usuario.
+	 * @returns ID del usuario, puede ser nulo.
+	 */
+	obtenerUsuarioId(correo:string): string | null {
+		const correo_limpio &#x3D; correo.trim().toLowerCase();
+		const usuarios &#x3D; this.usuarios
+		
+		const usuarioEncontrado &#x3D; usuarios.find(
+			u &#x3D;&gt; u.email.toLowerCase() &#x3D;&#x3D;&#x3D; correo_limpio
+		);
+		if(usuarioEncontrado) {
+			return usuarioEncontrado.id;
+		}
+		return null;
+	}
+
+
+	/**
+	 * Retorna un bool que indica si el usuario es VIP o no.
+	 * Revisa si existe en usuarios_vip y su fecha de término.
+	 * @param usuario_id ID del usuario.
+	 * @returns boolean que indica si es o no un usuario VIP.
+	 */
+	public esUsuarioVip(usuario_id:string): boolean {
+
+		const vipEncontrado &#x3D; this.usuarios_vip.find(
+			vip &#x3D;&gt; vip.usuario_id &#x3D;&#x3D;&#x3D; usuario_id
+		)
+
+		if(vipEncontrado) {
+			// revisar fecha de término
+			const fecha_actual &#x3D; new Date();
+			const fecha_termino &#x3D; new Date(vipEncontrado.end_date);
+
+			if(fecha_termino.setHours(0,0,0,0) &gt; fecha_actual.setHours(0,0,0,0)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'actualizarOpciones.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,14 @@
+
+@media screen and (max-width: 768px) {
+    .card-product .product-img {
+        text-align: center;
+    }
+
+    .card-product .product-delete {
+        margin: 0 auto;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+}

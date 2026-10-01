@@ -37,7 +37,7 @@ stages:
                       echo "Azure CLI ya está instalado."
                     fi
                   displayName: 'Verificar e Instalar Azure CLI'
-                  # failOnStderr: true
+                  failOnStderr: false
 
 
                 # =============================
@@ -64,7 +64,7 @@ stages:
                       echo "Docker ya está instalado."
                     fi
                   displayName: 'Verificar e Instalar Docker'
-                  # failOnStderr: true
+                  failOnStderr: false
 
 
                 # =============================
@@ -74,7 +74,7 @@ stages:
                     echo ${ACR_PASSWORD} | sudo docker login ${ACR_NAME}.azurecr.io -u ${ACR_USERNAME} --password-stdin > /dev/null 2>&1
                     
                   displayName: 'Login ACR'
-                  # failOnStderr: true
+                  failOnStderr: false
 
 
                 # =============================
@@ -88,7 +88,7 @@ stages:
                     sudo docker pull ${ACR_NAME}.azurecr.io/${ACR_NAME}.azurecr.io/${IMAGE_API}:latest
                   
                   displayName: 'Pull imágenes desde acr'
-                  # failOnStderr: true
+                  failOnStderr: false
 
 
                 # =============================
@@ -110,7 +110,7 @@ stages:
                     sudo docker run -d -p 80:80 --name angular-app ${ACR_NAME}.azurecr.io/${ACR_NAME}.azurecr.io/${IMAGE_APP}:latest
 
                   displayName: 'Ejecutar Angular'
-                  # failOnStderr: true
+                  failOnStderr: false
 
 
                 # =============================
@@ -120,7 +120,7 @@ stages:
                     sudo docker run -d -p 3000:3000 --name json-server-api ${ACR_NAME}.azurecr.io/${ACR_NAME}.azurecr.io/${IMAGE_APP}:latest
                     
                   displayName: 'Ejecutar API'
-                  # failOnStderr: true
+                  failOnStderr: false
 
 
                 # =============================
@@ -130,7 +130,7 @@ stages:
                     sudo docker ps
 
                   displayName: 'Verificar contenedores'
-                  # failOnStderr: true
+                  failOnStderr: false
 
 
                 # =============================

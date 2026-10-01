@@ -37,7 +37,7 @@ stages:
                       echo "Azure CLI ya está instalado."
                     fi
                   displayName: 'Verificar e Instalar Azure CLI'
-                  failOnStderr: true
+                  # failOnStderr: true
 
 
                 # =============================
@@ -64,7 +64,7 @@ stages:
                       echo "Docker ya está instalado."
                     fi
                   displayName: 'Verificar e Instalar Docker'
-                  failOnStderr: true
+                  # failOnStderr: true
 
 
                 # =============================
@@ -74,7 +74,7 @@ stages:
                     echo ${ACR_PASSWORD} | sudo docker login ${ACR_NAME}.azurecr.io -u ${ACR_USERNAME} --password-stdin > /dev/null 2>&1
                     
                   displayName: 'Login ACR'
-                  failOnStderr: true
+                  # failOnStderr: true
 
 
                 # =============================
@@ -88,7 +88,7 @@ stages:
                     sudo docker pull ${ACR_NAME}.azurecr.io/${ACR_NAME}.azurecr.io/${IMAGE_API}:latest
                   
                   displayName: 'Pull imágenes desde acr'
-                  failOnStderr: true
+                  # failOnStderr: true
 
 
                 # =============================

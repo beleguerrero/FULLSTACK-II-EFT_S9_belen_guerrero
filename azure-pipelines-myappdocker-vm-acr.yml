@@ -1,0 +1,144 @@
+trigger:
+  branches:
+    include:
+      - devops
+
+variables:
+  VM_IP_PUBLICA: '52.240.56.251'  # Se debe colocar la IP pública de tu máquina virtual
+  IMAGE_APP: 'img-app-s8'  # Se debe colocar el Nombre de la imagen que será descargada desde ACR
+  IMAGE_API: 'img-app-s8'  # Se debe colocar el Nombre de la imagen que será descargada desde ACR
+  ACR_NAME: 'acrgrupo09s8'  # Se debe colocar el Nombre de tu Azure Container Registry (ACR)
+  ACR_USERNAME: 'acrgrupo09s8'  # Se debe colocar el Nombre de usuario del ACR
+  ACR_PASSWORD: 'DSymZXnDC2qDprdOH9EnMOxjfqnx4J9bFLSax41GDjqTxTvCGt3KJQQJ99CIACYeBjFEqg7NAAACAZCR493i'  # Se debe colocar la Contraseña del ACR
+
+stages:
+  - stage: Deploy
+    jobs:
+      - deployment: DeployToVM
+        displayName: 'Deploy to VM'
+        environment:
+          name: 'env-vm-s8'  # Nombre del entorno configurado en Azure DevOps
+          resourceType: VirtualMachine  # Especifica que se conecta a una máquina virtual
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                
+                # =============================
+                # Verificar e instalar Azure CLI en la máquina virtual
+                - script: |
+                    if ! command -v az &> /dev/null; then
+                      echo "Azure CLI no está instalado. Instalando Azure CLI..."
+                      sudo apt-get update && \
+                      sudo apt-get install -y curl && \
+                      curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash && \
+                      az --version
+                    else
+                      echo "Azure CLI ya está instalado."
+                    fi
+                  displayName: 'Verificar e Instalar Azure CLI'
+                  failOnStderr: true
+
+
+                # =============================
+                # Verificar e instalar Docker en la máquina virtual
+                - script: |
+                    if ! command -v docker &> /dev/null; then
+                      echo "Docker no está instalado. Instalando Docker..."
+                      export DEBIAN_FRONTEND=noninteractive && \
+                      sudo apt-get update && \
+                      sudo apt-get install -y \
+                        apt-transport-https \
+                        ca-certificates \
+                        curl \
+                        gnupg \
+                        lsb-release && \
+                      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
+                      echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null && \
+                      sudo apt-get update && \
+                      sudo apt-get install -y docker-ce docker-ce-cli containerd.io && \
+                      sudo systemctl start docker && \
+                      sudo systemctl enable docker && \
+                      sudo docker --version
+                    else
+                      echo "Docker ya está instalado."
+                    fi
+                  displayName: 'Verificar e Instalar Docker'
+                  failOnStderr: true
+
+
+                # =============================
+                # Autenticarse en Azure Container Registry utilizando nombre de usuario y contraseña
+                - script: |
+                    echo "Autenticándose en Azure Container Registry y ejecutando la imagen Docker..."
+                    echo ${ACR_PASSWORD} | sudo docker login ${ACR_NAME}.azurecr.io -u ${ACR_USERNAME} --password-stdin > /dev/null 2>&1
+                    
+                  displayName: 'Login ACR'
+                  failOnStderr: true
+
+
+                # =============================
+                # Descargar la imagen desde ACR
+                - script: |
+                    
+                    echo "Descargando imagen Angular"
+                    sudo docker pull ${ACR_NAME}.azurecr.io/${ACR_NAME}.azurecr.io/${IMAGE_APP}:latest
+
+                    echo "Descargando imagen API"
+                    sudo docker pull ${ACR_NAME}.azurecr.io/${ACR_NAME}.azurecr.io/${IMAGE_API}:latest
+                  
+                  displayName: 'Pull imágenes desde acr'
+                  failOnStderr: true
+
+
+                # =============================
+                # Eliminar contenedores anteriores
+                - script: |
+                    echo "Eliminando contenedor angular anterior"
+                    sudo docker rm -f angular-app 2>/dev/null || true
+
+                    echo "Eliminando contenedor api anterior"
+                    sudo docker rm -f json-server-api 2>/dev/null || true
+
+                  displayName: 'Eliminar contenedores anteriores'
+
+
+                # =============================
+                # Ejecutar Angular
+                - script: |
+                    echo "Crear y ejecutar contenedor Angular"
+                    sudo docker run -d -p 80:80 --name angular-app ${ACR_NAME}.azurecr.io/${ACR_NAME}.azurecr.io/${IMAGE_APP}:latest
+
+                  displayName: 'Ejecutar Angular'
+                  # failOnStderr: true
+
+
+                # =============================
+                # Ejecutar json-server
+                - script: |
+                    echo "Crear y ejecutar contenedor API"
+                    sudo docker run -d -p 3000:3000 --name json-server-api ${ACR_NAME}.azurecr.io/${ACR_NAME}.azurecr.io/${IMAGE_APP}:latest
+                    
+                  displayName: 'Ejecutar API'
+                  # failOnStderr: true
+
+
+                # =============================
+                # Verificar contenedores
+                - script: |
+                    echo "Contenedores ejecutándose"
+                    sudo docker ps
+
+                  displayName: 'Verificar contenedores'
+                  # failOnStderr: true
+
+
+                # =============================
+                # Mostrar la URL para acceder a Nginx
+                - script: |
+                    echo "Aplicación Angular"
+                    echo "http://${VM_IP_PUBLICA}/"
+                    echo ""
+                    echo "Aplicación Angular"
+                    echo "http://${VM_IP_PUBLICA}:3000/"
+                  displayName: 'Mostrar URL de la máquina virtual'

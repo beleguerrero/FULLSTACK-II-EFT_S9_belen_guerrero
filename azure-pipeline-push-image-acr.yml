@@ -1,0 +1,38 @@
+trigger:
+  branches:
+    include:
+      - devops_eft
+
+variables:
+  # Variables de entorno
+  ACR_NAME: 'acrgrupo09eft' # Colocar el nombre de tu ACR
+  IMAGE_APP: 'img-app-eft' # Colocar el Nombre de Imagen
+  IMAGE_API: 'img-api-eft' # Colocar el Nombre de Imagen
+  SERVICE_CONNECTION_NAME: 'sc-acr-eft' # Colocar nombre del Service Connection ubicado en Docker Registry-- Azure Container Registry
+
+jobs:
+  - job: BuildAndPush
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      # APP ANGULAR
+      - task: Docker@2
+        inputs:
+          command: 'buildAndPush'
+          containerRegistry: '$(SERVICE_CONNECTION_NAME)'
+          repository: '$(ACR_NAME).azurecr.io/$(IMAGE_APP)'
+          dockerfile: 'Dockerfile'
+          tags: |
+            latest
+        displayName: 'Build and Push ANGULAR'
+      
+      # API json-server
+      - task: Docker@2
+        inputs:
+          command: 'buildAndPush'
+          containerRegistry: '$(SERVICE_CONNECTION_NAME)'
+          repository: '$(ACR_NAME).azurecr.io/$(IMAGE_API)'
+          dockerfile: 'Dockerfile.api'
+          tags: |
+            latest
+        displayName: 'Build and Push API'

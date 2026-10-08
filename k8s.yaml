@@ -1,0 +1,71 @@
+# k8s.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular-app
+  template:
+    metadata:
+      labels:
+        app: angular-app
+    spec:
+      containers:
+        - name: angular
+          image: acrgrupo09eft.azurecr.io/acrgrupo09eft.azurecr.io/img-app-eft:latest
+          ports:
+            - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: angular-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: angular-app
+  ports:
+    - port: 80
+      targetPort: 80
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: json-server-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: json-server-api
+  template:
+    metadata:
+      labels:
+        app: json-server-api
+    spec:
+      containers:
+        - name: api
+          image: acrgrupo09eft.azurecr.io/acrgrupo09eft.azurecr.io/img-api-eft:latest
+          ports:
+            - containerPort: 3000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: json-server-api-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: json-server-api
+  ports:
+    - port: 3000
+      targetPort: 3000

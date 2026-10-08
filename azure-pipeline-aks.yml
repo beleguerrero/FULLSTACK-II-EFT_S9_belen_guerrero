@@ -1,0 +1,52 @@
+trigger:
+  branches:
+    include:
+      - devops_eft
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  azureSubscription: 'sc-aks-eft'
+  resourceGroupName: 'DEVOPS_001A_GRUPO09_eastus'
+  aksClusterName: 'AKS-EFT-Grupo09-eastus'
+
+steps:
+
+# Instalar kubectl
+- task: KubectlInstaller@0
+  displayName: 'Instalar kubectl'
+  inputs:
+    kubectlVersion: 'latest'
+
+
+# Obtener credenciales del AKS
+- task: AzureCLI@2
+  displayName: 'Conectar con AKS'
+  inputs:
+    azureSubscription: '$(azureSubscription)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      az aks get-credentials --resource-group $(resourceGroupName) --name $(aksClusterName) --overwrite-existing
+
+
+# Desplegar Kubernetes
+- task: Kubernetes@1
+  displayName: 'Desplegar aplicación en AKS'
+  inputs:
+    connectionType: 'None'
+    command: 'apply'
+    arguments: '-f k8s.yaml'
+
+
+# Verificar despliegue
+- task: AzureCLI@2
+  displayName: 'Verificar Pods y Services'
+  inputs:
+    azureSubscription: '$(azureSubscription)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      kubectl get pods
+      kubectl get services
